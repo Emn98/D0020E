@@ -9,9 +9,11 @@ $('login_form').on('submit', function(){
         url:  url,  
         data: {username: username,
                password: password},                
-        success: function(){},
-        error: function(response){
+        success: function(response){
             $(".form_message").text(response);
+        },
+        error: function(){
+            alert("Failure");
         }
     });
 });
