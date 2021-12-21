@@ -7,10 +7,9 @@ $password = $_POST["password"];
 
 if($username == "Admin" && $password == "Admin"){
     $_SESSION["logged_in"] = "TRUE";
-    header("Location: /index.php");
-    exit;
+    echo 1;
 }else{
-    echo "<span class='form_error' style='color:red'>Unvalid username or password</span>";
+    echo "<span class='form_error' style='color:red'>Invalid username or password</span>";
 }
 
 ?>

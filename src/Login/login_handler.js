@@ -1,19 +1,20 @@
-$('login_form').on('submit', function(){
-    url = this.attr("action"),
-    method = this.attr("method");
-    var username = $("#username").val();
-    var password = $("#password").val();
-
+$(document).ready(function(){
+  $("#login_form").on("submit", function(event){
+    event.preventDefault();
     $.ajax({
-        type: method,
-        url:  url,  
-        data: {username: username,
-               password: password},                
-        success: function(response){
-            $(".form_message").text(response);
-        },
-        error: function(){
-            alert("Failure");
+      url:  $(this).attr("action"),
+      type: $(this).attr("method"),
+      data: $(this).serialize(),
+      success: function(response){
+        if(response==1){
+          window.location="/index.php";
+        }else{
+          $("#form_message").html(response);
         }
+      },
+      error: function(){
+        alert("Failure!");
+      }
     });
+  });
 });

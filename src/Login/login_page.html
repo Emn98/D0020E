@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Css/login_style.css">
-    <link src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> <!--Include JQuery-->
-    <link src="login_handler.js">
+    <link rel="stylesheet" href="login_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Include JQuery-->
+    <script src="/Login/login_handler.js"></script>
     <title>Admin Login</title>
   </head>
   <body>
-    <form class="login_form" method="POST" action="/Login/authenticate.php">
+    <form class="login_form" method="POST" action="authenticate.php" id="login_form">
       <h1 class="form_title">Admin Login</h1>
       <div class="form_elements">
         <input type="text" id="username" name="username" class="login_input" autocomplete="off" required>
@@ -21,5 +21,13 @@
         <p id="form_message"></p>
         <input type="submit" class="form_button" value="Login">
     </form>
+
+    <script>
+
+
+
+    </script>
+    
+
   </body>
 </html>
