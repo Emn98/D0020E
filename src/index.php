@@ -19,7 +19,7 @@ include_once($path);
     <div class="menu_form">
       <h1>Admin Menu</h1>
       <br>
-      <form class="edit_policy_form" action="">
+      <form class="edit_policy_form" action="AddPolicy/add_policy_form.php">
         <button type="submit" class="menu_btn">Add New Policy</button>
       </form>
       <form class="edit_policy_form" action="">
