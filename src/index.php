@@ -1,36 +1,18 @@
-
-<?php
-
-session_start();
-
-//Check if admin is logged in. 
-$path = $_SERVER["DOCUMENT_ROOT"];
-$path .= "/Login/login_check.php";
-include_once($path);
-
-?>
 <!DOCTYPE html5>
 <html lang="en">
-  <head>
-    <title>Admin NGAC</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index_style.css">
-  </head>
+<head>
+  <title>Admin NGAC - Choose frontend</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index_style.css">
+</head>
   <body>
     <div class="menu_form">
-      <h1>Admin Menu</h1>
-      <br>
-      <form class="edit_policy_form" action="AddPolicy/add_policy_form.php">
-        <button type="submit" class="menu_btn">Add New Policy</button>
+      <h1>Choose Frontend</h1>
+      <form class="frontend_form" action="/AdminPage/admin_main_page.php">
+        <button type="submit" class="menu_btn">Admin Frontend</button>
       </form>
-      <form class="edit_policy_form" action="">
-        <button type="submit" class="menu_btn">Edit Policy</button>
-      </form>
-      <form class="delete_policy_form" action="/DeletePolicy/delete_policy_form.php">
-        <button type="submit" class="menu_btn">Delete Policy</button>
-      </form>
-      <form class="logout_form" action="/Login/logout.php">
-        <button type="submit" class="menu_btn">Logout</button>
+      <form class="frontend_form" action="/TestPage/test_main_page.php">
+        <button type="submit" class="menu_btn">Test Frontend</button>
       </form>
     </div>
   </body>
