@@ -1,0 +1,33 @@
+h1{
+    font-size: 20px;
+    color: rgb(31, 56, 48);
+    text-align: center;
+    margin: 2%;
+}
+
+p{
+    font-size: 16px;
+    color: rgb(44, 76, 66);
+    margin: 2%;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(155, 155, 155);
+
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+}
+
+.center_div{
+    padding-left: auto;
+    padding-right: auto;
+
+    text-align: center;
+}

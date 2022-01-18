@@ -1,26 +1,16 @@
 
-<?php
-
-session_start();
-
-//Check if admin is logged in. 
-$path = $_SERVER["DOCUMENT_ROOT"];
-$path .= "/Login/login_check.php";
-include_once($path);
-
-?>
 <!DOCTYPE html5>
 <html lang="en">
   <head>
     <title>Admin NGAC</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="styles/index_style.css">
   </head>
   <body>
     <div class="menu_form">
       <h1>Admin Menu</h1>
       <br>
-      <form class="edit_policy_form" action="AddPolicy/add_policy_form.php">
+      <form class="edit_policy_form" action="">
         <button type="submit" class="menu_btn">Add New Policy</button>
       </form>
       <form class="edit_policy_form" action="">
