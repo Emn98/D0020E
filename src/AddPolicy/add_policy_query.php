@@ -18,11 +18,24 @@
             associate(ua1,[r,w],oa1)])
         &token=admin_token";
 
+        $myfile = fopen("../../policies/".$_POST["policy_name"].".txt", "w") or die("Unable to open location for log file !");
+
+        fwrite($myfile, $_POST["policy_name"]);
+            
+        require_once "../db_conn/db_conn.php";
+        require_once "../db_queries/policies_queries.php";
+
+        add_policy_to_db($conn, $_POST["policy_name"], "policies/".$_POST["policy_name"].".txt");
+
+
+        fclose($myfile);
+
         ?>
             <script>
 
-                jquery(<?php echo json_encode($URL) ?>);
+                //jquery(<?php //echo json_encode($URL) ?>);
                 
+
             </script>
         <?php
     }
