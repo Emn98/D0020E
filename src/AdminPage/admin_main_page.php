@@ -1,3 +1,7 @@
+<?php
+  require_once "../AdminPage/ShowActivePolicy/get_active_policy_request.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +18,15 @@
     <main>
       <div class="current_loaded_policy">
         <h2>Current active policy</h2>
+        <h1 class="current_active_policy_answer"></h1>
+        <form class="unload_form">
+          <input class="unload_btn" id="unload_btn" type="button" value="Unload" hidden>
+        </form>
       </div>
       <div class="display_policy_files_container">
         <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search...">
+              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search..." autocomplete="OFF">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
            <h2>Policies</h2>

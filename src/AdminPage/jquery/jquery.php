@@ -11,7 +11,8 @@
             complete: function(data)
             {
                 alert ("SUCCESS: " + JSON.stringify(data.responseJSON));
-                location.href = "../admin_main_page.php";
+                window.location.href = "../AdminPage/admin_main_page.php";
+                exit;
             },
         });
     }

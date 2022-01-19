@@ -50,6 +50,11 @@
   .current_loaded_policy h2{
     margin-bottom: 1.6rem;
   }
+
+  .current_loaded_policy h1{
+    text-align: center;
+  }   
+
   
   .display_policy_files_container{
     width: 60rem;
@@ -198,3 +203,5 @@
   .create_new_policy_btn:hover{
     background: #0088a9;
   }
+
+  
