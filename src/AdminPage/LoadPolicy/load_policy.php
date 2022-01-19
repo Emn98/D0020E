@@ -3,9 +3,9 @@
 
     
     // TEMPORARY TEST POLISY
-    $myfile = fopen("../../policies/"."pol.txt", "r") or die("Unable to open location for log file !");
+    $myfile = fopen("../../../policies/"."pol.txt", "r") or die("Unable to open location for log file !");
     
-    $policy = fread($myfile, filesize("../../policies/"."pol.txt"));
+    $policy = fread($myfile, filesize("../../../policies/"."pol.txt"));
 
     fclose($myfile);
 

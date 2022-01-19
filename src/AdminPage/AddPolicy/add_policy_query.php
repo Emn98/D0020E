@@ -66,7 +66,7 @@
 
         $pol_text = $pol_text . "]).";
 
-        $myfile = fopen("../../policies/".$_POST["policy_name"].".txt", "w") or die("Unable to open location for log file !");
+        $myfile = fopen("../../../policies/".$_POST["policy_name"].".txt", "w") or die("Unable to open location for log file !");
 
         fwrite($myfile, $pol_text);
             
