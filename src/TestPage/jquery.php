@@ -12,7 +12,7 @@
             dataType: 'json',
             complete: function(data) {
                 make_cookie("acccess", JSON.stringify(data.responseJSON));
-                location.href = "index.php";
+                location.href = "test_main_page.php";
             },
             
         });

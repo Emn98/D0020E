@@ -11,7 +11,7 @@
             complete: function(data)
             {
                 alert ("SUCCESS: " + JSON.stringify(data.responseJSON));
-                location.href = "../index.php";
+                location.href = "../admin_main_page.php";
             },
         });
     }

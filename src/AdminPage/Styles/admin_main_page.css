@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+      font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+      font-weight: 500;
+      background-color: #435165;
+      height: 100vh;
+      display: grid;
+  }
+  
+  .container{
+  display:grid;
+  height:100vh;
+  grid-template-rows: 0.3fr 8fr;
+  grid-template-areas: "header"
+   "main";
+  }
+  
+  header{
+  background-color: white;
+  width: cover;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  }
+  
+  main{
+  grid-area: main;
+  display: grid;
+  justify-content: center;
+  }
+  
+  .current_loaded_policy{  
+     width: 60rem;
+     height: 12rem;
+     padding: 1.5rem;
+     background-color: white;
+     border-radius: 10px;
+     border: 1px solid black;
+     margin-bottom: 1rem;
+     margin-top: 1rem;
+  }
+  
+  .current_loaded_policy h2{
+    margin-bottom: 1.6rem;
+  }
+  
+  .display_policy_files_container{
+    width: 60rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    min-height: calc(100vh - 20rem);
+    margin-bottom: 1rem;
+  }
+  
+  .search_bar_container{
+    width: cover;
+    margin-top: 1.5rem;
+  }
+  
+  .search_bar_inp{
+    width: 70%;
+    padding: 5px;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+    margin-left: 12%;
+    background-color: #F5F5F5;
+    font-size: 17px;
+  }
+  
+  .search_bar_form button{
+    font-size: 17px;
+    margin-left: -30px;
+    width: 75px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+  }
+  
+  .search_bar_form button:hover{
+    background: #0088a9;
+  }
+  
+  .inner_display_policy_files_container{
+    box-sizing: border-box;
+    width: cover;
+    border: 1px solid lightgrey;
+    margin-top: 1.3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    max-height: 31.4rem;
+    overflow: auto;    
+  }
+  
+  .display_policy_files_container h2{
+    margin-top: 0.8rem;
+    margin-left: 1.5rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 0.2rem;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+  
+  }
+  
+  thead{
+    background: white;
+    border-bottom: 1px solid darkgrey;
+  }
+  
+  thead th{
+    font-size: 1.15rem;
+    padding-left: 2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+  tbody td{
+    padding-left: 35px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 17px;
+  }
+  
+  
+  .delete_btn{
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bolder;
+    background: red;
+    cursor: pointer;
+    transition: background 0.2s ease 0s;
+    border: 1px solid red;
+  }
+  
+  .delete_btn:hover{
+    background: darkred;
+  }
+  
+  .edit_btn{
+    padding: 3px;
+    width: 45px;
+    background: grey;
+    font-size: 12px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s ease 0s;
+    border: 1px solid grey;
+  }
+  
+  .edit_btn:hover{
+    background: #0088a9;
+  }
+  
+  .table_row_odd{
+    background: rgba(50, 116, 214, 0.25);
+  
+  }
+  
+  .table_row_even{
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  
+  .create_new_policy_btn{
+    position: absolute;
+    padding: 7px;
+    background-color: grey;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: -0.7rem;
+    margin-left: 49rem;
+    float: right;
+    cursor: pointer;
+    transition: background 0.2s ease 0s;
+    border: 1px solid grey
+  }
+  
+  .create_new_policy_btn:hover{
+    background: #0088a9;
+  }
