@@ -26,6 +26,8 @@
                 <select id="object" name="object">
                     <option value="hobbit">Hobbit</option>
                     <option value="bible">Bible</option>
+                    <option value="book1">book1</option>
+                    <option value="book2">book2</option>
                 </select>
             <button id="submit" name="submit" type="submit">Submit</button>
         </form>
