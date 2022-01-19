@@ -24,16 +24,25 @@ body {
 }
 
 
-.add_policy_form h1 {
+.user_and_object_form {
+    width: 35rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+h1 {
   margin-bottom: 2.5rem;
   text-align: center;
 }
 
-.add_policy_form .form_elements {
+.form_elements {
     position: relative;
     height: 3rem;
     margin-bottom: 1rem;
 }
+
 
 .form_elements .policy_input {
     width: 100%;
@@ -52,9 +61,10 @@ body {
     bottom: 3.1rem;
 }
 
-.add_policy_form .form_button {
+.form_button {
     display: block;
     margin-left: auto;
+    margin-top: 1rem;
     padding: 0.4rem 1.5rem;
     background-color: #3274d6;
   	border: 1px solid #3274d6;
@@ -65,6 +75,32 @@ body {
     cursor: pointer;   
 }
 
-.add_policy_form .form_button:hover{
+.form_button:hover{
   background-color: #2868c7;
+}
+
+.float-container {
+    border: 3px solid #fff;
+   
+}
+
+.float-child-2{
+    text-align: center;
+    width: 50%;
+    float: left;
+    padding-bottom: 20px;
+}  
+
+.float-child-3{
+    text-align: center;
+    width: 30%;
+    float: left;
+    padding-bottom: 20px;
+}  
+
+.border{
+    height: 30px;
+    margin-top: 2px;
+    padding-top: 4px;
+    border: 1px solid black;
 }

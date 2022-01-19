@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="policy_style.css">
   </head>
   <body>
-    <form class="add_policy_form" method="POST" action="add_policy_query.php" id="add_policy_form">
+    <form class="add_policy_form" method="POST" action="add_policy_users_and_objects.php" id="add_policy_form">
 
         <h1>Add Policy</h1>
         <div class="form_elements">
