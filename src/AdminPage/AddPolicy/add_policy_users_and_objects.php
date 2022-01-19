@@ -11,7 +11,7 @@
         </head>
         <body>
             <form class="user_and_object_form" method="POST" action="add_policy_connections.php" id="add_policy_form">
-                <h1>Choos names</h1>
+                <h1>Choose names</h1>
 
                 <div class="float-container">
                 
@@ -51,7 +51,7 @@
                 <input type="number" id="number_users" name="number_users" class="policy_input" required hidden value="<?php echo $_POST["number_users"] ?>">
                 <input type="number" id="number_objects" name="number_objects" class="policy_input" required hidden value="<?php echo $_POST["number_objects"] ?>">
 
-                <input type="submit" class="form_button" value="Add Policy">
+                <input type="submit" class="form_button" value="Next">
             </form>
         </body>
         </html>

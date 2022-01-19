@@ -112,7 +112,7 @@
                     }
                 ?>
 
-                <input type="submit" class="form_button" value="Add Policy">
+                <input type="submit" class="form_button" value="Finish Policy">
             </form>
         </body>
         </html>
