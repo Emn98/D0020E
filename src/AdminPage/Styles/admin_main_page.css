@@ -38,7 +38,7 @@
   
   .current_loaded_policy{  
      width: 60rem;
-     height: 12rem;
+     height: 10rem;
      padding: 1.5rem;
      background-color: white;
      border-radius: 10px;
@@ -201,6 +201,25 @@
   }
   
   .create_new_policy_btn:hover{
+    background: #0088a9;
+  }
+
+  .unload_btn{
+    position: absolute;
+    padding: 7px;
+    background-color: grey;
+    color: white;
+    font-size: 14px;
+    margin-top: 1.2rem;
+    margin-left: 49rem;
+    float: right;
+    cursor: pointer;
+    transition: background 0.2s ease 0s;
+    border: 1px solid grey
+
+  }
+
+  .unload_btn:hover{
     background: #0088a9;
   }
 
