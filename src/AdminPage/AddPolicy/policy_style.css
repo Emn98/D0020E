@@ -31,7 +31,14 @@ body {
 }
 
 .user_and_object_form {
-    width: 35rem;
+    width: 60rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+.association_form {
+    width: 40rem;
     padding: 1.5rem;
     background-color: white;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
@@ -100,6 +107,13 @@ h1 {
 .float-child-3{
     text-align: center;
     width: 30%;
+    float: left;
+    padding-bottom: 20px;
+}  
+
+.float-child-4{
+    text-align: center;
+    width: 25%;
     float: left;
     padding-bottom: 20px;
 }  
