@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
-    $username = "root";
-    $password = "d0020engac";
+    $username = "ngac";
+    $password = "NGACsystem123$";
     $dbname = "website";
 
     // Create connection
