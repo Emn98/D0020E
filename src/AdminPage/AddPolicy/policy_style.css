@@ -23,6 +23,12 @@ body {
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
 }
 
+.dynamic_form {
+    width: 50rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
 
 .user_and_object_form {
     width: 35rem;

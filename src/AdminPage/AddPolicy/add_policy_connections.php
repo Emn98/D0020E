@@ -10,7 +10,7 @@
             <link rel="stylesheet" href="policy_style.css">
         </head>
         <body>
-            <form class="user_and_object_form" method="POST" action="add_policy_query.php" id="add_policy_form">
+            <form class="user_and_object_form" method="POST" action="create_policy.php" id="add_policy_form">
                 <?php
 
                     for($num_user = 0; $num_user < $_POST["number_users"]; $num_user++)

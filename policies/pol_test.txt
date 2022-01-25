@@ -1,12 +1,12 @@
-policy(test,access,[
+policy(pol_test,access,[
 user(Jesper),
 user_attribute(ua_Jesper),
 assign(Jesper,ua_Jesper),
 assign(ua_Jesper,access),
-user(Birger),
-user_attribute(ua_Birger),
-assign(Birger,ua_Birger),
-assign(ua_Birger,access),
+user(Arian),
+user_attribute(ua_Arian),
+assign(Arian,ua_Arian),
+assign(ua_Arian,access),
 object(book1),
 object_attribute(oa_book1),
 assign(book1,oa_book1),
@@ -22,10 +22,9 @@ assign(oa_book3,access),
 policy_class(access),
 connector('PM'),
 assign(access,'PM'),
-associate(ua_Jesper,[r],oa_book1),
-associate(ua_Jesper,[r, w],oa_book2),
-associate(ua_Jesper,[w],oa_book3),
-associate(ua_Birger,[w],oa_book1),
-associate(ua_Birger,[r],oa_book2),
-associate(ua_Birger,[r],oa_book3)
+associate(ua_Jesper,[r, w],oa_book1),
+associate(ua_Jesper,[r],oa_book2),
+associate(ua_Arian,[r],oa_book1),
+associate(ua_Arian,[w],oa_book2),
+associate(ua_Arian,[w],oa_book3)
 ]).
