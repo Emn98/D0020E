@@ -239,7 +239,7 @@
 
     }
 
-    function get_Associations($conn, $user_attribute, $object_attribute)
+    function get_Associations($conn ,$user_attribute, $object_attribute)
     {
         $sql = "SELECT * FROM Associations WHERE user_attribute = $user_attribute AND object_attribute = $object_attribute;";
         
@@ -272,36 +272,6 @@
     function get_Assign_policy_classes($conn, $policy_name)
     {
         $sql = "SELECT * FROM Assign_policy_classes WHERE policy_name = '$policy_name';";
-        
-        $result = mysqli_query($conn, $sql);
-
-        $num_rows = mysqli_num_rows($result);
-
-
-        if ($num_rows == 1) 
-        {
-            return mysqli_fetch_assoc($result);
-        }
-        else if ($num_rows > 1)
-        {
-            $data = [];
-            // output data of each row
-            while($row = mysqli_fetch_row($result)) 
-            {
-                $data = $data + $row;
-            }
-            return $data;
-        }
-        else
-        {
-            return false;
-        }
-
-    }
-
-    function get_Assign_user_attr_policy_class($conn, $policy_name)
-    {
-        $sql = "SELECT * FROM Assign_user_attr_policy_class WHERE policy_name = '$policy_name';";
         
         $result = mysqli_query($conn, $sql);
 

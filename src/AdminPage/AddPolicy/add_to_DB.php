@@ -20,7 +20,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $assotiation)
         $user_attribute = get_User_attr_policy_conns($conn, $policy_name, "ua_" . $users[$num_users]);
         $no_error = add_user_policy_conn_to_db($conn, $policy_name, $user["user_id"], $user_attribute["user_attribute_ID"]);
 
-        add_Assign_user_attr_policy_class_to_db($conn, $user_attribute["user_attribute_ID"], $policy_name);
+        add_Assign_policy_classes_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], NULL);
     }
 
     for($num_objects = 0; $num_objects < sizeof($objects); $num_objects ++)
@@ -30,7 +30,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $assotiation)
         $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, "oa_" . $objects[$num_objects]);
         $no_error = add_object_policy_conn_to_db($conn, $policy_name, $object["object_id"], $object_attribute["object_attribute_ID"]);
 
-        add_Assign_policy_classes_to_db($conn, $object_attribute["object_attribute_ID"], $policy_name);
+        add_Assign_policy_classes_to_db($conn, $policy_name, NULL, $object_attribute["object_attribute_ID"]);
     }
 
     for($num_users = 0; $num_users < sizeof($users); $num_users ++)
@@ -43,7 +43,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $assotiation)
                 $operation = get_Operations($conn, $operations[$num_operation]);
                 $user_attribute = get_User_attr_policy_conns($conn, $policy_name, "ua_" . $users[$num_users]);
                 $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, "oa_" . $objects[$num_objects]);
-                $no_error = add_Associations_to_db($conn, $user_attribute["user_attribute_ID"], $operation["operation_id"], $object_attribute["object_attribute_ID"]);
+                $no_error = add_Associations_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], $operation["operation_id"], $object_attribute["object_attribute_ID"]);
             }
             
 

@@ -193,9 +193,9 @@
         return true;
     }
 
-    function add_Associations_to_db($conn, $user_attribute, $operation_id, $object_attribute)
+    function add_Associations_to_db($conn, $policy_name ,$user_attribute, $operation_id, $object_attribute)
     {
-        $sql = "INSERT INTO Associations (user_attribute, operation_id, object_attribute) VALUES (?, ?, ?);";
+        $sql = "INSERT INTO Associations (policy_name, user_attribute, operation_id, object_attribute) VALUES (?, ?, ?, ?);";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql))
@@ -204,7 +204,7 @@
             return false;
         }
 
-        mysqli_stmt_bind_param($stmt, "sss",  $user_attribute, $operation_id, $object_attribute);
+        mysqli_stmt_bind_param($stmt, "ssss", $policy_name, $user_attribute, $operation_id, $object_attribute);
 
         if(!mysqli_stmt_execute($stmt))
         {
@@ -217,9 +217,9 @@
         return true;
     }
 
-    function add_Assign_policy_classes_to_db($conn,  $object_attribute_ID, $policy_name)
+    function add_Assign_policy_classes_to_db($conn,  $policy_name, $user_attribute_ID, $object_attribute_ID)
     {
-        $sql = "INSERT INTO Assign_policy_classes (object_attribute_ID, policy_name) VALUES (?, ?);";
+        $sql = "INSERT INTO Assign_policy_classes (policy_name, user_attribute_ID, object_attribute_ID) VALUES (?, ?, ?);";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql))
@@ -228,31 +228,7 @@
             return false;
         }
 
-        mysqli_stmt_bind_param($stmt, "ss", $object_attribute_ID, $policy_name);
-
-        if(!mysqli_stmt_execute($stmt))
-        {
-            echo(mysqli_error($conn));
-            return false;
-        }
-
-        mysqli_stmt_close($stmt);
-
-        return true;
-    }
-
-    function add_Assign_user_attr_policy_class_to_db($conn,  $user_attribute_ID, $policy_name)
-    {
-        $sql = "INSERT INTO Assign_user_attr_policy_class (user_attribute_ID, policy_name) VALUES (?, ?);";
-        $stmt = mysqli_stmt_init($conn);
-
-        if(!mysqli_stmt_prepare($stmt, $sql))
-        {
-            echo(mysqli_error($conn));
-            return false;
-        }
-
-        mysqli_stmt_bind_param($stmt, "ss", $user_attribute_ID, $policy_name);
+        mysqli_stmt_bind_param($stmt, "sss", $policy_name, $user_attribute_ID, $object_attribute_ID);
 
         if(!mysqli_stmt_execute($stmt))
         {

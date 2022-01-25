@@ -26,7 +26,7 @@
                 $operations = [];
                 if(isset($_POST["read_".$_POST["user".$num_users]."_".$_POST["object".$num_objects]]))
                 {
-                    $operations[0] = "read";
+                    $operations[0] = "r";
 
                     $connection = true;
                 }
@@ -35,11 +35,11 @@
                 {
                     if($connection)
                     {
-                        $operations[1] = "write";
+                        $operations[1] = "w";
                     }
                     else
                     {
-                        $operations[0] =  "write";
+                        $operations[0] =  "w";
 
                         $connection = true;
                     }
