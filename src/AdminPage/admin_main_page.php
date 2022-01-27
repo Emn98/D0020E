@@ -12,25 +12,33 @@
     <script src="/AdminPage/Scripts/get_active_policy.js"></script>
     <script src="/AdminPage/Scripts/set_policy.js"></script>
     <script src="/AdminPage/Scripts/search.js"></script>
+    <script src="/AdminPage/Scripts/checkbox_logic.js"></script>
     <script>
-      
-      //Retrives the active policy from NGAC server upon page load. 
       $(document).ready(function(){
+        
+        //Retrives the active policy from NGAC server upon page load. 
         get_active_policy();
-      });
-    
-      $(document).ready(function(){
+        
         $(".show_loaded_policies_btn").click(function(){
           get_loaded_policies();
         });
-      });  
-
-      $(document).ready(function(){
+      
         $(".show_all_policies_btn").click(function(){
           get_all_policies();      
         });
-      });
 
+        $('#policy_name_check').click(function() {
+          check_policy_name();
+        });
+                   
+        $('#user_check').click(function() {
+          check_user();
+        });
+                 
+        $('#object_check').click(function() {
+          check_object();
+        });        
+      });
     </script>   
   </head>
 <body>
@@ -50,7 +58,14 @@
       <div class="display_policy_files_container">
         <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search..." autocomplete="OFF">
+              <input class="search_bar_inp" type="text" id="myInput" name="user_name" placeholder="Search..." autocomplete="OFF">
+                <label for="policy_name_check" class="form_label_policy_name">Policy name:</label>
+              <input type="checkbox" class="policy_name_check" id="policy_name_check" checked>
+                <label for="user_check" class="form_label_user">User:</label>
+              <input type="checkbox" class="user_check" id="user_check">
+                <label for="object_check" class="form_label_object">Object:</label>
+              <input type="checkbox" class="object_check" id="object_check">
+              <p class="search_p">Search policy files with:</p>
               <button id="submit" type="submit">Search</button>
             </form>
             <h2>Policies</h2>

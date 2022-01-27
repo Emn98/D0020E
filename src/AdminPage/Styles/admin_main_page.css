@@ -237,8 +237,53 @@
   .server_status{
     float: right;
     margin-right: 5rem;
-
   }
+
+  .search_p{
+    position: absolute;
+    margin-left: 7.35rem;
+    margin-top: 0.5rem;
+  }
+
+  .policy_name_check{
+    position: absolute;
+    margin-left: -26.65rem;
+    margin-top: 2.7rem;
+    cursor: pointer;
+  }
+
+  .form_label_policy_name{
+    position: absolute;
+    margin-top: 2.5rem;
+    margin-left: -32rem;
+  }
+
+  .form_label_user{
+    position: absolute;
+    margin-top: 2.5rem;
+    margin-left: -25.4rem;
+  }
+
+  .user_check{
+    position: absolute;
+    margin-top: 2.7rem;
+    margin-left: -23.1rem;
+    cursor: pointer;
+  }
+
+  .form_label_object{
+    position: absolute;
+    margin-top: 2.5rem;
+    margin-left: -21.8rem;
+  }
+
+  .object_check{
+    position: absolute;
+    margin-top: 2.7rem;
+    margin-left: -18.7rem;
+    cursor: pointer;
+  }
+
 
 
   
