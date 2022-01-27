@@ -48,11 +48,12 @@
   }
   
   .current_loaded_policy h2{
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.3rem;
   }
 
   .current_loaded_policy h1{
     text-align: center;
+    margin-top: -0.4rem;
   }   
 
   
@@ -61,7 +62,7 @@
     background-color: white;
     border-radius: 10px;
     border: 1px solid black;
-    min-height: calc(100vh - 20rem);
+    min-height: calc(100vh - 19rem);
     margin-bottom: 1rem;
   }
   
@@ -101,12 +102,13 @@
   .inner_display_policy_files_container{
     box-sizing: border-box;
     width: cover;
-    border: 1px solid lightgrey;
-    margin-top: 2.5rem;
+    border: 1px solid darkgrey;
+    margin-top: 3.2rem;
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
-    max-height: 31.4rem;
+    min-height: 31.3rem;
+    max-height: 31.3rem;
     overflow: auto;    
   }
   
@@ -121,8 +123,9 @@
     border-collapse: collapse;
     text-align: left;
     padding: 0.2rem;
-    border: 1px solid darkgrey;
+    /*border: 1px solid darkgrey;*/
     border-radius: 10px;
+    max-height: 10rem;
   
   }
   
@@ -149,6 +152,7 @@
     padding: 3px;
     font-size: 12px;
     font-weight: bolder;
+    color: white;
     background: red;
     cursor: pointer;
     transition: background 0.2s ease 0s;
@@ -174,7 +178,7 @@
   .edit_btn:hover{
     background: #0088a9;
   }
-  
+ 
   .table_row_odd{
     background: rgba(50, 116, 214, 0.25);
   
@@ -188,11 +192,11 @@
   .create_new_policy_btn{
     position: absolute;
     padding: 7px;
-    background-color: grey;
+    background: grey;
     color: white;
     font-size: 14px;
     font-weight: bolder;
-    margin-top: 0.6rem;
+    margin-top: 1.2rem;
     margin-left: 47.6rem;
     float: right;
     cursor: pointer;
@@ -204,41 +208,17 @@
     background: #0088a9;
   }
 
-  .unload_btn{
-    position: absolute;
-    padding: 7px;
-    background-color: grey;
-    color: white;
-    font-size: 14px;
-    margin-top: -0.5rem;
-    margin-left: 50rem;
-    float: right;
-    cursor: pointer;
-    transition: background 0.2s ease 0s;
-    border: 1px solid grey
-
-  }
-
-  .unload_btn:hover{
-    background: #0088a9;
-  }
-
   .show_all_policies_btn{
     position: absolute;
     padding: 4px;
-    background-color: #0088a9;
+    background: #0088a9;
     color: white;
     font-size: 12px;
     font-weight: bolder;
-    margin-top: 1.1rem;
+    margin-top: 1.7rem;
     margin-left: 3.6rem;
     cursor: pointer;
-    transition: background 0.2s ease 0s;
     border: 1px solid grey
-  }
-
-  .show_all_policies_btn:hover{
-    background: #0088a9;
   }
 
   .show_loaded_policies_btn{
@@ -248,29 +228,16 @@
     color: white;
     font-size: 12px;
     font-weight: bolder;
-    margin-top: 1.1rem;
-    margin-left: 10.6rem;
+    margin-top: 1.7rem;
+    margin-left: 10.3rem;
     cursor: pointer;
-    transition: background 0.2s ease 0s;
     border: 1px solid grey
   }
 
-  .show_loaded_policies_btn:hover{
-    background: #0088a9;
-  }
-
   .server_status{
-    position: absolute;
-    float: left;
-    margin-top: 2.5rem;
-    width: 14rem;
-    height: 7rem;
-    padding: 12px;
-    margin-left: 7rem;
-    background: white;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid black;
+    float: right;
+    margin-right: 5rem;
+
   }
 
 

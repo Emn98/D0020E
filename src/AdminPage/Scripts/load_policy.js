@@ -1,27 +1,24 @@
 function load_policy(policy_name){
-
     var submit = "submit";
     
     $.ajax({
-        
         type: "POST",
         url:  "/AdminPage/LoadPolicy/load_policy_backend.php", 
         data: {policy_name: policy_name,
                submit: submit
               },
         dataType: "text",
+
         success: function(response){
             if(response == 1){
                 alert("Policy: '" + policy_name + "' is already loaded into NGAC");
             }else{  
                 $.ajax({
-    
                     url: response,
                     type: 'GET',
                     dataType: 'json',
-                
+
                     complete: function(data){
-                
                         const obj = data.responseJSON;
                 
                         if(typeof obj == 'undefined'){
@@ -45,6 +42,7 @@ function load_policy(policy_name){
     });
 }
 
+//Updates the database so the 
 function set_policy_as_loaded(name){
     $.ajax({
         type: "POST",

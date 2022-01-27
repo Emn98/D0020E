@@ -1,5 +1,4 @@
 function unload_policy(policy_name){
-    
     var url = "http://127.0.0.1:8001/paapi/unload?policy="+policy_name+"&token=admin_token";
 
     $.ajax({
@@ -11,7 +10,7 @@ function unload_policy(policy_name){
             const obj = data.responseJSON;
             
             if(typeof obj == 'undefined'){
-                alert("server error");
+                alert("Error: NGAC server error");
             }else{
                 if(obj.respStatus != "success"){
                     alert(JSON.stringify(data.responseJSON));
@@ -20,6 +19,8 @@ function unload_policy(policy_name){
                     setInterval(function(){ 
                     }, 250);
                     get_active_policy();
+                    setInterval(function(){ 
+                    }, 250);
                     get_loaded_policies();
                     alert("Policy: '"+policy_name+"' was successfully unloaded");
                 }      

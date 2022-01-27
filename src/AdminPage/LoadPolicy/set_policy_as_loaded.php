@@ -6,7 +6,7 @@
   $path .= "/AdminPage/db_conn/db_conn.php";
   include_once($path);
 
-  //Retrive the object(s) associated with the policy
+  //Insert a policy into the loaded table. 
   $query = $conn->prepare("INSERT INTO Loaded_policies (policy_name, loaded_at) VALUES (?, now())");  
   $query->bind_param("s", $_POST["policy_name"]);
   $query->execute();

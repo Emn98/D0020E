@@ -30,12 +30,11 @@
         $query->fetch();
         $query->close();
 
+        //Append users to the policy file
         while( $row = $result->fetch_assoc()){
             $user = $row["full_name"];
             $pol_text .= "user('" .$user. "'),\n";
         }
-
-        //$pol_text .= "\n";
 
         //Retrive the user_attribute(s) associated with the current policy. 
         $query = $conn->prepare("SELECT user_attr_name FROM User_attr_policy_conns WHERE policy_name=?");  
@@ -45,12 +44,11 @@
         $query->fetch();
         $query->close();
 
+        //Append user attributes to the policy file
         while( $row = $result->fetch_assoc()){
             $user_attr_name = $row["user_attr_name"];
             $pol_text .= "user_attribute('".$user_attr_name."'),\n";
         }
-
-        //$pol_text .= "\n";
 
         //Retrive the object(s) associated with the policy
         $query = $conn->prepare("SELECT full_name FROM Objects WHERE object_id IN (SELECT object_id FROM Object_policy_conns WHERE policy_name=?)");  
@@ -60,12 +58,11 @@
         $query->fetch();
         $query->close();
 
+        //Append objects to the policy file
         while( $row = $result->fetch_assoc()){
             $object = $row["full_name"];
             $pol_text .= "object('".$object."'),\n";
         }
-
-        //$pol_text .= "\n";
 
         //Retrive the object_attribute(s) associated with the current policy. 
         $query = $conn->prepare("SELECT object_attr_name FROM Object_attr_policy_conns WHERE policy_name=?");  
@@ -75,18 +72,15 @@
         $query->fetch();
         $query->close();
 
+        //Append object attributes to the policy file
         while( $row = $result->fetch_assoc()){
             $object_attr_name = $row["object_attr_name"];
             $pol_text .= "object_attribute('".$object_attr_name."'),\n";
         }
-        
-        //$pol_text .= "\n";
 
         //Declare the policy class and create the connector
         $pol_text .= "policy_class('$policy_class'),\n";
         $pol_text .= "connector('PM'),\n";
-
-        //$pol_text .= "\n";
 
         //Retrive the user-user_attributes connections associated with the current policy.
         $query = $conn->prepare("SELECT user_id, assigned_attribute FROM User_policy_conns WHERE policy_name=?"); 
@@ -116,6 +110,7 @@
             $query->fetch();
             $query->close();
 
+            //Append  user assignments to the policy file
             $pol_text .= "assign('".$user."','".$attribute_name."'),\n";
 
         }
@@ -139,6 +134,7 @@
             $query->fetch();
             $query->close();
 
+            //Append user attribute assignments to the policy file
             $pol_text .= "assign('".$user_attr_name."','".$parent_attribute_name."'),\n";
 
         }
@@ -171,6 +167,7 @@
             $query->fetch();
             $query->close();
 
+            //Append object assignments to the policy file
             $pol_text .= "assign('".$object."','".$attribute_name."'),\n";
 
         }
@@ -194,6 +191,7 @@
             $query->fetch();
             $query->close();
 
+            //Append object attribute assignments to the policy file
             $pol_text .= "assign('".$object_attr_name."','".$parent_attribute_name."'),\n";
         } 
 
@@ -217,6 +215,7 @@
                 $query->fetch();
                 $query->close();
 
+                //Append policy classes assignments to the policy file
                 $pol_text .= "assign('".$user_attr."','".$policy_class."'),\n";
 
             }else{
@@ -227,6 +226,7 @@
                 $query->fetch();
                 $query->close(); 
                 
+                //Append policy classes assignments to the policy file
                 $pol_text .= "assign('".$object_attr."','".$policy_class."'),\n";
 
             }
@@ -269,13 +269,14 @@
             $query->fetch();
             $query->close(); 
 
+            //Append associations to the policy file
             $pol_text .= "associate('".$user_attr."',[".$operation."],'".$object_attr."'),\n";
 
         }
         
         $pol_text = substr_replace($pol_text ,"\n",-2);
 
-        $pol_text = $pol_text . "])";
+        $pol_text .= "])";
 
         $pol_query = "http://127.0.0.1:8001/paapi/loadi?";
         $pol_query .= "policyspec=".$pol_text;
