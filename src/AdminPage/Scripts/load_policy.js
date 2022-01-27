@@ -22,7 +22,7 @@ function load_policy(policy_name){
                         const obj = data.responseJSON;
                 
                         if(typeof obj == 'undefined'){
-                            alert("Error: Check the NGAC server")   
+                            alert("Connection Error: Can't connect to the NGAC server.")   
                         }else{
                             if(obj.respStatus != "success"){
                                 alert(obj.respStatus + " " + obj.respMessage + " " + obj.respBody);    

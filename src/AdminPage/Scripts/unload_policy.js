@@ -10,7 +10,7 @@ function unload_policy(policy_name){
             const obj = data.responseJSON;
             
             if(typeof obj == 'undefined'){
-                alert("Error: NGAC server error");
+                alert("Connection Error: Can't connect to the NGAC server");
             }else{
                 if(obj.respStatus != "success"){
                     alert(JSON.stringify(data.responseJSON));
@@ -29,6 +29,7 @@ function unload_policy(policy_name){
     });
 }
 
+//Update the database state so the file is seen as unloaded
 function unset_policy_as_loaded(name){
     $.ajax({
         type: "POST",

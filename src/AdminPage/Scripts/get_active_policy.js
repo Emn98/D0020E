@@ -8,7 +8,7 @@ function get_active_policy(){
             const obj = data.responseJSON;
             
             if(typeof obj == 'undefined'){
-                $(".current_active_policy_answer").html("The server is not activated/activated correctly");  
+                $(".current_active_policy_answer").html("No policy is currently active!");  
                 $(".server_status_response").html(" Offline");
                 document.getElementById("server_status_response").style.color = "red";
             }else{
@@ -18,7 +18,7 @@ function get_active_policy(){
                 if(obj.respStatus != "success"){
                     $(".current_active_policy_answer").html("There was an error");
                 }else if(obj.respBody == "none"){
-                    $(".current_active_policy_answer").html("No policy is currently active");
+                    $(".current_active_policy_answer").html("No policy is currently active!");
                 }else{
                     $(".current_active_policy_answer").html("The " + obj.respMessage + " is " + obj.respBody);
                 }          
