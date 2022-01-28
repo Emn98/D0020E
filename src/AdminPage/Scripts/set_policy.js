@@ -10,7 +10,7 @@ function set_policy(policy_name){
             const obj = data.responseJSON;
             
             if(typeof obj == 'undefined'){
-                alert("Connection Error: Can't connect to the NGAC server");
+                alert("Connection Error: Can't connect to the NGAC server.");
             }else{
                 if(obj.respStatus != "success"){
                     alert(JSON.stringify(data.responseJSON));

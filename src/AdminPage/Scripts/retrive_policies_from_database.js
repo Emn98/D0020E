@@ -1,3 +1,4 @@
+//This function retrives all polices that is regarded as loaded in our database. 
 function get_loaded_policies(){
     document.getElementById("table_all_policies").hidden = true;
     document.getElementById("table_loaded_policies").hidden = false;
@@ -6,6 +7,7 @@ function get_loaded_policies(){
     $("#t_body_loaded").load("load_loaded_policies.php")
 }
 
+//This function retrives all policies stored in our database. 
 function get_all_policies(){
       document.getElementById("table_all_policies").hidden = false;
       document.getElementById("table_loaded_policies").hidden = true;

@@ -79,5 +79,4 @@ function get_policies_by_object_loaded_table($conn, $search_word){
     return $result;
 }
 
-
 ?>

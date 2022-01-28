@@ -13,6 +13,7 @@
     <script src="/AdminPage/Scripts/set_policy.js"></script>
     <script src="/AdminPage/Scripts/search.js"></script>
     <script src="/AdminPage/Scripts/checkbox_logic.js"></script>
+    <script src="/AdminPage/Scripts/delete_policy.js"></script>
     <script>
       $(document).ready(function(){
         
@@ -37,7 +38,8 @@
                  
         $('#object_check').click(function() {
           check_object();
-        });        
+        });
+                
       });
     </script>   
   </head>
