@@ -33,24 +33,45 @@ class Graph_data_retrieval
         console.log(associations);
         */
 
-        $.ajax({
-            data: {
-                users:users,
-                objects:objects,
-                user_attributes:user_attributes,
-                object_attributes:object_attributes,
-                user_attributes_conns:user_attributes_conns,
-                object_attributes_conns:object_attributes_conns,
-                attribute_conns:attribute_conns,
-                associations:associations
-            },
-            type: "post",
-            url: "../AddPolicy/save_graph_to_DB.php",
-            success: function(data){
-                alert(data);
-            }
-        });
+        let policy = prompt("Please enter the policy's name:", "");
+        if (policy != null && policy != "") {
+            $("#Loader").show();
+            window.setTimeout( function(){
+                $.ajax({
+                
+                    data: {
+                        policy:policy,
+                        users:users,
+                        objects:objects,
+                        user_attributes:user_attributes,
+                        object_attributes:object_attributes,
+                        user_attributes_conns:user_attributes_conns,
+                        object_attributes_conns:object_attributes_conns,
+                        attribute_conns:attribute_conns,
+                        associations:associations
+                    },
+                    type: "post",
+                    url: "../AddPolicy/save_graph_to_DB.php",
+                    
+                    success: function(data){
+                        
+                        $('#Loader').hide();
+                        alert(data);
+                    }
+                    
+                    
+    
+                });
+            }, 1000 );
+            
+        }
+        else
+        {
+            alert("Cancelled saving");
+        }
+        
     }
+    
 
     // finde nodes that match the classes string
     find_nodes(nodes_json, classes)
