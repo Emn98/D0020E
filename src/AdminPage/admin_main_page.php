@@ -71,7 +71,7 @@
               <button id="submit" type="submit">Search</button>
             </form>
             <h2>Policies</h2>
-            <form class="add_policy_form" method="" action="AddPolicy/add_policy_form.php">
+            <form class="add_policy_form" method="" action="AddPolicy/select_create_method.php">
               <button class="create_new_policy_btn">Create New Policy</button>
             </form>
             <button class="show_all_policies_btn" id="show_all_policies_btn">Show All Policies</button>

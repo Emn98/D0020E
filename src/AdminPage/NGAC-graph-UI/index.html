@@ -1,0 +1,328 @@
+<!DOCTYPE>
+
+<html>
+
+  <head>
+    <title>NGAC Policy Tool</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="cytoscape/css/cytoscape.js-panzoom.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="cytoscape/js/dependencies.js"></script>
+    <script src="cytoscape/js/cytoscape.min.js"></script>
+		<script src="cytoscape/js/cytoscape-extensions.js"></script>
+    <script src="js/ngac.js"></script>
+    <script src="js/filehandler.js"></script>
+    <script src="js/graph_data_retrieval.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+    <script>
+
+      var ngacJS = new NgacDoc();
+
+      document.addEventListener('DOMContentLoaded', function(){
+
+        var cy = window.cy = cytoscape({
+          container: document.getElementById('cy'),
+
+          ready: function(){
+            this.layout({name: 'cose-bilkent', animationDuration: 1000}).run();
+          },
+
+
+          style: [
+            {
+              selector: 'node[name]',
+              style: {
+                'content': 'data(name)'
+              }
+            },
+
+            {
+              selector: 'edge',
+              style: {
+                'curve-style': 'bezier',
+                'target-arrow-shape': 'triangle',
+                'content': 'data(name)'
+              }
+            },
+
+            {
+              selector: '.Object',
+              style: {
+                'shape': 'rectangle',
+                'width': '50px'
+              }
+            },
+
+            {
+              selector: '.attribute:childless',
+              style: {
+                'background-color' : '#DCDCDC',
+                'border-color' : '#D3D3D3',
+                'border-width' : '1px',
+                'border-style' : 'solid'
+              }
+            },
+
+            {
+              "selector": ".edgelabel",
+              "style": {
+                "color": "#fff",
+                "text-outline-color": "#888",
+                "text-outline-width": 2,
+                'font-size': '12px'
+              }
+            },
+
+            {
+              selector: '.attribute',
+              style: {
+                'shape': 'round-rectangle',
+                'border-width': '2px',
+                'border-style' : 'solid'
+              }
+            },
+
+            {
+              selector: '.attribute.Object',
+              style: {
+                'border-color' : '#ED2939'
+              }
+            },
+
+            {
+              selector: '.attribute.User',
+              style: {
+                'border-color' : '#318CE7'
+              }
+            }
+
+
+
+          ],
+          elements: {
+            nodes: [
+
+              // Attributes
+              { data: { id: 'Books', name: 'Books' }, classes: 'Object attribute' },
+              { data: { id: 'Documents', name: 'Documents' }, classes: 'Object attribute'  },
+              { data: { id: 'Team', name: 'Team' }, classes: 'User attribute'  },
+              { data: { id: 'Team2', name: 'Team2' }, classes: 'User attribute'  },
+              { data: { id: 'Lord of the rings', name: 'Lord of the rings', parent: 'Books' }, classes: 'Object attribute'  },
+
+              // Objects
+              { data: { name: 'The Hobbit', parent: 'Books' }, classes: 'Object' },
+              { data: { name: 'Fellowship of the ring', parent: 'Lord of the rings' }, classes: 'Object' },
+              { data: { name: 'The Two Towers', parent: 'Lord of the rings' }, classes: 'Object' },
+              { data: { name: 'Return of the king', parent: 'Lord of the rings' }, classes: 'Object' },
+              { data: { name: 'Secret Document', parent: 'Documents' }, classes: 'Object' },
+
+              // Users
+              { data: { name: 'Ilaman', parent: 'Team' }, classes: 'User' },
+              { data: { name: 'Jesper', parent: 'Team' }, classes: 'User' },
+              { data: { name: 'Emil', parent: 'Team' }, classes: 'User' },
+              { data: { name: 'Birger', parent: 'Team' }, classes: 'User' }
+            ],
+              // Associations
+            edges: [
+              { data: { name: 'Write', source: 'Team', target: 'Books' }, classes: 'edgelabel' },
+              { data: { name: 'Read', source: 'Team', target: 'Documents' }, classes: 'edgelabel' },
+              { data: { name: 'Write', source: 'Team', target: 'Lord of the rings' }, classes: 'edgelabel' },
+              { data: { name: 'Read', source: 'Team', target: 'Lord of the rings' }, classes: 'edgelabel' },
+              { data: { name: 'Write', source: 'Team2', target: 'Documents' }, classes: 'edgelabel' },
+            ]
+          }
+        });
+
+
+        document.querySelector('#new-edge').addEventListener('click', function() {
+          ngacJS.edgePrompt(true);
+        });
+
+        document.querySelector('#delete-element').addEventListener('click', function() {
+          ngacJS.deleteElement();
+        });
+
+        document.querySelector('#new-node').addEventListener('click', function() {
+          ngacJS.nodePrompt(true);
+        });
+
+        document.querySelector('#add-edge').addEventListener('click', function() {
+          ngacJS.addEdge();
+        });
+
+        document.querySelector('#typefield').addEventListener('change', function() {
+          ngacJS.loadAttributes();
+        });
+
+        document.querySelector('#node-prompt-close').addEventListener('click', function() {
+          ngacJS.nodePrompt(false);
+        });
+
+        document.querySelector('#edge-prompt-close').addEventListener('click', function() {
+          ngacJS.edgePrompt(false);
+        });
+
+        document.querySelector('#layout').addEventListener('click', function() {
+          ngacJS.renderLayout();
+        });
+
+        document.querySelector('#inputfile').addEventListener('change', function() {
+          ngacJS.loadFile();
+        });
+
+        document.querySelector('#get_data_from_graph').addEventListener('click', function() {
+          ngacJS.retrive_data();
+        });
+
+        cy.panzoom({
+					// options here...
+				});
+
+        ngacJS.loadAttributes(); // First iteration since event is onChange
+
+      });
+
+    </script>
+  </head>
+
+  <body>
+
+
+    <div class="header">
+      <h1>NGAC Policy Tool</h1>
+    </div>
+
+    <div id="cy"></div>
+
+    <div id="buttons" class="cy-panzoom">
+
+      <button id="new-node" title="Add a new element">
+        <i class="fas fa-plus"></i>
+      </button>
+      <button id="new-edge" title="Add a new relation">
+        <i class="fas fa-draw-polygon"></i>
+      </button>
+      <button id="delete-element" title="Delete selected element">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+      <button id="layout" title="Optimize layout">
+        <i class="fas fa-bezier-curve"></i>
+      </button>
+
+    </div>
+
+    <div class="filetest">
+      <input type="file" id="inputfile">
+    </div>
+
+    <div class="retrive_data_button">
+      <button id="get_data_from_graph" title="Data retrieval">Data retrieval</button>
+    </div>
+
+    <div id="prompt-overlay"></div>
+
+    <div class="add-menu" style="display: block;">
+
+
+      <!-- Add element prompt div -->
+      <div id="add-element" class="add-element" style="display: none;">
+
+        <div class="close-button">
+          <button type="button" id="node-prompt-close" class="btn-close" aria-label="Close"></button>
+        </div>
+
+        <h2>New element</h2>
+
+
+        <div class="mb-3">
+          <label for="namefield" class="form-label">Name</label>
+          <input type="text" class="form-control" id="namefield" aria-describedby="emailHelp" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="typefield" class="form-label">Type</label>
+          <select class="form-select" id="typefield" aria-label="Default select example">
+            <option selected>User</option>
+            <option>Object</option>
+            <option>User attribute</option>
+            <option>Object attribute</option>
+            <option>Policy class</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="attributefield" class="form-label">Attribute</label>
+          <select class="form-select" id="attributefield" aria-label="Default select example">
+            <option selected>None</option>
+          </select>
+        </div>
+
+        <div class="add-button">
+          <input type="submit" class="btn btn-primary" value="Add element" onclick="ngacJS.addNode()">
+        </div>
+
+        <div class="ngac-bottom-tag">
+          <h1>NGAC Policy Tool</h1>
+        </div>
+
+
+      </div>
+      <!-- -->
+
+
+
+      <!-- Add relation prompt div -->
+      <div id="add-relation" class="add-relation" style="display: none;">
+
+        <div class="close-button">
+          <button type="button" id="edge-prompt-close" class="btn-close" aria-label="Close"></button>
+        </div>
+
+        <h2>New relation</h2>
+
+        <div class="mb-3">
+          <label for="sourcefield" class="form-label">Source</label>
+          <select class="form-select" id="sourcefield" aria-label="Default select example">
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="targetfield" class="form-label">Target</label>
+          <select class="form-select" id="targetfield" aria-label="Default select example">
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="relationfield" class="form-label">Access privilege</label>
+          <select class="form-select" id="relationfield" aria-label="Default select example">
+            <option selected>Read</option>
+            <option>Write</option>
+          </select>
+        </div>
+
+        <div class="add-button">
+          <input type="button" id="add-edge" class="btn btn-primary" value="Add relation">
+        </div>
+
+        <div class="ngac-bottom-tag">
+          <h1>NGAC Policy Tool</h1>
+        </div>
+
+      </div>
+      <!-- -->
+
+
+
+    </div>
+
+  </body>
+
+</html>
