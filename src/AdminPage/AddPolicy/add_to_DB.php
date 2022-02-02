@@ -1,6 +1,6 @@
 <?php
 
-function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation)
+function add_policy_data_to_DB($policy_name, $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation)
 {
     require_once "../db_conn/db_conn.php";
     require_once "../db_queries/insert_queries.php";
@@ -114,7 +114,18 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
         
     }
     
+    
+    for($num_user_attribute_conn = 0; $num_user_attribute_conn < sizeof($user_attributes_conns); $num_user_attribute_conn ++)
+    {
+        
+        $user_attribute_conn = $user_attributes_conns[$num_user_attribute_conn];
+        $user = get_user($conn, $user_attribute_conn[0]);
+        $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $user_attribute_conn[1]);
+        array_push($no_error, add_user_policy_conn_to_db($conn, $policy_name, $user["user_id"], $user_attribute["user_attribute_ID"]));
+    }
+    
 
+    /*
     for($num_users = 0; $num_users < sizeof($users); $num_users ++)
     {
 
@@ -125,7 +136,17 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
         
         
     }
+    */
 
+    for($num_object_attribute_conn = 0; $num_object_attribute_conn < sizeof($object_attributes_conns); $num_object_attribute_conn ++)
+    {
+        $object_attributes_conn = $object_attributes_conns[$num_object_attribute_conn];
+        $object = get_object($conn, $object_attributes_conn[0]);
+        $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $object_attributes_conn[1]);
+        array_push($no_error, add_object_policy_conn_to_db($conn, $policy_name, $object["object_id"], $object_attribute["object_attribute_ID"]));
+    }
+
+    /*
     for($num_objects = 0; $num_objects < sizeof($objects); $num_objects ++)
     {
         $object = get_object($conn, $objects[$num_objects]);
@@ -134,6 +155,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
         
 
     }
+    */
 
     for($num_user_attribute = 0; $num_user_attribute < sizeof($user_attributes); $num_user_attribute++)
     {

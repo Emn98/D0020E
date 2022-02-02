@@ -6,10 +6,6 @@ class Graph_data_retrieval
         var nodes = cy.json().elements.nodes;
         var edges = cy.json().elements.edges;
 
-        var users = this.find_nodes(nodes, "User");
-
-        var objects = this.find_nodes(nodes, "Object");
-
         var user_attributes = this.find_nodes(nodes, "User attribute");
 
         var object_attributes = this.find_nodes(nodes, "Object attribute");
@@ -22,16 +18,12 @@ class Graph_data_retrieval
         
         var associations = this.find_edges(edges);
 
-        /*
-        console.log(users);
-        console.log(objects);
         console.log(user_attributes);
         console.log(object_attributes);
         console.log(user_attributes_conns);
         console.log(object_attributes_conns);
         console.log(attribute_conns);
         console.log(associations);
-        */
 
         let policy = prompt("Please enter the policy's name:", "");
         if (policy != null && policy != "") {
@@ -41,8 +33,6 @@ class Graph_data_retrieval
                 
                     data: {
                         policy:policy,
-                        users:users,
-                        objects:objects,
                         user_attributes:user_attributes,
                         object_attributes:object_attributes,
                         user_attributes_conns:user_attributes_conns,
@@ -89,13 +79,16 @@ class Graph_data_retrieval
 
     find_nodes_with_conn(nodes_json, classes)
     {
-        var nodes = {};
+        var nodes = [];
+        var index = 0
         for(var i in nodes_json)
         {
             if(nodes_json[i].classes == classes)
             {
-                nodes[nodes_json[i].data.name] = nodes_json[i].data.parent;
+                nodes[index] = [nodes_json[i].data.name, nodes_json[i].data.parent];
+                index ++;
             }
+            
         }
         return nodes;
     }

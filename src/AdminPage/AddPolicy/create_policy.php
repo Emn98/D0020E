@@ -2,19 +2,6 @@
     if(isset($_POST["policy_name"]))
     {
         require_once "add_to_DB.php";
-
-        $users = [];
-        for($num_users = 0; $num_users < $_POST["number_users"]; $num_users ++)
-        {
-            $users[$num_users] = $_POST["user".$num_users];
-        }
-
-        $objects = [];
-        for($num_objects = 0; $num_objects < $_POST["number_objects"]; $num_objects ++)
-        {
-            $objects[$num_objects] = $_POST["object".$num_objects];
-        }
-
         
         $user_attributes = [];
         for($num_user_attr = 0; $num_user_attr < $_POST["number_users_attr"]; $num_user_attr ++)
@@ -28,18 +15,32 @@
             $object_attributes[$num_object_attr] = $_POST["object_attr".$num_object_attr];
         }
 
-        
 
         $user_attributes_conns = [];
         for($num_users = 0; $num_users < $_POST["number_users"]; $num_users ++)
         {
-            $user_attributes_conns[$_POST["user".$num_users]] = $_POST["user_attr_conn_".$_POST["user".$num_users]];
+            
+            for($num_user_attr = 0; $num_user_attr < $_POST["number_users_attr"]; $num_user_attr ++)
+            {
+                if(isset($_POST["user_attr_conn_".$_POST["user".$num_users]."_".$_POST["user_attr".$num_user_attr] ]))
+                {
+                    array_push($user_attributes_conns, [ $_POST["user".$num_users], $_POST["user_attr".$num_user_attr] ] );
+                }
+
+            }
+            
         }
 
         $object_attributes_conns = [];
         for($num_objects = 0; $num_objects < $_POST["number_objects"]; $num_objects ++)
         {
-            $object_attributes_conns[$_POST["object".$num_objects]] = $_POST["object_attr_conn_".$_POST["object".$num_objects]];
+            for($num_object_attr = 0; $num_object_attr < $_POST["number_objects_attr"]; $num_object_attr ++)
+            {
+                if(isset($_POST["object_attr_conn_".$_POST["object".$num_objects]."_".$_POST["object_attr".$num_object_attr] ]))
+                {
+                    array_push($object_attributes_conns, [ $_POST["object".$num_objects], $_POST["object_attr".$num_object_attr] ] );
+                }
+            }
         }
 
         $attribute_connections = [];
@@ -123,13 +124,13 @@
         $user_attributes = ["ua1", "ua2", "ua3"];
         $object_attributes = ["oa1", "oa2"];
         $user_attributes_conns = [
-            "u1" => "ua2",
-            "u2" => "ua3"
+            ["u1", "ua2"],
+            ["u2", "ua3"]
         ];
         $object_attributes_conns = [
-            "o1" => "oa1",
-            "o2" => "oa2",
-            "o3" => "oa2"
+            ["o1", "oa1"],
+            ["o2", "oa2"],
+            ["o3", "oa2"]
         ];
         $attribute_connections = [
             "ua1" => NULL, 
@@ -145,6 +146,6 @@
         ];
         */
 
-        add_policy_data_to_DB($_POST["policy_name"], $users, $objects, $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
+        add_policy_data_to_DB($_POST["policy_name"], $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
     }
 ?>

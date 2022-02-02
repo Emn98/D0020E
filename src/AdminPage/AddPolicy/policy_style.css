@@ -24,7 +24,7 @@ body {
 }
 
 .dynamic_form {
-    width: 50rem;
+    width: 100%;
     padding: 1.5rem;
     background-color: white;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
