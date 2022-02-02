@@ -1,0 +1,210 @@
+#overlay_admin_man{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 2;
+  } 
+
+  #popup_container_admin_man{
+    margin-top: 2.4rem;
+    width: 52rem;
+    height: calc(100vh - 9rem);
+    max-height: calc(100vh - 9rem);
+    min-height: calc(100vh - 9rem);
+    background-color: rgba(255,253,253,1);
+    border: 1px solid black;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 2;
+
+  }
+
+  .close_btn {
+    cursor: pointer;
+    position:absolute;
+    margin-top: 1.8rem;
+    font-weight: 500;
+    padding: 4px 7px;
+    margin-left: 48.5rem;
+    border-radius: 4px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    background: lightgrey;
+    transform: translate(0%, -50%);
+  }
+  
+  .close_btn:hover {background: #bbb;}
+
+  #admin_man_search_container{
+    text-align: center;
+    width: cover;
+    min-height: 18%;
+    max-height: 18%;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+
+  }
+
+  #admin_man_search_inp{
+    width: 70%;
+    padding: 5px;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+    background-color: #F5F5F5;
+    font-size: 17px;
+    margin-top: 3.5rem;
+    margin-left: 2.5%;
+
+  }
+
+  #admin_man_submit{
+    font-size: 17px;
+    margin-left: -30px;
+    width: 75px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+  }
+
+  #admin_man_submit:hover{
+    background: #0088a9;
+  }
+
+  #admin_man_inner_container{
+    min-height: 82%;
+    max-height: 82%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: auto;
+    background-color: lightgray;
+  }
+  
+  #admin_man_table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 0.2rem;
+  }
+ 
+
+#admin_man_table_head{
+    border-top: 1px solid black;
+ 
+}
+
+#admin_man_table_head th{
+    font-size: 1.15rem;
+    padding-left: 2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+
+}
+
+
+#admin_man_table_body td{
+    padding-left: 35px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 17px;
+
+}
+
+#admin_man_title{
+  position: absolute;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.delete_btn{
+  padding: 3px;
+  font-size: 12px;
+  font-weight: bolder;
+  color: white;
+  background: red;
+  cursor: pointer;
+  transition: background 0.2s ease 0s;
+  border: 1px solid red;
+}
+
+.delete_btn:hover{
+  background: darkred;
+}
+
+.edit_btn{
+  padding: 3px;
+  width: 45px;
+  background: grey;
+  font-size: 12px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s ease 0s;
+  border: 1px solid grey;
+}
+
+.edit_btn:hover{
+  background: #0088a9;
+}
+
+.table_row_odd{
+  background: rgba(50, 116, 214, 0.25);
+
+}
+
+.table_row_even{
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+#right_arrow{
+  cursor: pointer;
+  position:absolute;
+  font-size: 100px;
+  margin-top: 22.5rem;
+  margin-left: 52.5rem;
+}
+
+#left_arrow{
+  cursor: pointer;
+  position:absolute;
+  font-size: 100px;
+  margin-top: 22rem;
+  margin-left: -4.1rem;
+
+}
+
+#admin_man_create_btn{
+  font-size: 14px;
+  margin-left: 40rem;
+  margin-top: 1.3rem;
+  width: 140px;
+  height: 40px;
+  padding: 5px;
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+  border: 1px solid black;
+  resize: none;
+  outline: none;
+}
+
+#admin_man_create_btn:hover{
+  background: #0088a9;
+}
+
+
+
+  
+  

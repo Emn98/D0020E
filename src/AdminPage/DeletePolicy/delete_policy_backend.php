@@ -11,6 +11,7 @@
 
   $result = delete_policy_from_db($conn, $policy_name);
 
+  //If a policy was successfully deleted then return 1. 
   if($result == "1"){
       echo "0";
   }else{

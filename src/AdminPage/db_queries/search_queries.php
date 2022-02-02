@@ -29,7 +29,7 @@ function get_policies_by_name_loaded_table($conn, $search_word){
 function get_policies_by_user_all_table($conn, $search_word){
     $search_word_prepare = "%".$search_word."%";
 
-    $query = $conn->prepare("SELECT policy_name, created_at FROM Policies WHERE policy_name IN (SELECT policy_name FROM User_policy_conns WHERE user_id IN (SELECT user_id FROM Users WHERE full_name LIKE ? OR user_id=?))");
+    $query = $conn->prepare("SELECT full_namepolicy_name, created_at FROM Policies WHERE policy_name IN (SELECT policy_name FROM User_policy_conns WHERE user_id IN (SELECT user_id FROM Users WHERE full_name LIKE ? OR user_id=?))");
     $query -> bind_param("si", $search_word_prepare, $search_word);
     $query->execute();
     $result = $query->get_result();
@@ -79,4 +79,48 @@ function get_policies_by_object_loaded_table($conn, $search_word){
     return $result;
 }
 
+function get_user_info($conn, $search_word){
+    $search_word_prepare = "%$search_word%";
+    
+    $query = $conn->prepare("SELECT * FROM Users WHERE full_name LIKE ? OR user_id=?");
+    $query->bind_param("si", $search_word_prepare, $search_word);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();  
+    
+    return $result;
+    
+}
+
+
+function get_object_info($conn, $search_word){
+    $search_word_prepare = "%$search_word%";
+    
+    $query = $conn->prepare("SELECT * FROM Objects WHERE full_name LIKE ? OR object_id=?");
+    $query->bind_param("si", $search_word_prepare, $search_word);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();  
+    
+    return $result;
+
+}
+
+function get_operation_info($conn, $search_word){
+    $search_word_prepare = "%$search_word%";
+    
+    $query = $conn->prepare("SELECT * FROM Operations WHERE operation_name LIKE ? OR operation_id=?");
+    $query->bind_param("si", $search_word_prepare, $search_word);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();  
+    
+    return $result;
+
+}
+
 ?>
+

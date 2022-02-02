@@ -1,8 +1,13 @@
+<?php
+  include("../AdminPage/Overlays/policy_more_info_overlay.php");
+  include("../AdminPage/Overlays/admin_management_overlay.php");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Styles/admin_main_page.css">
+    <link rel="stylesheet" href="/AdminPage/Styles/admin_main_page.css">
     <title>NGAC - Admin Fronted</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/AdminPage/Scripts/go_to_choose_frontend.js"></script>
@@ -52,7 +57,7 @@
         <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
       </div>
     </header>
-    <main>
+    <main>      
       <div class="current_loaded_policy">
         <h2>Current active policy</h2>
         <h1 class="current_active_policy_answer"></h1>
@@ -71,7 +76,7 @@
               <button id="submit" type="submit">Search</button>
             </form>
             <h2>Policies</h2>
-            <form class="add_policy_form" method="" action="AddPolicy/add_policy_form.php">
+            <form class="add_policy_form" method="" action="AddPolicy/select_create_method.php">
               <button class="create_new_policy_btn">Create New Policy</button>
             </form>
             <button class="show_all_policies_btn" id="show_all_policies_btn">Show All Policies</button>
@@ -90,6 +95,7 @@
              </thead>
              <tbody id="t_body_all">
                 <?php 
+                //Prints out all policies upon page load.
                 include_once("load_all_policies.php");
                 ?>
              </tbody>
@@ -109,6 +115,7 @@
           </table>            
         </div>
       </div>
+      <button onclick="test()">PRESS ME</button>
     </main>
   </div>
 </body>

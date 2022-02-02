@@ -15,8 +15,8 @@ function set_policy(policy_name){
                 if(obj.respStatus != "success"){
                     alert(JSON.stringify(data.responseJSON));
                 }else{
-                    alert("Policy: '"+policy_name+"' was set successfully!");
                     get_active_policy();
+                    alert("Policy: '"+policy_name+"' was set successfully!");
                 }      
             }
         },

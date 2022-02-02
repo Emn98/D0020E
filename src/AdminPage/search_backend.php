@@ -5,7 +5,7 @@
   $path .= "/AdminPage/db_conn/db_conn.php";
   include_once($path);
 
-  include("db_queries/search_queries.php");
+  include("../AdminPage/db_queries/search_queries.php");
   include("display_policies.php");
 
   $table = $_POST["table"];

@@ -1,4 +1,3 @@
-
 function delete_policy(policy_name){
     if(confirm("Are you sure you want to delete policy: '"+policy_name+"'?")){
         var delete_policy = "delete_policy";
@@ -13,8 +12,6 @@ function delete_policy(policy_name){
             success: function(response){
                 if(response == 1){
                     unload_policy(policy_name);
-                    setInterval(function(){ 
-                    }, 400);
                 }
 
                 $.ajax({

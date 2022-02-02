@@ -103,6 +103,7 @@
     box-sizing: border-box;
     width: cover;
     border: 1px solid darkgrey;
+    background-color: lightgray;
     margin-top: 3.2rem;
     margin-right: 1rem;
     margin-left: 1rem;
@@ -113,7 +114,7 @@
   }
   
   .display_policy_files_container h2{
-    margin-top: 0.8rem;
+    margin-top: 1.2rem;
     margin-left: 1.5rem;
     margin-bottom: -0.5rem;
   }
@@ -185,27 +186,30 @@
   }
   
   .table_row_even{
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.7);
   }
   
   
   .create_new_policy_btn{
-    position: absolute;
-    padding: 7px;
-    background: grey;
-    color: white;
     font-size: 14px;
-    font-weight: bolder;
-    margin-top: 1.2rem;
-    margin-left: 47.6rem;
-    float: right;
+    margin-left: 47rem;
+    width: 140px;
+    height: 40px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
     cursor: pointer;
-    transition: background 0.2s ease 0s;
-    border: 1px solid grey
+    border: 1px solid black;
+    resize: none;
+    outline: none;
   }
   
   .create_new_policy_btn:hover{
     background: #0088a9;
+  }
+
+  .add_policy_form{
+    margin-bottom: -3.3rem;
   }
 
   .show_all_policies_btn{
@@ -283,7 +287,3 @@
     margin-left: -18.7rem;
     cursor: pointer;
   }
-
-
-
-  

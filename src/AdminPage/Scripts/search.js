@@ -7,8 +7,9 @@ $(document).ready(function(){
     var search_by;
     var search_word;
 
-    //Get value from search bar
+    //Get value from search bar and then clear it
     var search_word = document.getElementById("myInput").value;
+    document.getElementById("myInput").value = "";
     
     //Select the table currently in view
     if(document.getElementById("table_all_policies").hidden == false){

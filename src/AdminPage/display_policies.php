@@ -7,7 +7,9 @@ function display_in_all_policies_table($result){
       while ($row = $result->fetch_assoc()) {
           if($temp == 1){
               echo '<tr class="table_row_odd">';
-              echo '<td onclick="test()" style="cursor: pointer;">'.$row["policy_name"].'</td>';
+  ?>
+              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+  <?php              
               echo '<td>'.$row["created_at"].'</td>';
   ?>
               <td><input type="button" value="Load" class="edit_btn" onclick="load_policy('<?php echo $row['policy_name'] ?>')"></td>
@@ -17,7 +19,9 @@ function display_in_all_policies_table($result){
               $temp = 0;
           }else{
               echo '<tr class="table_row_even">';
-              echo '<td onclick="test()" style="cursor: pointer;">'.$row["policy_name"].'</td>';
+  ?>
+              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+  <?php
               echo '<td>'.$row["created_at"].'</td>';
   ?>
               <td><input type="button" value="Load" class="edit_btn" onclick="load_policy('<?php echo $row['policy_name'] ?>')"></td>
@@ -28,7 +32,7 @@ function display_in_all_policies_table($result){
           } 
       }
     }else{
-      echo "<h1 style='margin-left:18rem;margin-top:0.5rem;margin-bottom:0.5rem;';>No policies exists</h1>";
+      echo "<h1 style='margin-left:21rem;margin-top:13rem;margin-bottom:0.5rem;';>No policies exists</h1>";
     }    
 }
 
@@ -41,7 +45,9 @@ function diplay_in_loaded_policies_table($result){
       while ($row = $result->fetch_assoc()) {
           if($temp == 1){
               echo '<tr class="table_row_odd">';
-              echo '<td onclick="test()" style="cursor: pointer;">'.$row["policy_name"].'</td>';
+  ?>
+              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+  <?php
               echo '<td>'.$row["loaded_at"].'</td>';
   ?>
               <td><input type="button" value="Set" class="edit_btn"    onclick="set_policy('<?php echo $row['policy_name'] ?>')"></td>
@@ -51,7 +57,9 @@ function diplay_in_loaded_policies_table($result){
               $temp = 0; 
           }else{
               echo '<tr class="table_row_even">';
-              echo '<td onclick="test()" style="cursor: pointer;">'.$row["policy_name"].'</td>';
+  ?>
+              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+  <?php
               echo '<td>'.$row["loaded_at"].'</td>';
   ?>
               <td><input type="button" value="Set" class="edit_btn"    onclick="set_policy('<?php echo $row['policy_name'] ?>')"></td>
@@ -62,7 +70,7 @@ function diplay_in_loaded_policies_table($result){
           }
       }
     }else{
-      echo "<h1 style='margin-left:18rem;margin-top:0.3rem;margin-bottom:0.5rem;';>There are no loaded policies</h1>";
+      echo "<h1 style='margin-left:17rem;margin-top:13rem;margin-bottom:0.5rem;';>There are no loaded policies</h1>";
     }    
 
 }
