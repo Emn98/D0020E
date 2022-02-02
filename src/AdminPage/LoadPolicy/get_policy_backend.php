@@ -171,13 +171,9 @@
         $pol_text = substr_replace($pol_text ,"\n",-2);
 
         $pol_text .= "])";
-
-        //Build the complete url for the load request
-        $pol_query = "http://127.0.0.1:8001/paapi/loadi?";
-        $pol_query .= "policyspec=".$pol_text;
-        $pol_query .= "&token=admin_token";
         
-        echo $pol_query;
+        
+        echo $pol_text;
 
     }else{
         echo "Fail";

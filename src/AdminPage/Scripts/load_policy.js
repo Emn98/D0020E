@@ -3,19 +3,19 @@ function load_policy(policy_name){
     
     $.ajax({
         type: "POST",
-        url:  "/AdminPage/LoadPolicy/load_policy_backend.php", 
+        url:  "/AdminPage/LoadPolicy/get_policy_backend.php", 
         data: {policy_name: policy_name,
                submit: submit
               },
         dataType: "text",
 
         success: function(response){
-            console.log(response);
             if(response == 1){
                 alert("Policy: '" + policy_name + "' is already loaded into NGAC");
             }else{  
+                url_qery = "http://127.0.0.1:8001/paapi/loadi?policyspec="+response+"&token=admin_token";
                 $.ajax({
-                    url: response,
+                    url: url_qery,
                     type: 'GET',
                     dataType: 'json',
 
