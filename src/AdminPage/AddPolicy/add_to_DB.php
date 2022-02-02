@@ -8,9 +8,9 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
 
     mysqli_autocommit($conn, false);
 
-    $no_error = true;
+    $no_error = [];
 
-    $no_error = add_policy_to_db($conn, $_POST["policy_name"], "access");
+    array_push($no_error, add_policy_to_db($conn, $policy_name, "access"));
 
     // Add all user attributes
     // Attributes must be added from the bigest parent down i.e first the attribute with no parent then it's children and so on...
@@ -28,7 +28,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
                     if($attribute_connections[$user_attributes[$num_user_attribute]] == $current_attributes_to_find_conn[$current_attr_num])
                     {
                         $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $current_attributes_to_find_conn[$current_attr_num]);
-                        $no_error = add_User_attr_policy_conns_to_db($conn, $policy_name, $user_attributes[$num_user_attribute], $user_attribute["user_attribute_ID"]);
+                        array_push($no_error, add_User_attr_policy_conns_to_db($conn, $policy_name, $user_attributes[$num_user_attribute], $user_attribute["user_attribute_ID"]));
                         $next_attributes_to_find_conn += [$user_attributes[$num_user_attribute]];
                     }
                 }
@@ -38,13 +38,13 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
                 // Check if this user_attribute has no parent attribute
                 if($attribute_connections[$user_attributes[$num_user_attribute]] == NULL)
                 {
-                    $no_error = add_User_attr_policy_conns_to_db($conn, $policy_name, $user_attributes[$num_user_attribute], NULL);
+                    array_push($no_error, add_User_attr_policy_conns_to_db($conn, $policy_name, $user_attributes[$num_user_attribute], NULL));
                     $next_attributes_to_find_conn += [$user_attributes[$num_user_attribute]];
 
-                    /*
-                    $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $current_attributes_to_find_conn[$current_attr_num]);
-                    add_Assign_policy_classes_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], NULL);
-                    */
+                    
+                    $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $user_attributes[$num_user_attribute]);
+                    array_push($no_error, add_Assign_policy_classes_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], NULL));
+                    
                 }
             }
             
@@ -79,7 +79,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
                     if($attribute_connections[$object_attributes[$num_object_attribute]] == $current_attributes_to_find_conn[$current_attr_num])
                     {
                         $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $current_attributes_to_find_conn[$current_attr_num]);
-                        $no_error = add_Object_attr_policy_conns_to_db($conn, $policy_name, $object_attributes[$num_object_attribute], $object_attribute["object_attribute_ID"]);
+                        array_push($no_error, add_Object_attr_policy_conns_to_db($conn, $policy_name, $object_attributes[$num_object_attribute], $object_attribute["object_attribute_ID"]));
                         $next_attributes_to_find_conn += [$object_attributes[$num_object_attribute]];
                     }
                 }
@@ -89,13 +89,13 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
                 // Check if this object_attribute has no parent attribute
                 if($attribute_connections[$object_attributes[$num_object_attribute]] == NULL)
                 {
-                    $no_error = add_Object_attr_policy_conns_to_db($conn, $policy_name, $object_attributes[$num_object_attribute], NULL);
+                    array_push($no_error, add_Object_attr_policy_conns_to_db($conn, $policy_name, $object_attributes[$num_object_attribute], NULL));
                     $next_attributes_to_find_conn += [$object_attributes[$num_object_attribute]];
 
-                    /*
-                    $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $current_attributes_to_find_conn[$current_attr_num]);
-                    add_Assign_policy_classes_to_db($conn, $policy_name, NULL, $object_attribute["object_attribute_ID"]);
-                    */
+                    
+                    $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $object_attributes[$num_object_attribute]);
+                    array_push($no_error, add_Assign_policy_classes_to_db($conn, $policy_name, NULL, $object_attribute["object_attribute_ID"]));
+                    
                 }
             }
             
@@ -120,7 +120,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
 
         $user = get_user($conn, $users[$num_users]);
         $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $user_attributes_conns[$user["full_name"]]);
-        $no_error = add_user_policy_conn_to_db($conn, $policy_name, $user["user_id"], $user_attribute["user_attribute_ID"]);
+        array_push($no_error, add_user_policy_conn_to_db($conn, $policy_name, $user["user_id"], $user_attribute["user_attribute_ID"]));
        
         
         
@@ -130,7 +130,7 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
     {
         $object = get_object($conn, $objects[$num_objects]);
         $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $object_attributes_conns[$object["full_name"]]);
-        $no_error = add_object_policy_conn_to_db($conn, $policy_name, $object["object_id"], $object_attribute["object_attribute_ID"]);
+        array_push($no_error, add_object_policy_conn_to_db($conn, $policy_name, $object["object_id"], $object_attribute["object_attribute_ID"]));
         
 
     }
@@ -145,19 +145,27 @@ function add_policy_data_to_DB($policy_name, $users, $objects, $user_attributes,
                 $operation = get_Operations($conn, $operations[$num_operation]);
                 $user_attribute = get_User_attr_policy_conns($conn, $policy_name, $user_attributes[$num_user_attribute]);
                 $object_attribute = get_Object_attr_policy_conns($conn, $policy_name, $object_attributes[$num_object_attribute]);
-                $no_error = add_Associations_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], $operation["operation_id"], $object_attribute["object_attribute_ID"]);
+                array_push($no_error, add_Associations_to_db($conn, $policy_name, $user_attribute["user_attribute_ID"], $operation["operation_id"], $object_attribute["object_attribute_ID"]));
             }
             
 
         }
     }
 
-    if($no_error == false)
+    if(in_array(false, $no_error))
     {
         mysqli_rollback($conn);
-    }
+        mysqli_commit($conn);
 
-    mysqli_commit($conn);
+        return false;
+    }
+    else
+    {
+        mysqli_commit($conn);
+
+        return true;
+    }
+    
     
 }
 ?>

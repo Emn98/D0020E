@@ -9,6 +9,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -17,6 +18,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -33,6 +35,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -41,6 +44,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -57,6 +61,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -65,6 +70,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -81,6 +87,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -89,6 +96,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -105,6 +113,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -113,6 +122,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -129,6 +139,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -137,6 +148,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -153,6 +165,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -161,6 +174,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -177,6 +191,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -185,6 +200,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -201,6 +217,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -209,6 +226,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -225,6 +243,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -233,6 +252,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -249,6 +269,7 @@
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 
@@ -257,6 +278,7 @@
         if(!mysqli_stmt_execute($stmt))
         {
             echo(mysqli_error($conn));
+            mysqli_stmt_close($stmt);
             return false;
         }
 

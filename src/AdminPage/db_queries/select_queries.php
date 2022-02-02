@@ -209,9 +209,9 @@
 
     }
 
-    function get_Operations($conn, $operation_name)
+    function get_Operations($conn, $operation_2_field)
     {
-        $sql = "SELECT * FROM Operations WHERE operation_name = '$operation_name';";
+        $sql = "SELECT * FROM Operations WHERE operation_2_field = '$operation_2_field';";
         
         $result = mysqli_query($conn, $sql);
 
