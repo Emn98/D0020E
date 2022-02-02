@@ -14,7 +14,7 @@ class Graph_data_retrieval
 
         var object_attributes_conns = this.find_nodes_with_conn(nodes, "Object");
 
-        var attribute_conns = Object.assign({},this.find_nodes_with_conn(nodes, "User attribute"), (this.find_nodes_with_conn(nodes, "Object attribute")) );
+        var attribute_conns = Object.assign({},this.find_nodes_conn(nodes, "User attribute"), (this.find_nodes_conn(nodes, "Object attribute")) );
         
         var associations = this.find_edges(edges);
 
@@ -87,6 +87,20 @@ class Graph_data_retrieval
             {
                 nodes[index] = [nodes_json[i].data.name, nodes_json[i].data.parent];
                 index ++;
+            }
+            
+        }
+        return nodes;
+    }
+
+    find_nodes_conn(nodes_json, classes)
+    {
+        var nodes = [];
+        for(var i in nodes_json)
+        {
+            if(nodes_json[i].classes == classes)
+            {
+                nodes[nodes_json[i].data.name] = nodes_json[i].data.parent;
             }
             
         }
