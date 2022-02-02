@@ -172,7 +172,7 @@
 
         $pol_text .= "])";
         
-        
+        //Prints the dynamically built policy file. 
         echo $pol_text;
 
     }else{

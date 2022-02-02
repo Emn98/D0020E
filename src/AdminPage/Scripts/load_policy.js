@@ -12,8 +12,10 @@ function load_policy(policy_name){
         success: function(response){
             if(response == 1){
                 alert("Policy: '" + policy_name + "' is already loaded into NGAC");
-            }else{  
+            }else{
+                //Create the url to complete the whole query to the ngac system.  
                 url_qery = "http://127.0.0.1:8001/paapi/loadi?policyspec="+response+"&token=admin_token";
+                
                 $.ajax({
                     url: url_qery,
                     type: 'GET',

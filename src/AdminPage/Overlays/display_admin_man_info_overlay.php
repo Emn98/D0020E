@@ -116,7 +116,7 @@ function display_operation_body($result){
             echo '<td>'.$row["operation_2_field"].'</td>';
   ?>
             <td><input type="button" value="Edit" class="edit_btn" onclick="edit_operations('<?php echo $row['operation_id'] ?>')"></td>
-            <td><input type="button" value="Delete" class="delete_btn" onclick="delete_operations('<?php echo $row['operation_id'] ?>')"></td>
+            <td><input type="button" value="Delete" class="delete_btn" onclick="delete_operation('<?php echo $row['operation_id'] ?>')"></td>
   <?php
             $temp = 0;
         }else{
@@ -127,8 +127,8 @@ function display_operation_body($result){
             echo '<td>'.$row["operation_name"].'</td>';
             echo '<td>'.$row["operation_2_field"].'</td>';
   ?>
-            <td><input type="button" value="Edit" class="edit_btn" onclick="edit_operation('<?php echo $row['user_id'] ?>')"></td>
-            <td><input type="button" value="Delete" class="delete_btn" onclick="delete_peration('<?php echo $row['user_id'] ?>')"></td>
+            <td><input type="button" value="Edit" class="edit_btn" onclick="edit_operation('<?php echo $row['operation_id']?>')"></td>
+            <td><input type="button" value="Delete" class="delete_btn" onclick="delete_operation('<?php echo $row['operation_id']?>')"></td>
   <?php
             $temp = 1; 
         } 

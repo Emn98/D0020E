@@ -6,6 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="Scripts/admin_man_arrow_logic.js"></script>
   <script src="Scripts/search_for_admin_man.js"></script>
+  <script src="Scripts/admin_man_overlay_logic.js"></script>
   <script src="Scripts/load_in_users_at_start_admin_man.js"></script>
 </head>
 <body>
