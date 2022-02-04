@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="policy_style.css">
   </head>
 <script type="text/javascript">
-function addRows(){ 
-	var table = document.getElementById('emptbl');
+
+function addRows(element){ 
+	var table = document.getElementById(element);
 	var rowCount = table.rows.length;
 	var cellCount = table.rows[0].cells.length; 
 	var row = table.insertRow(rowCount);
@@ -27,8 +28,8 @@ function addRows(){
 		}
 	}
 }
-function deleteRows(){
-	var table = document.getElementById('emptbl');
+function deleteRows(element){
+	var table = document.getElementById(element);
 	var rowCount = table.rows.length;
 	if(rowCount > '2'){
 		var row = table.deleteRow(rowCount-1);
@@ -40,23 +41,42 @@ function deleteRows(){
 }
 </script>
 <body>
-<form action="#" method="post">  
-    <div class="dynamic_form">
-        <table id="emptbl">
-            <tr>
-                <th>User</th>
-            </tr> 
-            <tr> 
-                <td id="col0"><input type="text" name="empname[]" value="" /></td> 
-            </tr>  
-        </table> 
-        <table> 
-            <tr> 
-                <td><input class="form_button" type="button" value="Add Row" onclick="addRows()" /></td> 
-                <td><input class="form_button" type="button" value="Delete Row" onclick="deleteRows()" /></td> 
-                <td><input class="form_button" type="submit" value="Submit" /></td> 
-            </tr>  
-        </table> 
+<form class="dynamic_form" action="#" method="post">  
+	<div class="float-container">
+                
+		<div class="float-child-2">
+			<table id="emptbl1">
+				<tr>
+					<th>User</th>
+				</tr> 
+				<tr> 
+					<td id="col0"><input type="text" name="empname[]" value="" /></td> 
+				</tr>  
+			</table> 
+			<table> 
+				<tr> 
+					<td><input class="form_button" type="button" value="Add Row" onclick="addRows('emptbl1')" /></td> 
+					<td><input class="form_button" type="button" value="Delete Row" onclick="deleteRows('emptbl1')" /></td> 
+				</tr>  
+			</table> 
+		</div>
+		<div class="float-child-2">
+			<table id="emptbl2">
+				<tr>
+					<th>Object</th>
+				</tr> 
+				<tr> 
+					<td id="col0"><input type="text" name="empname[]" value="" /></td> 
+				</tr>  
+			</table> 
+			<table> 
+				<tr> 
+					<td><input class="form_button" type="button" value="Add Row" onclick="addRows('emptbl2')" /></td> 
+					<td><input class="form_button" type="button" value="Delete Row" onclick="deleteRows('emptbl2')" /></td> 
+				</tr>  
+			</table> 
+			<input type="submit" class="form_button" value="next">
+		</div>
     </div>  
 	
  </form> 

@@ -56,7 +56,7 @@
                                                         {
                                                             ?>
                                                                 <div class="border">
-                                                                <input type="radio" id="user_attr_conn_<?php echo $_POST["user".$num_user] ?>" name="user_attr_conn <?php echo $_POST["user".$num_user] ?>" value="<?php echo $_POST["user_attr".$num_user_attr] ?>" required>
+                                                                <input type="checkbox" id="user_attr_conn_<?php echo $_POST["user".$num_user] ?>_<?php echo $_POST["user_attr".$num_user_attr] ?>" name="user_attr_conn <?php echo $_POST["user".$num_user] ?>_<?php echo $_POST["user_attr".$num_user_attr] ?>" >
                                                                 </div>
                                                             <?php
                                                         }
@@ -105,6 +105,7 @@
                                             <div class="float-child-2">
                                                 <label style="height: 10px;">Connection</label>
                                                 <br>
+                                                <div required>
                                                 <?php
                                                 
                                                     for($num_object_attr = 0; $num_object_attr < $_POST["number_objects_attr"]; $num_object_attr++)
@@ -113,13 +114,13 @@
                                                         {
                                                             ?>
                                                                 <div class="border">
-                                                                <input type="radio" id="object_attr_conn_<?php echo $_POST["object".$num_object]?>" name="object_attr_conn_<?php echo $_POST["object".$num_object]?>" value="<?php echo $_POST["object_attr".$num_object_attr] ?>" required>
+                                                                <input type="checkbox" id="object_attr_conn_<?php echo $_POST["object".$num_object] ?>_<?php echo $_POST["object_attr".$num_object_attr] ?>" name="object_attr_conn_<?php echo $_POST["object".$num_object] ?>_<?php echo $_POST["object_attr".$num_object_attr] ?>" >
                                                                 </div>
                                                             <?php
                                                         }
                                                     }
                                                 ?>
-                                                
+                                                </div>
                                             </div>
                                         </div>
 

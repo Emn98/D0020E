@@ -98,8 +98,20 @@
                         {
                             ?>
                                 <input type="text" id="user<?php echo $i ?>" name="user<?php echo $i ?>" class="policy_input" required hidden value="<?php echo $_POST["user".$i] ?>">
-                                <input type="text" id="user_attr_conn_<?php echo $_POST["user".$i]?>" name="user_attr_conn_<?php echo $_POST["user".$i]?>" required hidden value="<?php echo $_POST["user_attr_conn_".$_POST["user".$i]] ?>">
                             <?php
+
+                            for($num_user_attr = 0; $num_user_attr < $_POST["number_users_attr"]; $num_user_attr++)
+                            {
+                                if($num_user_attr < $_POST["number_users_attr"])
+                                {
+                                    if(isset($_POST["user_attr_conn_".$_POST["user".$i]."_".$_POST["user_attr".$num_user_attr] ]))
+                                    {
+                                        ?>
+                                            <input type="text" id="user_attr_conn_<?php echo $_POST["user".$i] ?>_<?php echo $_POST["user_attr".$num_user_attr] ?>" name="user_attr_conn_<?php echo $_POST["user".$i] ?>_<?php echo $_POST["user_attr".$num_user_attr] ?>"  hidden>
+                                        <?php
+                                    }
+                                }
+                            }
                         }
                     }
                 ?>
@@ -111,8 +123,20 @@
                         {
                             ?>
                                 <input type="text" id="object<?php echo $i ?>" name="object<?php echo $i ?>" class="policy_input" required hidden value="<?php echo $_POST["object".$i] ?>">
-                                <input type="text" id="object_attr_conn_<?php echo $_POST["object".$i]?>" name="object_attr_conn_<?php echo $_POST["object".$i]?>" required hidden value="<?php echo $_POST["object_attr_conn_".$_POST["object".$i]] ?>">
-                            <?php
+                           <?php
+                        }
+                        
+                        for($num_object_attr = 0; $num_object_attr < $_POST["number_objects_attr"]; $num_object_attr++)
+                        {
+                            if($num_object_attr < $_POST["number_objects_attr"])
+                            {
+                                if(isset($_POST["object_attr_conn_".$_POST["object".$i]."_".$_POST["object_attr".$num_object_attr] ]))
+                                {
+                                    ?>
+                                        <input type="text" id="object_attr_conn_<?php echo $_POST["object".$i] ?>_<?php echo $_POST["object_attr".$num_object_attr] ?>" name="object_attr_conn_<?php echo $_POST["object".$i] ?>_<?php echo $_POST["object_attr".$num_object_attr] ?>"  hidden>
+                                    <?php
+                                }
+                            }
                         }
                     }
                 ?>
