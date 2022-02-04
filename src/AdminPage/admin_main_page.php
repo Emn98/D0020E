@@ -24,6 +24,8 @@
         
         //Retrives the active policy from NGAC server upon page load. 
         get_active_policy();
+
+        get_all_policies();
         
         $(".show_loaded_policies_btn").click(function(){
           get_loaded_policies();
@@ -57,7 +59,7 @@
         <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
       </div>
     </header>
-    <main>      
+    <main>  
       <div class="current_loaded_policy">
         <h2>Current active policy</h2>
         <h1 class="current_active_policy_answer"></h1>
@@ -84,38 +86,14 @@
           </div>
         <div class="inner_display_policy_files_container">
           <table id="table_all_policies">
-              <thead id="t_head">
-                <tr>
-                  <th>Policy Name</th>
-                  <th>Created</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
+              <thead id="t_head_main_page">
              </thead>
-             <tbody id="t_body_all">
-                <?php 
-                //Prints out all policies upon page load.
-                include_once("load_all_policies.php");
-                ?>
+             <tbody id="t_body_main_page">
              </tbody>
-          </table>
-          <table id="table_loaded_policies" hidden>
-            <thead id="t_head">
-              <tr>
-                <th>Policy Name</th>
-                <th>Loaded At</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="t_body_loaded">
-            </tbody>
-          </table>            
+          </table>         
         </div>
+        <button id="admin_man_overlay_btn" onclick="admin_man_overlay()">Show Admin Overlay</button>    
       </div>
-      <button onclick="test()">PRESS ME</button>
     </main>
   </div>
 </body>

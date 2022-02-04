@@ -25,9 +25,10 @@ function create_new_user(){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_users_for_admin_man.php", {
-        body: "set"
-    });     
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "users"
+    });      
     
 }
 
@@ -57,9 +58,10 @@ function create_new_object(){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-        body: "set"
-    }); 
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "objects"
+    });   
 }
 
 
@@ -100,9 +102,10 @@ function create_new_operation(){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_operations_for_admin_man.php", {
-        body: "set"
-    });     
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "operations"
+    });    
 }
 
 
@@ -131,9 +134,10 @@ function edit_user(user_id){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_users_for_admin_man.php", {
-        body: "set"
-    });  
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "users"
+    });   
 }
 
 function edit_object(object_id){
@@ -161,9 +165,10 @@ function edit_object(object_id){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-        body: "set"
-    }); 
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "objects"
+    });   
 }
 
 function edit_operation(operation_id){
@@ -205,8 +210,9 @@ function edit_operation(operation_id){
         }
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_operations_for_admin_man.php", {
-        body: "set"
+    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+        part: "body",
+        table: "operations"
     });  
 }
 
@@ -226,9 +232,10 @@ function delete_user(user_id){
             }
         });
 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_users_for_admin_man.php", {
-        body: "set"
-        });
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "users"
+        });  
     }
 }
 
@@ -248,9 +255,10 @@ function delete_object(object_id){
             }
         });
 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-            body: "set"
-        }); 
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "objects"
+        });   
 
     }
 }
@@ -271,8 +279,9 @@ function delete_operation(operation_id){
             }
         });
 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_operations_for_admin_man.php", {
-            body: "set"
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "operations"
         });  
     }
 }

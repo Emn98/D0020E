@@ -41,7 +41,7 @@ function display_users_body($result){
           } 
       }
     }else{
-      echo "<h1 style='margin-left:21rem;margin-top:13rem;margin-bottom:0.5rem;';>No users exists</h1>";
+      echo "<td><h1 style='margin-left:16.5rem;margin-top:17rem;margin-bottom:0.5rem;';>No users exists</h1></td>";
     }    
 }
 
@@ -86,7 +86,7 @@ function display_objects_body($result){
         } 
     }
   }else{
-    echo "<h1 style='margin-left:21rem;margin-top:13rem;margin-bottom:0.5rem;';>No objects exists</h1>";
+    echo "<td><h1 style='margin-left:16.5rem;margin-top:17rem;margin-bottom:0.5rem;';>No objects exists</h1></td>";
   }    
 }
 
@@ -134,7 +134,7 @@ function display_operation_body($result){
         } 
     }
   }else{
-    echo "<h1 style='margin-left:21rem;margin-top:13rem;margin-bottom:0.5rem;';>No operations exists</h1>";
+    echo "<td><h1 style='margin-left:20rem;margin-top:13rem;margin-bottom:0.5rem;'>No operations exist</h1></td>";
   }      
 }
 
