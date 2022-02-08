@@ -9,6 +9,15 @@
     $attribute_conns = $_POST['attribute_conns'];
     $associations = $_POST['associations'];
 
+    foreach($attribute_conns as $attribute_name=>$parent_attribute_name)
+    {
+        if($parent_attribute_name == "NULL")
+        {
+            $attribute_conns[$attribute_name] = NULL;
+        }
+    }
+    
+
     $result = add_policy_data_to_DB($policy, $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_conns, $associations);
 
     if($result == true)

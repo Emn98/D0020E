@@ -20,8 +20,8 @@
                 include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
                 $users = get_users($conn);
             ?>
-            <lable for="user<?php echo $i ?>">Select user</label>
-                <select  id="user<?php echo $i ?>" name="user<?php echo $i ?>">
+            <lable for="user">Select user</label>
+                <select  id="user" name="user">
                     
                     <?php
                         for($num_user = 0; $num_user < sizeof($users); $num_user++)
@@ -36,8 +36,8 @@
             <?php
                 $objects = get_objects($conn);
             ?>
-            <lable for="object<?php echo $i ?>">Select object</label>
-                <select id="object<?php echo $i ?>" name="object<?php echo $i ?>">
+            <lable for="object">Select object</label>
+                <select id="object" name="object">
                     
                     <?php
                         for($num_object = 0; $num_object < sizeof($objects); $num_object++)

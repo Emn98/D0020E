@@ -120,8 +120,8 @@
         */
 
         // TEST
-        /*
-        $user_attributes = ["ua1", "ua2", "ua3"];
+        
+        $user_attributes = ['ua1', 'ua2', 'ua3', 'ua4', 'ua5', 'ua6'];
         $object_attributes = ["oa1", "oa2"];
         $user_attributes_conns = [
             ["u1", "ua2"],
@@ -134,17 +134,20 @@
         ];
         $attribute_connections = [
             "ua1" => NULL, 
-            "ua2" => "ua1", 
-            "ua3" => "ua1",
+            "ua5" => "ua2",
+            "ua4" => "ua2",
             "oa1" => NULL,
-            "oa2" => "oa1"
+            "oa2" => "oa1",
+            "ua3" => "ua1",
+            "ua6" => "ua1",
+            "ua2" => "ua1"
         ];
         $assotiation = [
             "ua1" => ["oa1" => ["r"]],
             "ua2" => ["oa1" => ["w"]],
             "ua3" => ["oa2" => ["w"]]
         ];
-        */
+        
 
         $result = add_policy_data_to_DB($_POST["policy_name"], $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
 

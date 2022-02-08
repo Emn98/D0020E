@@ -100,7 +100,15 @@ class Graph_data_retrieval
         {
             if(nodes_json[i].classes == classes)
             {
-                nodes[nodes_json[i].data.name] = nodes_json[i].data.parent;
+                if(nodes_json[i].data.parent == null)
+                {
+                    nodes[nodes_json[i].data.name] = "NULL";
+                }
+                else
+                {
+                    nodes[nodes_json[i].data.name] = nodes_json[i].data.parent;
+                }
+                
             }
             
         }
