@@ -16,26 +16,26 @@
   if($search_by == "Policy_name"){//If the user searches after policies by policy file names  
     if($table == "all_policies"){
         $result = get_policies_by_name_all_table($conn, $search_word);
-        display_in_all_policies_table($result);        
+        display_all_policies_body($result);        
     }else{
         $result = get_policies_by_name_loaded_table($conn, $search_word);
-        diplay_in_loaded_policies_table($result);
+        diplay_loaded_policies_body($result);
     }
   }else if($search_by == "Users"){//If the user searches after policies by user
     if($table == "all_policies"){
         $result = get_policies_by_user_all_table($conn, $search_word);
-        display_in_all_policies_table($result);        
+        display_all_policies_body($result);        
     }else{
         $result = get_policies_by_user_loaded_table($conn, $search_word);
-        diplay_in_loaded_policies_table($result);
+        diplay_loaded_policies_body($result);
     }
   }else{//If the user searches after policies by object
     if($table == "all_policies"){
         $result = get_policies_by_object_all_table($conn, $search_word);
-        display_in_all_policies_table($result);        
+        display_all_policies_body($result);        
     }else{
         $result = get_policies_by_object_loaded_table($conn, $search_word);
-        diplay_in_loaded_policies_table($result);
+        diplay_loaded_policies_body($result);
     }      
   }
     

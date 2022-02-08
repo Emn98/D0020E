@@ -8,7 +8,9 @@
 <div id="overlay">
   <div id="popup_container">
     <p class="close_btn_more_info" onclick="closee()">X</p>
-    <div id="graph_picture"></div>
+    <div id="graph_picture">
+        
+    </div>
     <div id="display_policy_info">
   
     </div>

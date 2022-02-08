@@ -10,11 +10,13 @@ function pressed_right_arrow(){
         $("#admin_man_create_btn").html("Create New Object");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_object()')
         document.getElementById("left_arrow").hidden = false;
-        $("#admin_man_table_head").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-            head: "set"
+        $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "head",
+            table: "objects"
         }); 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-            body: "set"
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "objects"
         });                                                                      
     }
 
@@ -24,11 +26,13 @@ function pressed_right_arrow(){
         $("#admin_man_create_btn").html("Create New Operation");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_operation()')
         document.getElementById("right_arrow").hidden = true;
-        $("#admin_man_table_head").load("/AdminPage/Overlays/load_operations_for_admin_man.php", {
-            head: "set"
+        $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "head",
+            table: "operations"
         }); 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_operations_for_admin_man.php", {
-            body: "set"
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "operations"
         });                                                                      
     }
 }
@@ -43,11 +47,13 @@ function pressed_left_arrow(){
         $("#admin_man_create_btn").html("Create New User");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_user()')
         document.getElementById("left_arrow").hidden = true;
-        $("#admin_man_table_head").load("/AdminPage/Overlays/load_users_for_admin_man.php", {
-            head: "set"
+        $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "head",
+            table: "users"
         }); 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_users_for_admin_man.php", {
-            body: "set"
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "users"
         });                                                                       
     }
 
@@ -57,11 +63,13 @@ function pressed_left_arrow(){
         $("#admin_man_create_btn").html("Create New Object");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_object()')
         document.getElementById("right_arrow").hidden = false;
-        $("#admin_man_table_head").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-            head: "set"
+        $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "head",
+            table: "objects"
         }); 
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_objects_for_admin_man.php", {
-            body: "set"
+        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+            part: "body",
+            table: "objects"
         });                                                                       
     }
 }

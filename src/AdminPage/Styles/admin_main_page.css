@@ -107,7 +107,7 @@
     margin-top: 3.2rem;
     margin-right: 1rem;
     margin-left: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
     min-height: 31.3rem;
     max-height: 31.3rem;
     overflow: auto;    
@@ -193,6 +193,7 @@
   .create_new_policy_btn{
     font-size: 14px;
     margin-left: 47rem;
+    margin-bottom: 0.1rem;
     width: 140px;
     height: 40px;
     padding: 5px;
@@ -286,4 +287,24 @@
     margin-top: 2.7rem;
     margin-left: -18.7rem;
     cursor: pointer;
+  }
+
+  #admin_man_overlay_btn{
+    font-size: 13px;
+    margin-left: 44rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+  }
+  
+  #admin_man_overlay_btn:hover{
+    background: #0088a9;
   }

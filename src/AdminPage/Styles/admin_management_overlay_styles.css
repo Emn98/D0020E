@@ -176,6 +176,10 @@
   margin-left: 52.5rem;
 }
 
+#right_arrow:hover{
+  color: #0088a9;
+}
+
 #left_arrow{
   cursor: pointer;
   position:absolute;
@@ -183,6 +187,11 @@
   margin-top: 22rem;
   margin-left: -4.1rem;
 
+}
+
+#left_arrow:hover{
+  color: #0088a9;
+  
 }
 
 #admin_man_create_btn{

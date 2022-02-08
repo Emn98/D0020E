@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/AdminPage/Styles/admin_management_overlay_styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,19 +25,23 @@
     </div> 
      <div id="admin_man_inner_container">
       <table id="admin_man_table">
-        <thead id="admin_man_table_head">
-          <tr>
-            <th>User_id</th>
-            <th>Full name</th>
-            <th></th>
-            <th></th>
-          </tr>    
+        <thead id="admin_man_table_head">  
         </thead>
         </div>
-          <tbody id="admin_man_table_body">
-            <?php
-                include_once("load_users_for_admin_man.php");
-            ?>                                              
+          <tbody id="admin_man_table_body"> 
+            <script>
+              //Load in user table on first page load
+              $(document).ready(function(){
+                $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+                part: "head",
+                table: "users"
+                }); 
+                $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+                part: "body",
+                table: "users"
+                });  
+             });
+             </script>                      
           </tbody>
         </div>
         </table> 
@@ -46,7 +50,7 @@
 </div>  
 
 <script>
-function test() {
+function admin_man_overlay() {
   document.getElementById("overlay_admin_man").style.display = "grid";
 }
 
