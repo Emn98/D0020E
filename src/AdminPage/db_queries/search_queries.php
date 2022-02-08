@@ -29,7 +29,7 @@ function get_policies_by_name_loaded_table($conn, $search_word){
 function get_policies_by_user_all_table($conn, $search_word){
     $search_word_prepare = "%".$search_word."%";
 
-    $query = $conn->prepare("SELECT full_namepolicy_name, created_at FROM Policies WHERE policy_name IN (SELECT policy_name FROM User_policy_conns WHERE user_id IN (SELECT user_id FROM Users WHERE full_name LIKE ? OR user_id=?))");
+    $query = $conn->prepare("SELECT policy_name, created_at FROM Policies WHERE policy_name IN (SELECT policy_name FROM User_policy_conns WHERE user_id IN (SELECT user_id FROM Users WHERE full_name LIKE ? OR user_id=?))");
     $query -> bind_param("si", $search_word_prepare, $search_word);
     $query->execute();
     $result = $query->get_result();
