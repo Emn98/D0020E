@@ -5,7 +5,8 @@ function create_new_user(){
     var full_name = window.prompt("Enter the new user's full name: ");
     var func = "Create user";
 
-    if(full_name == ""){
+    //Control so the does not enter empty string or just a load of spaces
+    if(full_name == "" || full_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -38,7 +39,7 @@ function create_new_object(){
     var full_name = window.prompt("Enter the name of the new object: ");
     var func = "Create object";
 
-    if(full_name == ""){
+    if(full_name == "" || full_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -65,13 +66,14 @@ function create_new_object(){
 }
 
 
+//Create and add a new operation to the database
 function create_new_operation(){
     var func = "Create operation";
     var operation_2_field = null;
     
     var operation_name = window.prompt("Enter the name of the new operation: ");
     
-    if(operation_name == ""){
+    if(operation_name == "" || operation_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -81,7 +83,7 @@ function create_new_operation(){
 
     operation_2_field = window.prompt("Enter the second field of the operation: ");
 
-    if(operation_2_field == ""){
+    if(operation_2_field == "" || operation_2_field.trim() == 0){
         alert("Error: You need to enter something in the second field");
         return;
     }
@@ -113,7 +115,7 @@ function edit_user(user_id){
     var full_name = window.prompt("Enter a new name for the user: ");
     var func = "Edit user";
 
-    if(full_name == ""){
+    if(full_name == "" || full_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -144,7 +146,7 @@ function edit_object(object_id){
     var full_name = window.prompt("Enter a new name for the object: ");
     var func = "Edit object";
 
-    if(full_name == ""){
+    if(full_name == "" || full_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -177,7 +179,7 @@ function edit_operation(operation_id){
 
     var operation_name = window.prompt("Enter a new name for the operation: ");
 
-    if(operation_name == ""){
+    if(operation_name == "" || operation_name.trim() == 0){
         alert("Error: You need to enter a name");
         return;
     }
@@ -187,7 +189,7 @@ function edit_operation(operation_id){
 
     if(confirm("Do you want to change the second field aswell?")){
         operation_2_field = window.prompt("Enter new second field: ");
-        if(operation_2_field == ""){
+        if(operation_2_field == "" || operation_2_field.trim() == 0){
             alert("Error: You need to enter a second field");
             return;
         }
@@ -285,7 +287,3 @@ function delete_operation(operation_id){
         });  
     }
 }
-
-
-
-

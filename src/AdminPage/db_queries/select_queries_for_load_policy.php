@@ -152,7 +152,7 @@ function get_object_attribute_name($conn, $attribute_id){
 
 function get_object_attr_and_parent_attr_id_associated_with_policy($conn, $policy_name){
     $query = $conn->prepare("SELECT object_attr_name, parent_attribute FROM Object_attr_policy_conns WHERE policy_name=? AND parent_attribute IS NOT NULL"); 
-    $query->bind_param("s", $_POST["policy_name"]);
+    $query->bind_param("s", $policy_name);
     $query->execute();
     $result = $query->get_result();
     $query->fetch();

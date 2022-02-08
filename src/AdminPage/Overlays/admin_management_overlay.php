@@ -1,6 +1,6 @@
   <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="Styles/admin_management_overlay_styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +30,7 @@
         </div>
           <tbody id="admin_man_table_body"> 
             <script>
-              //Load in user table on first load
+              //Load in user table on first page load
               $(document).ready(function(){
                 $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
                 part: "head",
