@@ -15,19 +15,39 @@
         <h1>Frontend for access test of data and attributes</h1>
 
         <form action="access_request.php" method="GET">
-            <label for="users">Choose a user:</label>
-                <select id="user" name="user">
-                    <option value="jesper">Jesper</option>
-                    <option value="ilaman">Ilaman</option>
-                    <option value="emil">Emil</option>
-                    <option value="birger">Birger</option>
+            <?php
+                include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_conn/db_conn.php");
+                include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
+                $users = get_users($conn);
+            ?>
+            <lable for="user<?php echo $i ?>">Select user</label>
+                <select  id="user<?php echo $i ?>" name="user<?php echo $i ?>">
+                    
+                    <?php
+                        for($num_user = 0; $num_user < sizeof($users); $num_user++)
+                        {
+                            ?>
+                                <option value="<?php echo $users[$num_user]["full_name"]?>"><?php echo $users[$num_user]["full_name"]?></option>
+                                
+                            <?php
+                        }
+                    ?>
                 </select>
-            <label for="objects">Choose a object:</label>
-                <select id="object" name="object">
-                    <option value="hobbit">Hobbit</option>
-                    <option value="bible">Bible</option>
-                    <option value="book1">book1</option>
-                    <option value="book2">book2</option>
+            <?php
+                $objects = get_objects($conn);
+            ?>
+            <lable for="object<?php echo $i ?>">Select object</label>
+                <select id="object<?php echo $i ?>" name="object<?php echo $i ?>">
+                    
+                    <?php
+                        for($num_object = 0; $num_object < sizeof($objects); $num_object++)
+                        {
+                            ?>
+                                <option value="<?php echo $objects[$num_object]["full_name"] ?>"><?php echo $objects[$num_object]["full_name"]  ?></option>
+                                
+                            <?php
+                        }
+                    ?>
                 </select>
             <button id="submit" name="submit" type="submit">Submit</button>
         </form>
