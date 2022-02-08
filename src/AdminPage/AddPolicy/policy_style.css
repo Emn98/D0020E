@@ -6,53 +6,37 @@
 
 /* This is the style for the login page */
 
-body {
-    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
-    font-weight: 500;
-    background-color: #435165;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.add_policy_form {
-    width: 24rem;
-    padding: 1.5rem;
-    background-color: white;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+.form_cont{
+    padding-top: 20rem;
+    padding-bottom: 20rem;
 }
 
 .dynamic_form {
-    width: 100%;
-    padding: 1.5rem;
-    background-color: white;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-}
-
-.user_and_object_form {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
     width: 60rem;
-    padding: 1.5rem;
     background-color: white;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
 }
 
-.association_form {
-    width: 40rem;
-    padding: 1.5rem;
-    background-color: white;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+#add_policy_form {
+    width: 24rem;
 }
+
 
 
 h1 {
-  margin-bottom: 2.5rem;
-  text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .form_elements {
     position: relative;
     height: 3rem;
+
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -93,8 +77,7 @@ h1 {
 }
 
 .float-container {
-    border: 3px solid #fff;
-   
+    border: 5px solid rgb(255, 255, 255);
 }
 
 .float-child-2{
@@ -106,7 +89,7 @@ h1 {
 
 .float-child-3{
     text-align: center;
-    width: 30%;
+    width: 33.33333%;
     float: left;
     padding-bottom: 20px;
 }  
@@ -121,6 +104,96 @@ h1 {
 .border{
     height: 30px;
     margin-top: 2px;
+    margin-bottom: 2px;
     padding-top: 4px;
+    padding-bottom: 4px;
     border: 1px solid black;
+}
+
+select{
+    left: 0rem;
+    width: 90%;
+    height: 100%;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 18px;
+    outline: none;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.policy_input{
+    left: 0rem;
+    width: 90%;
+    height: 100%;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 18px;
+    outline: none;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input_button {
+    display: block;
+    width: 85%;
+    height: 3rem;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding: 0.4rem 1.5rem;
+
+    background-color: #3274d6;
+  	border: 1px solid #3274d6;
+
+  	cursor: pointer;
+      
+  	font-weight: bold;
+    font-size: 18px;
+  	color: white;
+    font-weight: bolder;
+    cursor: pointer;   
+}
+
+.input_button:hover{
+  background-color: #2868c7;
+}
+
+
+.edit_button {
+    display: block;
+    width: 40rem;
+    height: 3rem;
+
+    margin-left: 28rem;
+    margin-top: 1rem;
+    padding: 0.4rem 1.5rem;
+
+    background-color: #3274d6;
+  	border: 1px solid #3274d6;
+
+  	cursor: pointer;
+      
+  	font-weight: bold;
+    font-size: 18px;
+  	color: white;
+    font-weight: bolder;
+    cursor: pointer;   
+}
+
+.edit_button:hover{
+  background-color: #2868c7;
+}
+
+.header{
+    background-color: white;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    
+    
 }

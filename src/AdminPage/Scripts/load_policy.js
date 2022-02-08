@@ -10,6 +10,7 @@ function load_policy(policy_name){
         dataType: "text",
 
         success: function(response){
+            console.log(response);
             if(response == 1){
                 alert("Policy: '" + policy_name + "' is already loaded into NGAC");
             }else{

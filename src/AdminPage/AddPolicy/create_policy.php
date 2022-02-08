@@ -146,6 +146,23 @@
         ];
         */
 
-        add_policy_data_to_DB($_POST["policy_name"], $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
+        $result = add_policy_data_to_DB($_POST["policy_name"], $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
+
+        if($result == true)
+        {
+            header('Location: ../admin_main_page.php');
+            exit();
+        }
+        else
+        {
+            echo "\n\r Somthing whent wrong!\n\r";
+        }
+
+    }
+    else
+    {
+        header('Location: ../admin_main_page.php');
+        exit();
+
     }
 ?>

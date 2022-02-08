@@ -2,12 +2,12 @@
 <html>
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="Styles/admin_management_overlay_styles.css">
+  <link rel="stylesheet" href="/AdminPage/Styles/admin_management_overlay_styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="Scripts/admin_man_arrow_logic.js"></script>
-  <script src="Scripts/search_for_admin_man.js"></script>
-  <script src="Scripts/admin_man_overlay_logic.js"></script>
-  <script src="Scripts/load_in_users_at_start_admin_man.js"></script>
+  <script src="/AdminPage/Scripts/admin_man_arrow_logic.js"></script>
+  <script src="/AdminPage/Scripts/search_for_admin_man.js"></script>
+  <script src="/AdminPage/Scripts/admin_man_overlay_logic.js"></script>
+  <script src="/AdminPage/Scripts/load_in_users_at_start_admin_man.js"></script>
 </head>
 <body>
 <div id="overlay_admin_man">

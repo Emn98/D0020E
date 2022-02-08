@@ -59,6 +59,38 @@
 
     }
 
+    function get_users($conn)
+    {
+        $sql = "SELECT * FROM Users";
+
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            $i = 0;
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) 
+            {
+                $data[$i] = $row;
+                $i ++;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
     function get_object($conn, $full_name)
     {
         $sql = "SELECT * FROM Objects WHERE full_name = '$full_name';";
@@ -75,10 +107,44 @@
         else if ($num_rows > 1)
         {
             $data = [];
+            $i = 0;
             // output data of each row
-            while($row = mysqli_fetch_row($result)) 
+            while($row = mysqli_fetch_assoc($result)) 
             {
-                $data = $data + $row;
+                $data[$i] = $row;
+                $i ++;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    function get_objects($conn)
+    {
+        $sql = "SELECT * FROM Objects;";
+        
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            $i = 0;
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) 
+            {
+                $data[$i] = $row;
+                $i ++;
             }
             return $data;
         }
