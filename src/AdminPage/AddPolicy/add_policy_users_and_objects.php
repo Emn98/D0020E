@@ -37,7 +37,7 @@
                 
             
             <div class="form_cont">
-                <button class="edit_button" onclick="test()">EDIT USERS AND OBJECTS</button>
+                <button class="edit_button" onclick="admin_man_overlay()">EDIT USERS AND OBJECTS</button>
                 <form class="dynamic_form" id="user_object" method="POST" action="add_policy_attr_conns.php" id="add_policy_form">
                     
                     <h1>Choose names</h1>
