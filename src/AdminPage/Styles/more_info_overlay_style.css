@@ -1,0 +1,100 @@
+#overlay2{
+    position: absolute;
+    display: None;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+#graph_div{
+    position: fixed;
+    width: 50rem;
+    height: calc(100vh - 8rem);
+    max-height: calc(100vh - 8rem);
+    min-height: calc(100vh - 8rem);
+    background: rgba(255,255,255,1);
+    z-index: 3;
+    margin-left: 42.7rem;
+    margin-top: 5rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-right:1px solid black; 
+    overflow: hidden;
+}
+
+#display_policy_info{
+    position: fixed;
+    height: calc(100vh - 8rem);
+    max-height: calc(100vh - 8rem);
+    min-height: calc(100vh - 8rem);
+    width: 20rem;
+    background: white;
+    margin-top: 5rem;
+    margin-left: 22.7rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left:1px solid black;
+    border-right: 1px solid lightgray;
+    overflow: auto; 
+}
+
+#display_policy_info .policy_name_text{
+    height: 2.5rem;
+    text-align: center;
+    font-size: 28px;
+    margin-top: 0.4rem;
+    border-bottom: 1px solid black;
+}
+
+
+
+  details {
+    width: cover;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+    margin-left: 0.3rem;
+    font-size: 20px;
+    cursor: pointer;
+  
+  }
+  
+  
+  details[open] > summary {
+    margin-bottom: 0.2rem;
+  }
+  
+  li {
+    margin-top: 0.2rem;
+    margin-left: 2.3rem;
+    font-size: 18px;
+    cursor: default;
+    text-overflow: ellipsis;
+  }
+
+  .close_btn_more_info {
+    cursor: pointer;
+    position:absolute;
+    margin-top: 6.1rem;
+    font-weight: 500;
+    padding: 6px 9px;
+    margin-left: 89.6rem;
+    border-radius: 51%;
+    z-index: 4;
+    background-color: rgba(0,0,0,0);
+    transition: 0.8s;
+  }
+  
+  .close_btn_more_info:hover {
+    background: rgba(211,211,211,0.5);
+    transform: rotateZ(90deg)
+    scale(1.2);
+  }
+

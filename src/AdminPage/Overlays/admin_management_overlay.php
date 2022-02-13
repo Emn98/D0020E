@@ -14,10 +14,10 @@
   <div id="popup_container_admin_man">
     <h1 id="right_arrow" onclick="pressed_right_arrow()">></h1>
     <h1 id="left_arrow" onclick="pressed_left_arrow()" hidden><</h1>
-    <p class="close_btn" onclick="closeee()">X</p>
+    <p class="close_btn" onclick="closeee()">&#x2715</p>
     <div id="admin_man_search_container">
         <form id="admin_man_search_form" method="POST" action="">
-            <input type="text" id="admin_man_search_inp" name="search_inp" autocomplete="off">
+            <input type="text" id="admin_man_search_inp" name="search_inp" autocomplete="off" placeholder="Search user by name or id...">
             <button id="admin_man_submit" type="submit">Search</button>
         </form>
         <h2 id="admin_man_title">Users</h2>

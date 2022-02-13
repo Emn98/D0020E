@@ -4,9 +4,11 @@
     padding: 0;
   }
   
+  
   body {
-      font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+      font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
       font-weight: 500;
+      font-size: 16px !important;
       background-color: #435165;
       height: 100vh;
       display: grid;
@@ -78,8 +80,9 @@
     resize: none;
     outline: none;
     margin-left: 12%;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     font-size: 17px;
+    text-emphasis-color: black;
   }
   
   .search_bar_form button{
@@ -307,4 +310,18 @@
   
   #admin_man_overlay_btn:hover{
     background: #0088a9;
+  }
+
+ #choose_frontend_txt:hover{
+   cursor: pointer;
+   text-decoration: underline;
+ }
+
+ #policy_name_td{
+   transition: 0.8s;
+ }
+ 
+ #policy_name_td:hover{
+   cursor: pointer;
+   text-decoration: underline;
   }

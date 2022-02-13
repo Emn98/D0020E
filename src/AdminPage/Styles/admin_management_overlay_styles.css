@@ -30,17 +30,21 @@
   .close_btn {
     cursor: pointer;
     position:absolute;
-    margin-top: 1.8rem;
+    margin-top: 0.9rem;
     font-weight: 500;
-    padding: 4px 7px;
-    margin-left: 48.5rem;
-    border-radius: 4px;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-    background: lightgrey;
-    transform: translate(0%, -50%);
+    padding: 6px 9px;
+    margin-left: 49rem;
+    border-radius: 51%;
+    background-color: rgba(0,0,0,0);
+    transition: 0.8s;
+    
   }
   
-  .close_btn:hover {background: #bbb;}
+  .close_btn:hover {
+    background: rgba(211,211,211,0.5);
+    transform: rotateZ(90deg)
+    scale(1.2);
+  }
 
   #admin_man_search_container{
     text-align: center;
@@ -49,7 +53,6 @@
     max-height: 18%;
     border-top-right-radius:10px;
     border-top-left-radius:10px;
-
   }
 
   #admin_man_search_inp{
@@ -62,7 +65,7 @@
     font-size: 17px;
     margin-top: 3.5rem;
     margin-left: 2.5%;
-
+    transition: 0.8s;
   }
 
   #admin_man_submit{
@@ -177,7 +180,7 @@
 }
 
 #right_arrow:hover{
-  color: #0088a9;
+  color: white;
 }
 
 #left_arrow{
@@ -186,12 +189,10 @@
   font-size: 100px;
   margin-top: 22rem;
   margin-left: -4.1rem;
-
 }
 
 #left_arrow:hover{
-  color: #0088a9;
-  
+  color: white;
 }
 
 #admin_man_create_btn{

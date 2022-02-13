@@ -4,9 +4,12 @@ class NgacDoc {
 
 	graph_data_retrieval;
 
+	db_handler;
+
 	constructor() {
 		this.fileHandler = new FileHandler();
 		this.graph_data_retrieval = new Graph_data_retrieval();
+		this.db_handler = new db_handler();
 	}
 
 	addNode() {
@@ -191,6 +194,11 @@ class NgacDoc {
 	retrive_data()
 	{
 		this.graph_data_retrieval.get_data();
+	}
+
+	load_db(policy_name)
+	{
+		this.db_handler.load_via_db(policy_name);
 	}
 
 }

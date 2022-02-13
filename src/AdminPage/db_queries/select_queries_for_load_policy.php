@@ -15,7 +15,7 @@ function get_policy_class_name($conn, $policy_name){
 }
 
 function get_users_associated_with_policy($conn, $policy_name){
-    $query = $conn->prepare("SELECT full_name FROM Users WHERE user_id IN (SELECT user_id FROM User_policy_conns WHERE policy_name=?)");  
+    $query = $conn->prepare("SELECT full_name, user_id FROM Users WHERE user_id IN (SELECT user_id FROM User_policy_conns WHERE policy_name=?)");  
     $query->bind_param("s", $policy_name);
     $query->execute();
     $result = $query->get_result();
@@ -37,7 +37,7 @@ function get_user_attributes_associated_with_policy($conn, $policy_name){
 }
 
 function get_objects_associated_with_policy($conn, $policy_name){
-    $query = $conn->prepare("SELECT full_name FROM Objects WHERE object_id IN (SELECT object_id FROM Object_policy_conns WHERE policy_name=?)");  
+    $query = $conn->prepare("SELECT full_name, object_id FROM Objects WHERE object_id IN (SELECT object_id FROM Object_policy_conns WHERE policy_name=?)");  
     $query->bind_param("s", $policy_name);
     $query->execute();
     $result = $query->get_result();

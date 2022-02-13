@@ -21,7 +21,8 @@ echo "<details><summary>User(s)</summary><ul>";
 $result = get_users_associated_with_policy($conn, $policy_name);
 while( $row = $result->fetch_assoc()){
     $user = $row["full_name"];
-    echo "<li>$user</li>"; 
+    $user_id = $row["user_id"];
+    echo "<li>$user ($user_id)</li>"; 
 }
 echo "</ul></details>";
 
@@ -39,7 +40,8 @@ echo "<details><summary>Objects(s)</summary><ul>";
 $result = get_objects_associated_with_policy($conn, $policy_name);
 while( $row = $result->fetch_assoc()){
     $object = $row["full_name"];
-    echo "<li>$object</li>"; 
+    $object_id = $row["object_id"];
+    echo "<li>$object ($object_id)</li>"; 
 }
 echo "</ul></details>";
 

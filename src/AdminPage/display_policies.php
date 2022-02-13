@@ -18,7 +18,7 @@ function display_all_policies_body($result){
           if($temp == 1){
               echo '<tr class="table_row_odd">';
   ?>
-              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+              <td id="policy_name_td" onclick="show_policy_info('<?php echo $row['policy_name'] ?>')"><?php echo $row['policy_name'] ?></td>
   <?php              
               echo '<td>'.$row["created_at"].'</td>';
   ?>
@@ -30,7 +30,7 @@ function display_all_policies_body($result){
           }else{
               echo '<tr class="table_row_even">';
   ?>
-              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+              <td id="policy_name_td" onclick="show_policy_info('<?php echo $row['policy_name'] ?>')"><?php echo $row['policy_name'] ?></td>
   <?php
               echo '<td>'.$row["created_at"].'</td>';
   ?>
@@ -68,7 +68,7 @@ function diplay_loaded_policies_body($result){
           if($temp == 1){
               echo '<tr class="table_row_odd">';
   ?>
-              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+              <td id="policy_name_td" onclick="show_policy_info('<?php echo $row['policy_name'] ?>')"><?php echo $row['policy_name'] ?></td>
   <?php
               echo '<td>'.$row["loaded_at"].'</td>>';
   ?>
@@ -80,7 +80,7 @@ function diplay_loaded_policies_body($result){
           }else{
               echo '<tr class="table_row_even">';
   ?>
-              <td onclick="show_policy_info('<?php echo $row['policy_name'] ?>')" style="cursor: pointer;"><?php echo $row['policy_name'] ?></td>
+              <td id="policy_name_td" onclick="show_policy_info('<?php echo $row['policy_name'] ?>')"><?php echo $row['policy_name'] ?></td>
   <?php
               echo '<td>'.$row["loaded_at"].'</td>';
   ?>
