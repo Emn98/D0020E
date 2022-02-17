@@ -1,3 +1,4 @@
+<!-- This file displays all the information in the administrator management overlay -->
 <?php
 
 function display_users_head(){
@@ -8,12 +9,10 @@ function display_users_head(){
   echo "<th></th>";
   echo "<th></th>";
   echo "</tr>";  
-
 }
 
 function display_users_body($result){
   $temp = 1;
-  
   include("../db_conn/db_conn.php");
 
   if(mysqli_num_rows($result) > 0){
@@ -171,13 +170,14 @@ function display_operation_head(){
   echo "<th>operation_id</th>";
   echo "<th>Operation name</th>";
   echo "<th>Operation second field</th>";
+  echo "<th>In policies</th>";
   echo "<th></th>";
   echo "<th></th>";
   echo "</tr>"; 
-  
 }
 
 function display_operation_body($result){
+  include("../db_conn/db_conn.php");
   $temp = 1;
 
   if(mysqli_num_rows($result) > 0){
@@ -189,6 +189,24 @@ function display_operation_body($result){
 <?php              
           echo '<td>'.$row["operation_name"].'</td>';
           echo '<td>'.$row["operation_2_field"].'</td>';
+
+          //Get all policies which a specific operation is in. 
+          $query = $conn->prepare("SELECT policy_name FROM Associations WHERE operation_id =?");  
+          $query->bind_param("i", $row['operation_id']);
+          $query->execute();
+          $policies = $query->get_result();
+          $query->fetch();
+          $query->close();
+
+          if(mysqli_num_rows($policies) > 0){
+            echo "<td><select>";
+            while($policies_row = $policies->fetch_assoc()){
+              echo "<option>".$policies_row['policy_name']."</option>";
+            }
+            echo "</selecT></td>";
+          }else{
+            echo "<td><p>None</p></td>";
+          }
 ?>
           <td><input type="button" value="Edit" class="edit_btn" onclick="edit_operation('<?php echo $row['operation_id'] ?>')"></td>
           <td><input type="button" value="Delete" class="delete_btn" onclick="delete_operation('<?php echo $row['operation_id'] ?>')"></td>
@@ -201,6 +219,24 @@ function display_operation_body($result){
 <?php          
           echo '<td>'.$row["operation_name"].'</td>';
           echo '<td>'.$row["operation_2_field"].'</td>';
+
+          //Get all policies which a specific operation is in. 
+          $query = $conn->prepare("SELECT policy_name FROM Associations WHERE operation_id =?");  
+          $query->bind_param("i", $row['operation_id']);
+          $query->execute();
+          $policies = $query->get_result();
+          $query->fetch();
+          $query->close();
+
+          if(mysqli_num_rows($policies) > 0){
+            echo "<td><select>";
+            while($policies_row = $policies->fetch_assoc()){
+              echo "<option>".$policies_row['policy_name']."</option>";
+            }
+            echo "</selecT></td>";
+          }else{
+            echo "<td><p>None</p></td>";
+          }
 ?>
           <td><input type="button" value="Edit" class="edit_btn" onclick="edit_operation('<?php echo $row['operation_id']?>')"></td>
           <td><input type="button" value="Delete" class="delete_btn" onclick="delete_operation('<?php echo $row['operation_id']?>')"></td>

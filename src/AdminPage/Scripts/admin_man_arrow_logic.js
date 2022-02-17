@@ -10,6 +10,7 @@ function pressed_right_arrow(){
         $("#admin_man_create_btn").html("Create New Object");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_object()')
         document.getElementById("left_arrow").hidden = false;
+        document.getElementById('admin_man_search_inp').placeholder="Search object by name or id...";
         $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
             part: "head",
             table: "objects"
@@ -26,6 +27,7 @@ function pressed_right_arrow(){
         $("#admin_man_create_btn").html("Create New Operation");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_operation()')
         document.getElementById("right_arrow").hidden = true;
+        document.getElementById('admin_man_search_inp').placeholder="Search operation by name or id...";
         $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
             part: "head",
             table: "operations"
@@ -42,11 +44,11 @@ function pressed_left_arrow(){
 
     //If current table is objects then show users table. 
     if(current_table == "Objects"){
-        console.log("Test");
         $("#admin_man_title").html("Users");
         $("#admin_man_create_btn").html("Create New User");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_user()')
         document.getElementById("left_arrow").hidden = true;
+        document.getElementById('admin_man_search_inp').placeholder="Search user by name or id...";
         $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
             part: "head",
             table: "users"
@@ -63,6 +65,7 @@ function pressed_left_arrow(){
         $("#admin_man_create_btn").html("Create New Object");
         document.getElementById("admin_man_create_btn").setAttribute('onclick','create_new_object()')
         document.getElementById("right_arrow").hidden = false;
+        document.getElementById('admin_man_search_inp').placeholder="Search object by name or id...";
         $("#admin_man_table_head").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
             part: "head",
             table: "objects"

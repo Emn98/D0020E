@@ -1,11 +1,11 @@
 function load_policy(policy_name){
-    var submit = "submit";
+    var check_if_policy_already_loaded = "check";
     
     $.ajax({
         type: "POST",
         url:  "/AdminPage/LoadPolicy/get_policy_backend.php", 
         data: {policy_name: policy_name,
-               submit: submit
+               check_if_policy_already_loaded: check_if_policy_already_loaded
               },
         dataType: "text",
 

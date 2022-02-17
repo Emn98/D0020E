@@ -9,14 +9,17 @@
         include_once($path);
 
         require("../db_queries/select_queries_for_load_policy.php");
-        //Check if the policy about to be loaded is already loaded
-        require("../LoadPolicy/check_if_policy_already_loaded.php");
+
+        if(isset($_POST["check_if_policy_already_loaded"])){
+            //Check if the policy about to be loaded is already loaded
+            require("../LoadPolicy/check_if_policy_already_loaded.php");
+        }
 
         //Retrive the policy class name from the Policies table
         $policy_class = get_policy_class_name($conn, $_POST["policy_name"]);
         
         //Start the policy file
-        $pol_text = "policy(".$_POST["policy_name"].",'".$policy_class."',[\n";
+        $pol_text = "policy('".$_POST["policy_name"]."','".$policy_class."',[\n";
         
         //Retrive the user(s) associated with the current policy.
         $result = get_users_associated_with_policy($conn, $_POST["policy_name"]); 
