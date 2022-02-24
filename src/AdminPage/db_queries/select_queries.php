@@ -29,6 +29,38 @@
 
     }
 
+    function get_policies($conn)
+    {
+        $sql = "SELECT * FROM Policies";
+
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            $i = 0;
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) 
+            {
+                $data[$i] = $row;
+                $i ++;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
     function get_user($conn, $full_name)
     {
         $sql = "SELECT * FROM Users WHERE full_name = '$full_name';";
@@ -335,6 +367,36 @@
 
     }
 
+    function get_Association_from_ID($conn ,$association_id)
+    {
+        $sql = "SELECT * FROM Associations WHERE association_id = $association_id;";
+        
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            // output data of each row
+            while($row = mysqli_fetch_row($result)) 
+            {
+                $data = $data + $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
     function get_Assign_policy_classes($conn, $policy_name)
     {
         $sql = "SELECT * FROM Assign_policy_classes WHERE policy_name = '$policy_name';";
@@ -394,4 +456,64 @@
         }
 
     }
+
+    function get_Condition_ID($conn, $condition_definition)
+    {
+        $sql = "SELECT condition_ID FROM conditions WHERE condition_definition = '$condition_definition';";
+        
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            // output data of each row
+            while($row = mysqli_fetch_row($result)) 
+            {
+                $data = $data + $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function get_Condition($conn, $condition_ID)
+    {
+        $sql = "SELECT * FROM conditions WHERE condition_ID = $condition_ID;";
+        
+        $result = mysqli_query($conn, $sql);
+
+        $num_rows = mysqli_num_rows($result);
+
+
+        if ($num_rows == 1) 
+        {
+            return mysqli_fetch_assoc($result);
+        }
+        else if ($num_rows > 1)
+        {
+            $data = [];
+            // output data of each row
+            while($row = mysqli_fetch_row($result)) 
+            {
+                $data = $data + $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    
 ?>

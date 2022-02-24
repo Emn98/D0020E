@@ -80,6 +80,9 @@
             <button id="submit" type="submit">Search</button>
           </form>
           <h2>Policies</h2>
+          <form class="add_policy_form" method="" action="conditions/choose_policy.php">
+            <button class="create_new_cond_btn">Create New Condition</button>
+          </form>
           <form class="add_policy_form" method="" action="AddPolicy/select_create_method.php">
             <button class="create_new_policy_btn">Create New Policy</button>
           </form>

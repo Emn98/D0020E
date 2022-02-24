@@ -21,7 +21,7 @@
   <body>
     <div class="header">
         <h2 onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
-        <h2 onclick="go_to_admin_page()" style='cursor: pointer;'>Admin page</h2>
+        <h2 onclick="go_to_admin_page()" style='cursor: pointer; padding-left:4rem;'>Admin page</h2>
         <div class="server_status">
             <h3 style="display:inline;float:left">NGAC Server Status: </h3>
             <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>

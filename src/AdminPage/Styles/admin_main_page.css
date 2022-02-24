@@ -192,7 +192,25 @@
     background: rgba(255, 255, 255, 0.7);
   }
   
+  .create_new_cond_btn{
+    font-size: 14px;
+    margin-left: 37rem;
+    margin-bottom: 0.8rem;
+    width: 160px;
+    height: 40px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+  }
   
+  .create_new_cond_btn:hover{
+    background: #0088a9;
+  }
+
   .create_new_policy_btn{
     font-size: 14px;
     margin-left: 47rem;
