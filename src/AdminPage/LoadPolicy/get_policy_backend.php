@@ -152,6 +152,10 @@
 
         $pol_text .= "assign('".$policy_class."','PM'),\n";
 
+        require("../db_queries/select_queries.php");
+        $cond_associations_text = "cond(";
+        $cond_text = "";
+
         //Retrice all associations belonging to the policy 
         $result = get_association_info($conn, $_POST["policy_name"]);
 
@@ -159,6 +163,7 @@
             $user_attr_id = $row["user_attribute"];
             $object_attr_id = $row["object_attribute"];
             $operation_id = $row["operation_id"];
+            $cond_ID = $row["cond_ID"];
 
             $user_attr = get_user_attribute_name($conn, $user_attr_id);
 
@@ -166,12 +171,36 @@
 
             $operation = get_operation($conn, $operation_id);
 
-            //Append associations to the policy file
-            $pol_text .= "associate('".$user_attr."',[".$operation."],'".$object_attr."'),\n";
+            if($cond_ID != NULL)
+            {
+                // Only add cond_text the first time a condition is found
+                if($cond_text == "")
+                {
+                    $cond = get_Condition($conn, $cond_ID);
+                    $cond_text = $cond["condition_definition"];
+                    $cond_associations_text .= $cond_text . ", [\n";
+                }
+
+                $cond_associations_text .= "associate('".$user_attr."',[".$operation."],'".$object_attr."'),\n";
+            }
+            else
+            {
+                //Append associations to the policy file
+                $pol_text .= "associate('".$user_attr."',[".$operation."],'".$object_attr."'),\n";
+            }
+            
 
         }
         
         $pol_text = substr_replace($pol_text ,"\n",-2);
+
+        $cond_associations_text = substr_replace($cond_associations_text ,"\n",-2);
+        $cond_associations_text .= "])\n";
+
+        if($cond_text != "")
+        {   
+            $pol_text .= $cond_associations_text;
+        }
 
         $pol_text .= "])";
         

@@ -38,11 +38,7 @@
         $num_rows = mysqli_num_rows($result);
 
 
-        if ($num_rows == 1) 
-        {
-            return mysqli_fetch_assoc($result);
-        }
-        else if ($num_rows > 1)
+        if ($num_rows >= 1)
         {
             $data = [];
             $i = 0;
@@ -100,11 +96,7 @@
         $num_rows = mysqli_num_rows($result);
 
 
-        if ($num_rows == 1) 
-        {
-            return mysqli_fetch_assoc($result);
-        }
-        else if ($num_rows > 1)
+        if ($num_rows >= 1)
         {
             $data = [];
             $i = 0;
@@ -164,11 +156,7 @@
         $num_rows = mysqli_num_rows($result);
 
 
-        if ($num_rows == 1) 
-        {
-            return mysqli_fetch_assoc($result);
-        }
-        else if ($num_rows > 1)
+        if ($num_rows >= 1)
         {
             $data = [];
             $i = 0;
