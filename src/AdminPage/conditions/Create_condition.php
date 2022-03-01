@@ -16,6 +16,15 @@
                     $index ++;
                 }
             }
+            if($index == 0)
+            {
+                ?>
+                    <script>
+                        window.location = "/AdminPage/conditions/choose_policy.php?NO_Association";
+                        
+                    </script>
+                <?php
+            }
         }
         
         cond_def_switch_case($_POST["condition"]);

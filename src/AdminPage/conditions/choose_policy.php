@@ -53,8 +53,19 @@
                     ?>
 
                 </select>
+                <b id="error" style="visibility:hidden;">Choose atleast one accossiaion</b>
                 <button class="input_button" type="submit" >Continue</button>
                 
             </form>
         </body>
     </html>
+<?php
+    if(isset($_GET["NO_Association"]))
+    {
+        ?>
+            <script>
+                document.getElementById("error").style="color:red; visibility:visible;";
+            </script>
+        <?php
+    }
+?>

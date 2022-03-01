@@ -29,10 +29,12 @@
 
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Include all defined conditions here !-->
 <script src="/AdminPage/conditions/def_conds/Time_in_range.js"></script>
 <script src="/AdminPage/conditions/def_conds/IS_weekday.js"></script>
+<body style="background-color:#435165">
 
 <div  id = "Loader1">
     <div id = "message1">
@@ -187,6 +189,7 @@
         function send_values_with_post(cond_def, associations)
         {
             $("#Loader1").show();
+           
             window.setTimeout( function(){
                 $.ajax({
                         
@@ -208,16 +211,32 @@
                         }
                         else
                         {
-                            if (window.confirm("Do you want to delete the old condition?")) 
-                            {
-                                delet_cond(data.cond_ID);
-                                update_DB(cond_def, associations);
+                            swal({
+                                title: "Do you want to delete the old condition?",
+                                icon: "warning",
+                                buttons: {
+                                    ok: {
+                                        text:"OK",
+                                        value: "true",
+                                    },
+                                    cancel: "cancel"
+                                },
+                                
+                            })
+                            .then((value)=>{
+                                switch(value){
+                                    case "true":
+                                        delet_cond(data.cond_ID);
+                                        update_DB(cond_def, associations);
+                                        break;
 
-                            }
-                            else
-                            {
-                                window.location.href = "/AdminPage/conditions/Add_condition.php";
-                            }
+                                    default:
+                                        window.location.href = "/AdminPage/conditions/Add_condition.php";
+                                        break;
+
+                                }
+                                
+                            });
 
                         }
                     }
@@ -231,6 +250,7 @@
         function update_DB(cond_def, associations)
         {
             $("#Loader1").show();
+        
             window.setTimeout( function(){
                 $.ajax({
                         
@@ -245,7 +265,21 @@
                     {
                         $('#Loader1').hide();
                         
-                        window.location.href = "/AdminPage/conditions/Add_condition.php";
+                        $.ajax({
+                        
+                            data: {
+                                SUCCESS:"Condition successfully created!"
+                            },
+                            type: "post",
+                            url: "/AdminPage/alert_message.php",
+                            
+                            success: function(data){
+                                document.write(data);
+                            }
+                            
+                            
+
+                        });
                     }
                     
                     
