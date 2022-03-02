@@ -45,3 +45,5 @@ Download the entire repository and place the files in the directory that you'r s
 ### Usage
 You must start the ngac server in json respones mode, if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
 
+# License
+Distributed under the MIT License. See LICENSE.txt for more information.
