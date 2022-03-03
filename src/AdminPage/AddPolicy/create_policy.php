@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <?php
     if(isset($_POST["policy_name"]))
     {
@@ -46,7 +47,8 @@
         $attribute_connections = [];
         for($num_user_attr = 0; $num_user_attr < $_POST["number_users_attr"]; $num_user_attr ++)
         {
-            $attribute_connections[$_POST["users_attr".$num_user_attr]] = NULL;
+            echo $_POST["users_attr".$num_user_attr]."<br>";
+            $attribute_connections[$_POST["user_attr".$num_user_attr]] = NULL;
         }
         for($num_object_attr = 0; $num_object_attr < $_POST["number_objects_attr"]; $num_object_attr ++)
         {
@@ -120,8 +122,7 @@
         
 
         // TEST
-        
-        
+        /*
         $user_attributes = ['ua1', 'ua2', 'ua3', 'ua4', 'ua5', 'ua6'];
         $object_attributes = ["oa1", "oa2"];
         $user_attributes_conns = [
@@ -148,18 +149,57 @@
             "ua2" => ["oa1" => ["w"]],
             "ua3" => ["oa2" => ["w"]]
         ];
-        
+        */
+
+
+
 
         $result = add_policy_data_to_DB($_POST["policy_name"], $user_attributes, $object_attributes, $user_attributes_conns, $object_attributes_conns, $attribute_connections, $assotiation);
 
         if($result == true)
         {
-            header('Location: ../admin_main_page.php');
-            exit();
+            ?>
+                <script>
+
+                    $.ajax({
+                        
+                        data: {
+                            SUCCESS:"Policy successfully created!"
+                        },
+                        type: "post",
+                        url: "/AdminPage/alert_message.php",
+                        
+                        success: function(data){
+                            document.write(data);
+                        }
+                        
+                        
+
+                    });
+                </script>
+            <?php
         }
         else
         {
-            echo "\n\r Somthing whent wrong!\n\r";
+            ?>
+                <script>
+                    $.ajax({
+                        
+                        data: {
+                            ERROR:"Somthing whent wrong!"
+                        },
+                        type: "post",
+                        url: "/AdminPage/alert_message.php",
+                        
+                        success: function(data){
+                            document.write(data);
+                        }
+                        
+                        
+
+                    });
+                </script>
+            <?php
         }
 
     }

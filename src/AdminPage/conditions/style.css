@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div#Loader1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(73, 73, 73, 0.651);
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: none;
+}
+
+div#Loader2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(73, 73, 73, 0.651);
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: none;
+}
+
+div#message1{
+  width: 50%;
+  height: 100px;
+  margin-top: 25%;
+  margin-left: 25%;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 100px;
+  background-color: rgb(92, 196, 83);
+}
+
+div#message2{
+  width: 50%;
+  height: 100px;
+  margin-top: 25%;
+  margin-left: 25%;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 100px;
+  background-color: rgb(255, 0, 0);
+}
+
+
+.header{
+    background-color: white;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+
+  
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.dynamic_form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 0;
+  padding: 2rem;
+  height: 55%;
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+.form_elements {
+  position: relative;
+  
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 26%;
+  margin-right: auto;
+}
+
+
+.form_elements .input {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 20px;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.form_elements .checkbox{
+  width: 20px;
+  height: 20px;
+  padding: 0.5rem;
+}
+
+
+.input_button {
+  display: block;
+  width: 85%;
+  height: 3rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  padding: 0.4rem 1.5rem;
+
+  background-color: #3274d6;
+  border: 1px solid #3274d6;
+
+  cursor: pointer;
+    
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;   
+}
+
+.input_button:hover{
+background-color: #2868c7;
+}
+
+select{
+  width: 100%;
+  height: 2rem;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 18px;
+  outline: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+
+.Time_in_range {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 0;
+  padding: 2rem;
+  height: 50%;
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+.Time_in_range_row{
+  width: 100%;
+  height: 2rem;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 18px;
+  outline: none;
+  margin-left: 7%;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.choose_pol_form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 0;
+  padding: 2rem;
+  height: 35%;
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}

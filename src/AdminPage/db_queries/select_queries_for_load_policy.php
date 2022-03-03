@@ -173,7 +173,7 @@ function get_obj_attr_user_attr_from_assign_policy_class($conn, $policy_name){
 }
 
 function get_association_info($conn, $policy_name){
-    $query = $conn->prepare("SELECT user_attribute, operation_id, object_attribute  FROM Associations WHERE policy_name=?"); 
+    $query = $conn->prepare("SELECT *  FROM Associations WHERE policy_name=?"); 
     $query->bind_param("s", $policy_name);
     $query->execute();
     $result = $query->get_result();

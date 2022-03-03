@@ -136,10 +136,14 @@ echo "</ul></details>";
 echo "<details><summary>Associations</summary><ul>";
 //Retrive all associations belonging to the policy 
 $result = get_association_info($conn, $_POST["policy_name"]);
+require("../db_queries/select_queries.php");
+$cond_associations_text = "";
+$cond_text = "";
 while( $row = $result->fetch_assoc()){
     $user_attr_id = $row["user_attribute"];
     $object_attr_id = $row["object_attribute"];
     $operation_id = $row["operation_id"];
+    $cond_ID = $row["cond_ID"];
 
     $user_attr = get_user_attribute_name($conn, $user_attr_id);
 
@@ -147,8 +151,33 @@ while( $row = $result->fetch_assoc()){
 
     $operation = get_operation($conn, $operation_id);
 
+    if($cond_ID != NULL)
+    {
+        // Only add cond_text the first time a condition is found
+        if($cond_text == "")
+        {
+            $cond = get_Condition($conn, $cond_ID);
+            $cond_text = $cond["condition_definition"];
+
+            if(strlen($cond_text) > 30)
+            {
+                $break_pos = strpos($cond_text, "(");
+                $cond_text = substr_replace($cond_text, "<br>", $break_pos, 0);
+
+            }
+        }
+
+        $cond_associations_text .= "<li>associate('".$user_attr."',[".$operation."],'".$object_attr."')</li>";
+    }
+
     echo "<li>associate('".$user_attr."',[".$operation."],'".$object_attr."')</li>";
 }
+echo "</ul></details>";
+
+echo "<details><summary>Condition</summary><ul>";
+echo "<details><summary>". $cond_text ."</summary><ul>";
+echo $cond_associations_text;
+echo "</ul></details>";
 echo "</ul></details>";
     
 ?>

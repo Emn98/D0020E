@@ -29,6 +29,10 @@ function update_operation_name_and_2_field_in_db($conn, $new_name, $operation_id
     $conn->close();
 }
 
-
+function update_associaion_cond_ID($conn, $association_id, $cond_ID){
+    $sql = "UPDATE Associations SET cond_ID = $cond_ID WHERE association_id = $association_id;";
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
 
 ?>

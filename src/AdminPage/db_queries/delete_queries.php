@@ -44,4 +44,15 @@ function delete_operation_from_db($conn, $operation_id){
 
 }
 
+function delete_condition_from_db($conn, $condition_ID){
+    $query = $conn->prepare("DELETE FROM conditions WHERE condition_ID = ?;");
+    $query -> bind_param("i", $condition_ID);
+    $query->execute();
+    $result = $query->affected_rows;
+    $query ->close();
+
+    return $result;
+
+}
+
 ?>
