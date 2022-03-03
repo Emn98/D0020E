@@ -1,7 +1,6 @@
 <?php     
-    
-    //If deletepolicy.js is calling this script, get the policy name to check. 
-    if(isset($_POST["delete_policy"])){
+     
+    if(isset($_POST["need_db_access"])){
         
         //creates connection to database
         $path = $_SERVER['DOCUMENT_ROOT'];

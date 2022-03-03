@@ -1,4 +1,4 @@
-function go_to_choose_frontend(){
-    window.location.href = "/index.php";
-    exit;
+function go_to_choose_frontend() {
+  window.location.href = "/index.php";
+  exit;
 }

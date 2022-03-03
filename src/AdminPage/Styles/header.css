@@ -1,0 +1,19 @@
+.header{
+    background-color: white !important;
+    width: 100% !important;
+    height: 4.23rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px 5% !important; 
+}
+
+.choose_admin_page_txt:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.choose_frontend_txt:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

@@ -41,9 +41,5 @@
   
     display_all_policies_body($result);
   }
-
-
-
-
-
+  
 ?>

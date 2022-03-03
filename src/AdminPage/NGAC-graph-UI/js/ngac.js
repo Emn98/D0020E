@@ -191,9 +191,9 @@ class NgacDoc {
 		this.fileHandler.load();
 	}
 
-	retrive_data()
+	retrive_data(test)
 	{
-		this.graph_data_retrieval.get_data();
+		this.graph_data_retrieval.get_data(test);
 	}
 
 	load_db(policy_name)

@@ -1,289 +1,301 @@
-
 //This function will create and add a new user to the database
-function create_new_user(){
+function create_new_user() {
+  var full_name = window.prompt("Enter the new user's full name: ");
+  var func = "Create user";
 
-    var full_name = window.prompt("Enter the new user's full name: ");
-    var func = "Create user";
+  //Control so the does not enter empty string or just a load of spaces
+  if (full_name == "" || full_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (full_name == null) {
+    return;
+  }
 
-    //Control so the does not enter empty string or just a load of spaces
-    if(full_name == "" || full_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: { full_name: full_name, func: func },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "users",
     }
-    if(full_name==null){
-        return;
-    }
-
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {full_name: full_name,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
-    });
-
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-        part: "body",
-        table: "users"
-    });      
-    
+  );
 }
 
 //This function will create and add a new object to the database
-function create_new_object(){
-    
-    var full_name = window.prompt("Enter the name of the new object: ");
-    var func = "Create object";
+function create_new_object() {
+  var full_name = window.prompt("Enter the name of the new object: ");
+  var func = "Create object";
 
-    if(full_name == "" || full_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
+  if (full_name == "" || full_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (full_name == null) {
+    return;
+  }
+
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: { full_name: full_name, func: func },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "objects",
     }
-    if(full_name==null){
-        return;
-    }
-
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {full_name: full_name,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
-    });
-
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-        part: "body",
-        table: "objects"
-    });   
+  );
 }
-
-
+/*
 //Create and add a new operation to the database
-function create_new_operation(){
-    var func = "Create operation";
-    var operation_2_field = null;
-    
-    var operation_name = window.prompt("Enter the name of the new operation: ");
-    
-    if(operation_name == "" || operation_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
-    }
-    if(operation_name==null){
-        return;
-    }
+function create_new_operation() {
+  var func = "Create operation";
+  var operation_2_field = null;
 
-    operation_2_field = window.prompt("Enter the second field of the operation: ");
+  var operation_name = window.prompt("Enter the name of the new operation: ");
 
-    if(operation_2_field == "" || operation_2_field.trim() == 0){
-        alert("Error: You need to enter something in the second field");
-        return;
+  if (operation_name == "" || operation_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (operation_name == null) {
+    return;
+  }
+
+  operation_2_field = window.prompt(
+    "Enter the second field of the operation: "
+  );
+
+  if (operation_2_field == "" || operation_2_field.trim() == 0) {
+    alert("Error: You need to enter something in the second field");
+    return;
+  }
+  if (operation_2_field == null) {
+    return;
+  }
+
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: {
+      operation_name: operation_name,
+      operation_2_field: operation_2_field,
+      func: func,
+    },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "operations",
     }
-    if(operation_2_field == null){
-        return;
+  );
+}
+*/
+
+function edit_user(user_id) {
+  var full_name = window.prompt("Enter a new name for the user: ");
+  var func = "Edit user";
+
+  if (full_name == "" || full_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (full_name == null) {
+    return;
+  }
+
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: { full_name: full_name, user_id: user_id, func: func },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "users",
     }
+  );
+}
+
+function edit_object(object_id) {
+  var full_name = window.prompt("Enter a new name for the object: ");
+  var func = "Edit object";
+
+  if (full_name == "" || full_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (full_name == null) {
+    return;
+  }
+
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: { full_name: full_name, object_id: object_id, func: func },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "objects",
+    }
+  );
+}
+/*
+function edit_operation(operation_id) {
+  var func = "Edit operation";
+  var operation_2_field = null;
+
+  var operation_name = window.prompt("Enter a new name for the operation: ");
+
+  if (operation_name == "" || operation_name.trim() == 0) {
+    alert("Error: You need to enter a name");
+    return;
+  }
+  if (operation_name == null) {
+    return;
+  }
+
+  if (confirm("Do you want to change the second field aswell?")) {
+    operation_2_field = window.prompt("Enter new second field: ");
+    if (operation_2_field == "" || operation_2_field.trim() == 0) {
+      alert("Error: You need to enter a second field");
+      return;
+    }
+    if (operation_2_field == null) {
+      return;
+    }
+  }
+
+  $.ajax({
+    async: false,
+    type: "POST",
+    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+    data: {
+      operation_name: operation_name,
+      operation_id: operation_id,
+      operation_2_field: operation_2_field,
+      func: func,
+    },
+    error: function () {
+      alert("failure");
+    },
+  });
+
+  $("#admin_man_table_body").load(
+    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+    {
+      part: "body",
+      table: "operations",
+    }
+  );
+}
+*/
+
+function delete_user(user_id) {
+  if (confirm("Do you really want to delete this user?")) {
+    var func = "Delete user";
 
     $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {operation_name: operation_name,
-               operation_2_field: operation_2_field,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
+      async: false,
+      type: "POST",
+      url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+      data: { user_id: user_id, func: func },
+      error: function () {
+        alert("failure");
+      },
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+    $("#admin_man_table_body").load(
+      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      {
         part: "body",
-        table: "operations"
-    });    
+        table: "users",
+      }
+    );
+  }
 }
 
-
-function edit_user(user_id){
-    var full_name = window.prompt("Enter a new name for the user: ");
-    var func = "Edit user";
-
-    if(full_name == "" || full_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
-    }
-    if(full_name==null){
-        return;
-    }
+function delete_object(object_id) {
+  if (confirm("Do you really want to delete this object?")) {
+    var func = "Delete object";
 
     $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {full_name: full_name,
-               user_id: user_id,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
+      async: false,
+      type: "POST",
+      url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+      data: { object_id: object_id, func: func },
+      error: function () {
+        alert("failure");
+      },
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+    $("#admin_man_table_body").load(
+      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      {
         part: "body",
-        table: "users"
-    });   
+        table: "objects",
+      }
+    );
+  }
 }
 
-function edit_object(object_id){
-    var full_name = window.prompt("Enter a new name for the object: ");
-    var func = "Edit object";
-
-    if(full_name == "" || full_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
-    }
-    if(full_name==null){
-        return;
-    }
+/*
+function delete_operation(operation_id) {
+  if (confirm("Do you really want to delete this operation?")) {
+    var func = "Delete operation";
 
     $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {full_name: full_name,
-               object_id: object_id,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
+      async: false,
+      type: "POST",
+      url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
+      data: { operation_id: operation_id, func: func },
+      error: function () {
+        alert("failure");
+      },
     });
 
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
+    $("#admin_man_table_body").load(
+      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      {
         part: "body",
-        table: "objects"
-    });   
+        table: "operations",
+      }
+    );
+  }
 }
-
-function edit_operation(operation_id){
-    var func = "Edit operation";
-    var operation_2_field = null;
-
-    var operation_name = window.prompt("Enter a new name for the operation: ");
-
-    if(operation_name == "" || operation_name.trim() == 0){
-        alert("Error: You need to enter a name");
-        return;
-    }
-    if(operation_name==null){
-        return;
-    }
-
-    if(confirm("Do you want to change the second field aswell?")){
-        operation_2_field = window.prompt("Enter new second field: ");
-        if(operation_2_field == "" || operation_2_field.trim() == 0){
-            alert("Error: You need to enter a second field");
-            return;
-        }
-        if(operation_2_field==null){
-            return;
-        }
-    }
-
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-        data: {operation_name: operation_name,
-               operation_id: operation_id,
-               operation_2_field: operation_2_field,
-               func: func
-        },
-        error: function(){
-            alert("failure");
-        }
-    });
-
-    $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-        part: "body",
-        table: "operations"
-    });  
-}
-
-function delete_user(user_id){
-    if(confirm("Do you really want to delete this user?")){
-        var func = "Delete user";
-
-        $.ajax({
-            async: false,
-            type: "POST",
-            url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-            data: {user_id: user_id,
-                   func: func
-            },
-            error: function(){
-                alert("failure");
-            }
-        });
-
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-            part: "body",
-            table: "users"
-        });  
-    }
-}
-
-function delete_object(object_id){
-    if(confirm("Do you really want to delete this object?")){
-        var func = "Delete object";
-
-        $.ajax({
-            async: false,
-            type: "POST",
-            url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-            data: {object_id: object_id,
-                   func: func
-            },
-            error: function(){
-                alert("failure");
-            }
-        });
-
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-            part: "body",
-            table: "objects"
-        });   
-
-    }
-}
-
-function delete_operation(operation_id){
-    if(confirm("Do you really want to delete this operation?")){
-        var func = "Delete operation";
-
-        $.ajax({
-            async: false,
-            type: "POST",
-            url:  "/AdminPage/Overlays/admin_man_overlay_logic_backend.php", 
-            data: {operation_id: operation_id,
-                   func: func
-            },
-            error: function(){
-                alert("failure");
-            }
-        });
-
-        $("#admin_man_table_body").load("/AdminPage/Overlays/load_for_admin_man_overlay.php", {
-            part: "body",
-            table: "operations"
-        });  
-    }
-}
+*/

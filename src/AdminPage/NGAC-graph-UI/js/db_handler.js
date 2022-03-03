@@ -21,7 +21,7 @@ class db_handler{
           },
         });
 
-        this.make_graph(policy_txt);
+        this.make_graph(policy_txt); //make the graph
     }
 
     make_graph(policy_txt){

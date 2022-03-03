@@ -1,7 +1,7 @@
 class Graph_data_retrieval
 {
     
-    get_data()
+    get_data(policy_name)
     {
         var nodes = cy.json().elements.nodes;
         var edges = cy.json().elements.edges;
@@ -24,8 +24,14 @@ class Graph_data_retrieval
         console.log(object_attributes_conns);
         console.log(attribute_conns);
         console.log(associations);
-
-        let policy = prompt("Please enter the policy's name:", "");
+        
+        let policy;
+        if(policy_name == null){
+            policy = prompt("Please enter the policy's name:", "");
+        }else{
+            policy = policy_name;
+        }   
+       
         if (policy != null && policy != "") {
             $("#Loader").show();
             window.setTimeout( function(){

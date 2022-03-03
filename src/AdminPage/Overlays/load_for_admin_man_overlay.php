@@ -35,6 +35,7 @@
     display_objects_body($result);
   }
 
+  /* Removed awaiting decision
   if($_POST["table"] == "operations" && $_POST["part"] == "head"){
     display_operation_head();
   }
@@ -48,5 +49,6 @@
   
     display_operation_body($result);
   }
+  */
 
 ?>

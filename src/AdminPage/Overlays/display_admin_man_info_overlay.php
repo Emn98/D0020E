@@ -164,7 +164,7 @@ function display_objects_body($result){
   }    
 }
 
-
+/* Removed awaiting decision
 function display_operation_head(){
   echo "<tr>";
   echo "<th>operation_id</th>";
@@ -248,5 +248,5 @@ function display_operation_body($result){
     echo "<td><h1 style='margin-left:20rem;margin-top:13rem;margin-bottom:0.5rem;'>No operations exist</h1></td>";
   }      
 }
-
+*/
 ?>

@@ -98,7 +98,7 @@
 
         }
         
-        /*
+        
         for($num_user_attr = 0; $num_user_attr < sizeof($user_attributes); $num_user_attr ++)
         {
             for($num_object_attr = 0; $num_object_attr < sizeof($object_attributes); $num_object_attr ++)
@@ -117,9 +117,10 @@
 
             }
         }
-        */
+        
 
         // TEST
+        
         
         $user_attributes = ['ua1', 'ua2', 'ua3', 'ua4', 'ua5', 'ua6'];
         $object_attributes = ["oa1", "oa2"];

@@ -7,7 +7,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  top: 0;
+  top: 4.23rem;
   right: 0;
   z-index: 999;
 }
@@ -178,4 +178,70 @@ div#message {
   border: 2px solid black;
   text-align: center;
   line-height: 100px;
+}
+
+/* This button is for edit policy page */
+.retrive_data_button_overwrite{
+  position: fixed;
+  margin-top: 11rem;
+  margin-bottom: 8rem;
+	color: #fff;
+	color: #666;
+	z-index: 99999;
+}
+
+/* edit page header */
+.header_div{
+  background-color: white !important;
+  width: 100% !important;
+  height: 4.23rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 20px 5% !important;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+}
+
+.choose_admin_page_txt_graph{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black !important;
+  font-weight: bolder !important;
+  font-size: 24px !important;
+  z-index: 99999;
+  margin-top: 0.5rem;
+
+}
+
+.choose_frontend_txt_graph{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black !important;
+  font-weight: bolder !important;
+  font-size: 24px !important;
+  z-index: 99999;
+  margin-top: 0.5rem;
+  
+}
+
+.choose_admin_page_txt_graph:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.choose_frontend_txt_graph:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.server_status_graph{
+  float: right;
+  margin-right: 5rem;
+}
+
+.server_status_graph h3{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black;
+  font-size: 18.7px;
+  font-weight: bolder !important;
+  margin-top: 0.5rem;
 }
