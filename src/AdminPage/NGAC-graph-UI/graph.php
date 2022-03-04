@@ -1,4 +1,14 @@
-<!DOCTYPE>
+<?php
+  // windows filepaths, to be changed
+  //include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_conn/db_conn.php");
+  //include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
+
+  // linux file paths... I think
+  include("../AdminPage/db_queries/select_queries.php");
+  include("../AdminPage/db_queries/select_queries.php");
+?>
+
+<!DOCTYPE html>
 
 <html>
 
@@ -11,28 +21,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="cytoscape/css/cytoscape.js-panzoom.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="cytoscape/js/dependencies.js"></script>
     <script src="cytoscape/js/cytoscape.min.js"></script>
 		<script src="cytoscape/js/cytoscape-extensions.js"></script>
     <script src="js/ngac.js"></script>
-    <script src="js/filehandler.js"></script>
     <script src="js/db_handler.js"></script>
-    <script src="js/graph_data_retrieval.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-    <script src="/AdminPage/Scripts/go_to_choose_frontend.js"></script>
-    <script src="/AdminPage/Scripts/check_ngac_server_conn.js"></script>
+    <script src="js/db_translator.js"></script>
     <script src="/AdminPage/Scripts/go_to_admin_page.js"></script>
-    <script>
-      $(document).ready(function(){
-            
-        //Check NGAC connection upon load
-        check_ngac_server_conn();
 
-      });
-    </script>
 
     <script>
 
@@ -42,12 +40,6 @@
 
         var cy = window.cy = cytoscape({
           container: document.getElementById('cy'),
-          
-
-          ready: function(){
-            this.layout({name: 'cose-bilkent', animationDuration: 1000}).run();
-          },
-
 
           style: [
             {
@@ -119,41 +111,7 @@
 
 
 
-          ]/*,
-          elements: {
-            nodes: [
-
-              // Attributes
-              { data: { id: 'Books', name: 'Books' }, classes: 'Object attribute' },
-              { data: { id: 'Documents', name: 'Documents' }, classes: 'Object attribute'  },
-              { data: { id: 'Team', name: 'Team' }, classes: 'User attribute'  },
-              { data: { id: 'Team2', name: 'Team2' }, classes: 'User attribute'  },
-              { data: { id: 'Lord of the rings', name: 'Lord of the rings', parent: 'Books' }, classes: 'Object attribute'  },
-
-              // Objects
-              { data: { name: 'The Hobbit', parent: 'Books' }, classes: 'Object' },
-              { data: { name: 'Fellowship of the ring', parent: 'Lord of the rings' }, classes: 'Object' },
-              { data: { name: 'The Two Towers', parent: 'Lord of the rings' }, classes: 'Object' },
-              { data: { name: 'Return of the king', parent: 'Lord of the rings' }, classes: 'Object' },
-              { data: { name: 'Secret Document', parent: 'Documents' }, classes: 'Object' },
-
-              // Users
-              { data: { name: 'Ilaman', parent: 'Team' }, classes: 'User' },
-              { data: { name: 'Jesper', parent: 'Team' }, classes: 'User' },
-              { data: { name: 'Emil', parent: 'Team' }, classes: 'User' },
-              { data: { name: 'Birger', parent: 'Team' }, classes: 'User' }
-            ],
-              // Associations
-            edges: [
-              { data: { name: 'Write', source: 'Team', target: 'Books' }, classes: 'edgelabel' },
-              { data: { name: 'Read', source: 'Team', target: 'Documents' }, classes: 'edgelabel' },
-              { data: { name: 'Write', source: 'Team', target: 'Lord of the rings' }, classes: 'edgelabel' },
-              { data: { name: 'Read', source: 'Team', target: 'Lord of the rings' }, classes: 'edgelabel' },
-              { data: { name: 'Write', source: 'Team2', target: 'Documents' }, classes: 'edgelabel' },
-            ]
-
-          }
-          */
+          ]
         });
 
 
@@ -189,12 +147,55 @@
           ngacJS.renderLayout();
         });
 
-        document.querySelector('#inputfile').addEventListener('change', function() {
-          ngacJS.loadFile();
+        document.querySelector('#save-policy').addEventListener('click', function() {
+          ngacJS.save_db();
         });
 
-        document.querySelector('#get_data_from_graph').addEventListener('click', function() {
-          ngacJS.retrive_data(null);
+        document.querySelector('#dbops').addEventListener('click', function() {
+          ngacJS.dbOps(true);
+        });
+
+        document.querySelector('#dbops-close').addEventListener('click', function() {
+          ngacJS.dbOps(false);
+        });
+
+        document.querySelector('#import-policy').addEventListener('click', function() {
+          ngacJS.selectImportedPolicy( <?php echo json_encode(get_policies($conn)); ?> );
+        });
+
+        document.querySelector('#import-user').addEventListener('click', function() {
+          ngacJS.selectImportedElement( <?php echo json_encode(get_users($conn)); ?>, "user" );
+        });
+
+        document.querySelector('#import-object').addEventListener('click', function() {
+          ngacJS.selectImportedElement( <?php echo json_encode(get_objects($conn)); ?>, "object" );
+        });
+
+        document.querySelector('#import-close').addEventListener('click', function() {
+          ngacJS.importSelectPrompt(false);
+        });
+
+        document.querySelector('#promotion-close').addEventListener('click', function() {
+          ngacJS.promotionPrompt(false);
+        });
+
+        document.querySelector('#promote-button').addEventListener('click', function() {
+          ngacJS.promotionConfirm();
+        });
+
+        document.querySelector('#select-button').addEventListener('click', function() {
+          console.log(document.getElementById("import-title").innerText);
+          switch (document.getElementById("import-title").innerText) {
+            case "Select Policy":
+              ngacJS.load_db();
+              break;
+            case "Select User":
+              ngacJS.importNodePrompt("User");
+            break;
+            case "Select Object":
+              ngacJS.importNodePrompt("Object");
+            break;
+          }
         });
 
         cy.panzoom({
@@ -203,25 +204,14 @@
 
         ngacJS.loadAttributes(); // First iteration since event is onChange
 
+        cy.on('dbltap', "node", function(event) { ngacJS.promote(this) });
+
       });
 
     </script>
   </head>
 
   <body>
-
-    <div class="header_div">
-      <h2 class="choose_frontend_txt_graph" onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
-      <h2 class="choose_admin_page_txt_graph" onclick="go_to_admin_page()" style='cursor: pointer; margin-left: 12.8rem; position:absolute;'>Admin page</h2>
-      <div class="server_status_graph">
-          <h3 style="display:inline;float:left">NGAC Server Status: </h3>
-          <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
-      </div>
-    </div>
-
-    <div class="header">
-      <h1>NGAC Policy Tool</h1>
-    </div>
 
     <div id="cy"></div>
 
@@ -230,24 +220,19 @@
       <button id="new-node" title="Add a new element">
         <i class="fas fa-plus"></i>
       </button>
+      <button id="delete-element" title="Delete selected element">
+        <i class="fas fa-trash-alt"></i>
+      </button>
       <button id="new-edge" title="Add a new relation">
         <i class="fas fa-draw-polygon"></i>
       </button>
-      <button id="delete-element" title="Delete selected element">
-        <i class="fas fa-trash-alt"></i>
+      <button id="dbops" title="Database options">
+        <i class="fas fa-database"></i>
       </button>
       <button id="layout" title="Optimize layout">
         <i class="fas fa-bezier-curve"></i>
       </button>
 
-    </div>
-
-    <div class="filetest">
-      <input type="file" id="inputfile">
-    </div>
-
-    <div class="retrive_data_button">
-      <button id="get_data_from_graph" title="Save">Save graph policy</button>
     </div>
 
     <div id = "Loader">
@@ -258,6 +243,8 @@
 
     <div id="prompt-overlay"></div>
 
+
+    <!-- Add menu div -->
     <div class="add-menu" style="display: block;">
 
 
@@ -265,7 +252,7 @@
       <div id="add-element" class="add-element" style="display: none;">
 
         <div class="close-button">
-          <button type="button" id="node-prompt-close" class="btn-close" aria-label="Close"></button>
+          <button type="button" id="node-prompt-close" class="btn-close"></button>
         </div>
 
         <h2>New element</h2>
@@ -273,12 +260,12 @@
 
         <div class="mb-3">
           <label for="namefield" class="form-label">Name</label>
-          <input type="text" class="form-control" id="namefield" aria-describedby="emailHelp" required>
+          <input type="text" class="form-control" id="namefield" />
         </div>
 
         <div class="mb-3">
           <label for="typefield" class="form-label">Type</label>
-          <select class="form-select" id="typefield" aria-label="Default select example">
+          <select class="form-select" id="typefield">
             <option selected>User</option>
             <option>Object</option>
             <option>User attribute</option>
@@ -289,7 +276,7 @@
 
         <div class="mb-3">
           <label for="attributefield" class="form-label">Attribute</label>
-          <select class="form-select" id="attributefield" aria-label="Default select example">
+          <select class="form-select" id="attributefield">
             <option selected>None</option>
           </select>
         </div>
@@ -297,6 +284,7 @@
         <div class="add-button">
           <input type="submit" class="btn btn-primary" value="Add element" onclick="ngacJS.addNode()">
         </div>
+
 
         <div class="ngac-bottom-tag">
           <h1>NGAC Policy Tool</h1>
@@ -312,26 +300,26 @@
       <div id="add-relation" class="add-relation" style="display: none;">
 
         <div class="close-button">
-          <button type="button" id="edge-prompt-close" class="btn-close" aria-label="Close"></button>
+          <button type="button" id="edge-prompt-close" class="btn-close"></button>
         </div>
 
         <h2>New relation</h2>
 
         <div class="mb-3">
           <label for="sourcefield" class="form-label">Source</label>
-          <select class="form-select" id="sourcefield" aria-label="Default select example">
+          <select class="form-select" id="sourcefield">
           </select>
         </div>
 
         <div class="mb-3">
           <label for="targetfield" class="form-label">Target</label>
-          <select class="form-select" id="targetfield" aria-label="Default select example">
+          <select class="form-select" id="targetfield">
           </select>
         </div>
 
         <div class="mb-3">
           <label for="relationfield" class="form-label">Access privilege</label>
-          <select class="form-select" id="relationfield" aria-label="Default select example">
+          <select class="form-select" id="relationfield">
             <option selected>Read</option>
             <option>Write</option>
           </select>
@@ -351,6 +339,108 @@
 
 
     </div>
+    <!-- Add menu div stop -->
+
+
+    <!-- DB options div -->
+    <div  id= "db-options" class="db-options" style="display: none;">
+
+      <div class="close-button">
+        <button type="button" id="dbops-close" class="btn-close"></button>
+      </div>
+
+      <h2>Database options</h2>
+
+      <div class="db-button-group">
+        <button type="button" id="import-user" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i><br>
+          Import User
+        </button>
+
+        <button type="button" id="import-object" class="btn btn-primary">
+          <i class="fas fa-folder-plus"></i><br>
+          Import Object
+        </button>
+
+        <button type="button" id="import-policy" class="btn btn-primary">
+          <i class="fas fa-file-import"></i><br>
+          Import Policy
+        </button>
+
+        <button type="button" id="save-policy"class="btn btn-primary">
+          <i class="fas fa-file-export"></i><br>
+          Save Policy
+        </button>
+
+      </div>
+
+      <div class="ngac-bottom-tag">
+        <h1>NGAC Policy Tool</h1>
+      </div>
+
+      </div>
+      <!-- DB options div stop -->
+
+
+      <!-- Select import div -->
+      <div class="select-options" id="select-options" style="display: none;">
+
+        <div class="close-button">
+          <button type="button" id="import-close" class="btn-close"></button>
+        </div>
+
+          <h4 id="import-title"></h4>
+
+          <div class="mb-3">
+            <select class="form-select" id="db-select-form" aria-label="Default select example">
+            </select>
+          </div>
+
+          <div class="select-button">
+            <button type="button" id="select-button" class="btn btn-primary"></button>
+          </div>
+
+          <div class="ngac-bottom-tag">
+            <h1>NGAC Policy Tool</h1>
+          </div>
+      </div>
+      <!-- Select import div stop-->
+
+
+
+      <!-- Promotion prompt div -->
+      <div class="promotion-prompt" id="promotion-prompt" style="display: none;">
+
+        <div class="close-button">
+          <button type="button" id="promotion-close" class="btn-close"></button>
+        </div>
+
+        <div class="promotion-header">
+          <h3>Assign attribute</h3>
+        </div>
+
+        <div class="mb-3">
+          <label for="promotion-node" class="form-label">Element</label>
+          <input class="form-control" id="promotion-node" type="text" disabled readonly>
+        </div>
+
+        <div class="mb-3">
+          <label for="promotion-attributes" class="form-label">Attribute</label>
+          <select class="form-select" id="promotion-attributes">
+          </select>
+        </div>
+
+        <div class="promote-button">
+          <button type="button" id="promote-button" class="btn btn-primary">Assign</button>
+        </div>
+
+        <div class="ngac-bottom-tag">
+          <h1>NGAC Policy Tool</h1>
+        </div>
+
+
+      </div>
+      <!-- Promotion prompt div end-->
 
   </body>
 
