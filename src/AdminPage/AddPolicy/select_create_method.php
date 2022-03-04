@@ -12,13 +12,13 @@
       <script src="/AdminPage/Scripts/go_to_admin_page.js"></script>
       <script>
         $(document).ready(function(){
-            
+
             //Check NGAC connection upon load
             check_ngac_server_conn();
 
         });
       </script>
-  </head> 
+  </head>
   <body>
     <div class="header">
         <h2 class="choose_frontend_txt" onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
@@ -28,18 +28,18 @@
             <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
         </div>
     </div>
-          
+
     <div class="form-cont">
         <div class="dynamic_form">
           <h1>Choose Create Tool</h1>
-          <form class="frontend_form" action="../NGAC-graph-UI/index.html">
+          <form class="frontend_form" action="../NGAC-graph-UI/graph.php">
               <button class="input_button" type="submit" class="menu_btn">Graph tool</button>
           </form>
           <form class="frontend_form" action="add_policy_form.php">
               <button class="input_button" type="submit" class="menu_btn">Old create tool</button>
           </form>
         </div>
-       
+
     </div>
   </body>
 </html>
