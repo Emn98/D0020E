@@ -15,10 +15,29 @@ function check_ngac_server_conn() {
         $(".current_active_policy_answer").html(
           "No policy is currently active!"
         );
+        document.getElementById("combine_policy_overlay_btn").disabled = "disable";
+        document.getElementById("combine_policy_overlay_btn").className = "combine_policy_overlay_btn_disabled";
+
+        document.getElementById("setpol_all_btn").disabled = "disable";
+        document.getElementById("setpol_all_btn").className = "setpol_all_btn_not_active_disabled";
+
         return;
       }
       $(".server_status_response").html(" Online");
       document.getElementById("server_status_response").style.color = "green";
+
+      document.getElementById("setpol_all_btn").disabled = "";
+      if(document.getElementById("setpol_all_btn").className == "setpol_all_btn_not_active" || document.getElementById("setpol_all_btn").className == "setpol_all_btn_not_active_disabled"){
+        document.getElementById("setpol_all_btn").className = "setpol_all_btn_not_active";
+      }else{
+        document.getElementById("setpol_all_btn").className = "setpol_all_btn_active";
+      }
+      
+
+      document.getElementById("combine_policy_overlay_btn").disabled = "";
+      document.getElementById("combine_policy_overlay_btn").className = "combine_policy_overlay_btn";
+
+
       if (obj.respStatus == "failure") {
         return;
       } else {

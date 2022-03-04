@@ -248,6 +248,22 @@ tbody td {
 
 }
 
+.setpol_all_btn_not_active_disabled{
+  position: absolute;
+  margin-top: 5.7rem;
+  margin-left: 47.7rem;
+  font-size: 13px;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  background: grey;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.3;
+  border: 1px solid black;
+}
+
+
 .create_new_cond_btn{
   font-size: 14px;
   margin-left: 37rem;
@@ -382,7 +398,7 @@ tbody td {
   background: #0088a9;
 }
 
-#combine_policy_overlay_btn {
+.combine_policy_overlay_btn {
   position: absolute;
   font-size: 13px;
   margin-left: 30rem;
@@ -399,9 +415,30 @@ tbody td {
   outline: none;
 }
 
-#combine_policy_overlay_btn:hover {
+.combine_policy_overlay_btn:hover {
   background: #0088a9;
 }
+
+.combine_policy_overlay_btn_disabled {
+  position: absolute;
+  font-size: 13px;
+  margin-left: 30rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.3;
+  border: 1px solid black;
+  resize: none;
+  outline: none;
+}
+
+
+
 
 .choose_frontend_txt:hover {
   cursor: pointer;

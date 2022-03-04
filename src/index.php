@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  
   <div class="menu_form">
     <h1>Choose Frontend</h1>
     <form class="frontend_form" action="/AdminPage/admin_main_page.php">

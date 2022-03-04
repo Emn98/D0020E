@@ -29,9 +29,17 @@
     <script src="js/ngac.js"></script>
     <script src="js/db_handler.js"></script>
     <script src="js/db_translator.js"></script>
+    <script src="/AdminPage/Scripts/go_to_choose_frontend.js"></script>
+    <script src="/AdminPage/Scripts/check_ngac_server_conn.js"></script>
     <script src="/AdminPage/Scripts/go_to_admin_page.js"></script>
+    <script>
+      $(document).ready(function(){
+            
+        //Check NGAC connection upon load
+        check_ngac_server_conn();
 
-
+      });
+    </script>
     <script>
 
       var ngacJS = new NgacDoc();

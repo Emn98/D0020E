@@ -14,7 +14,7 @@ body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500;
     background-color: #435165;
-    height: 100vh;
+    height: 95vh;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -33,4 +33,27 @@ button{
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     padding-bottom: 5%;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white !important;
+    width: 90vw !important;
+    height: 1.75rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px 5% !important; 
+}
+
+.choose_admin_page_txt:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.choose_frontend_txt:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }

@@ -127,8 +127,22 @@ function combine_selected_policies(){
   });
   policies_text = policies_text.slice(0, -2);
 
+  //If the mode is set to policy all. 
+  if (document.getElementById("setpol_all_btn").className == "setpol_all_btn_active") {
+    if(confirm("Are you sure you want to merge and load the following policies? " + policies_text)){
+      merge_policies();
+
+    }
+  }else{
+    if(confirm("Are you sure you want to merge and set the following policies? " + policies_text)){
+      merge_policies();
+      set_policy_in_ngac_system("combined policy");
+    }
+
+  }
+
   
-  if(confirm("Are you sure you want to merge and set the following policies? " + policies_text)){
+  function merge_policies(){
     const polcies_to_unload = [];
 
     var  need_db_access = "check";
@@ -170,8 +184,7 @@ function combine_selected_policies(){
       unload_policy(policy);
     });
 
-    set_policy_in_ngac_system("combined policy");
-
+    set_policy_as_loaded("combined policy");
 
   }
 
