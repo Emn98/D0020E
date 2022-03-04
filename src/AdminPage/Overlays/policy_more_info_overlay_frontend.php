@@ -12,9 +12,8 @@
   <script src="NGAC-graph-UI/cytoscape/js/cytoscape.min.js"></script>
   <script src="NGAC-graph-UI/cytoscape/js/cytoscape-extensions.js"></script>
   <script src="NGAC-graph-UI/js/ngac.js"></script>
-  <script src="NGAC-graph-UI/js/filehandler.js"></script>
+  <script src="NGAC-graph-UI/js/db_translator.js"></script>
   <script src="NGAC-graph-UI/js/db_handler.js"></script>
-  <script src="NGAC-graph-UI/js/graph_data_retrieval.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script>
     function activate_graph_gen(policy_name) {
@@ -137,7 +136,7 @@
         // options here...
       });
 
-      ngac_js.load_db(policy_name);
+      ngac_js.load_db_direct(policy_name);
     }
   </script>
 </head>

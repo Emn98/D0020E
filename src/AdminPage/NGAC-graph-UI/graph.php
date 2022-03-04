@@ -1,11 +1,11 @@
 <?php
   // windows filepaths, to be changed
-  include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_conn/db_conn.php");
-  include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
+  //include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_conn/db_conn.php");
+  //include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
 
   // linux file paths... I think
-  //include("../AdminPage/db_queries/select_queries.php");
-  //include("../AdminPage/db_queries/select_queries.php");
+  include("../../AdminPage/db_conn/db_conn.php");
+  include("../../AdminPage/db_queries/select_queries.php");
 ?>
 
 <!DOCTYPE html>
@@ -212,6 +212,21 @@
   </head>
 
   <body>
+
+
+  <div class="header_div">
+        <h2 class="choose_frontend_txt_graph" onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
+        <h2 class="choose_admin_page_txt_graph" onclick="go_to_admin_page()" style='cursor: pointer; margin-left: 12.8rem; position:absolute;'>Admin page</h2>
+        <div class="server_status_graph">
+            <h3 style="display:inline;float:left">NGAC Server Status: </h3>
+            <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
+        </div>
+    </div>
+
+    
+    <div class="header">
+      <h1>NGAC Policy Tool</h1>
+    </div>
 
     <div id="cy"></div>
 

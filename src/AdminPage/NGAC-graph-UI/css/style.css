@@ -284,3 +284,72 @@ div#message {
   padding-bottom: 20px;
   padding-top: 5px;
 }
+
+.header {
+  padding: 25px;
+  text-align: center;
+  color: black;
+}
+
+.header h1{
+  font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+  opacity: 0.5;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/*header */
+.header_div{
+  background-color: white !important;
+  width: 100% !important;
+  height: 4.23rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 20px 5% !important;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+}
+
+.choose_admin_page_txt_graph{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black !important;
+  font-weight: bolder !important;
+  font-size: 24px !important;
+  z-index: 99999;
+  margin-top: 0.5rem;
+
+}
+
+.choose_frontend_txt_graph{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black !important;
+  font-weight: bolder !important;
+  font-size: 24px !important;
+  z-index: 99999;
+  margin-top: 0.5rem;
+  
+}
+
+.choose_admin_page_txt_graph:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.choose_frontend_txt_graph:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.server_status_graph{
+  float: right;
+  margin-right: 5rem;
+}
+
+.server_status_graph h3{
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !important;
+  color: black;
+  font-size: 18.7px;
+  font-weight: bolder !important;
+  margin-top: 0.5rem;
+}

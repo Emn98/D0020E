@@ -210,6 +210,10 @@ class NgacDoc {
 		this.db_handler.load(policy_name);
 	}
 
+	load_db_direct(policy_name){
+		this.db_handler.load(policy_name);
+	}
+
 	// Add node prompt when element is imported
 	importNodePrompt(type) {
 		this.importSelectPrompt(false);
