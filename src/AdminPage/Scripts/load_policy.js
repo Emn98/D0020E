@@ -3,6 +3,7 @@ function load_policy(policy_name, show_confirm_promt) {
   var check_if_policy_already_loaded = "check";
 
   $.ajax({
+    async: false,
     type: "POST",
     url: "/AdminPage/LoadPolicy/get_policy_backend.php",
     data: {
@@ -16,6 +17,7 @@ function load_policy(policy_name, show_confirm_promt) {
       if (response == 1) {
         alert("Policy: '" + policy_name + "' is already loaded into NGAC");
       } else {
+        console.log(response);
         //Create the url to complete the whole query to the ngac system.
         url_qery =
           "http://127.0.0.1:8001/paapi/loadi?policyspec=" +

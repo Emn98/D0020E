@@ -191,11 +191,18 @@
             
 
         }
+
+        //fixed the last semicolon depening on if a condition exists or not
+        if($cond_text != ""){
+            $pol_text = substr_replace($pol_text ,"\n",-1);
+        }else{
+            $pol_text = substr_replace($pol_text ,"\n",-2);
+        }
         
-        $pol_text = substr_replace($pol_text ,"\n",-2);
 
         $cond_associations_text = substr_replace($cond_associations_text ,"\n",-2);
         $cond_associations_text .= "])\n";
+
 
         if($cond_text != "")
         {   

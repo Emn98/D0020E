@@ -1,6 +1,7 @@
 <?php
 include("../AdminPage/Overlays/admin_management_overlay.php");
 include("../AdminPage/Overlays/policy_more_info_overlay_frontend.php");
+include("../AdminPage/Overlays/combine_policy_overlay.php");
 ?>
 
 <!DOCTYPE html>
@@ -118,6 +119,7 @@ include("../AdminPage/Overlays/policy_more_info_overlay_frontend.php");
             <input type="hidden" id="form_inp" value="" name="policy_name">
           </form>
         </div>
+        <button id="combine_policy_overlay_btn" onclick="combine_pol_overlay()">Combine Policies</button>
         <button id="admin_man_overlay_btn" onclick="admin_man_overlay()">Show Admin Overlay</button>
     </main>
   </div>

@@ -31,6 +31,7 @@ function unload_policy(policy_name) {
 //Update the database state so the file is seen as unloaded
 function unset_policy_as_loaded(name) {
   $.ajax({
+    async: false,
     type: "POST",
     url: "/AdminPage/UnloadPolicy/unset_policy_as_loaded.php",
     data: { policy_name: name },

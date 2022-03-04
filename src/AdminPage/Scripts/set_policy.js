@@ -27,7 +27,7 @@ function set_policy(policy_name) {
   } 
 }
 
-function set_policy_in_ngac_system(policy_name, show_confirm_promt){
+function set_policy_in_ngac_system(policy_name){
   var url =
   "http://127.0.0.1:8001/paapi/setpol?policy=" +
   policy_name +

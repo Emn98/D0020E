@@ -199,5 +199,27 @@ function get_operation($conn, $operation_id){
 
 }
 
+function get_policies_with_conditions($conn){
+    $query = $conn->prepare("SELECT policy_name from Policies WHERE policy_name IN (SELECT DISTINCT policy_name FROM Associations WHERE cond_ID IS NOT NULL)");
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
+
+    return $result;
+    
+}
+
+function get_policies_without_conditions($conn){
+    $query = $conn->prepare("SELECT policy_name from Policies WHERE policy_name NOT IN (SELECT DISTINCT policy_name FROM Associations WHERE cond_ID IS NOT NULL)");
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
+
+    return $result;
+    
+}
+
 
 ?>

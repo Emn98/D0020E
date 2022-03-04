@@ -2,9 +2,9 @@
 function activate_setpolicy_to_all(){
     if (
         confirm("Warning: Activating this mode will unload all currently " + 
-                "loaded policies from the ngac server. In this mode, the " +
-                "composition of all subsequently loaded policies will be " + 
-                "applied.")
+                "loaded policies from the ngac server.In this mode, the " +
+                "composition of all subsequent loaded and relevant policies " +
+                "will be applied during an access request.")
     ){
         set_policy_in_ngac_system("none"); //Unload all policies from the ngac server. 
         clear_loaded_policy_table_in_db();
@@ -24,8 +24,8 @@ function deactivate_setpolicy_to_all(){
     if (
         confirm("Warning: Deactivating this mode will unload all currently " + 
                 "loaded policies from the ngac server. The " +
-                "composition of all subsequently loaded policies will no " + 
-                "longer comply.")
+                "composition of all subsequent loaded and relevant policies " +
+                "would no longer be applied during an access request.")
     ){
         document.getElementById("setpol_all_btn").className = "setpol_all_btn_not_active";          
         document.getElementById("setpol_all_btn").setAttribute("onclick", "activate_setpolicy_to_all()");

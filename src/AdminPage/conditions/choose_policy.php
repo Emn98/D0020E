@@ -15,23 +15,24 @@
             <meta charset="UTF-8">
             <link href="style.css" rel="stylesheet" type="text/css" />
             <link rel="stylesheet" href="/AdminPage/Styles/admin_main_page.css">
+            <link rel="stylesheet" href="/AdminPage/Styles/header.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="/AdminPage/Scripts/go_to_admin_page.js"></script>
-            <script src="/AdminPage/Scripts/get_active_policy.js"></script>
             <script src="/AdminPage/Scripts/go_to_choose_frontend.js"></script>
+            <script src="/AdminPage/Scripts/check_ngac_server_conn.js"></script>
+            <script src="/AdminPage/Scripts/go_to_admin_page.js"></script>
             <script>
-            $(document).ready(function(){
-                
-                //Retrives the active policy from NGAC server upon page load. 
-                get_active_policy();
+                $(document).ready(function(){
+            
+                //Check NGAC connection upon load
+                check_ngac_server_conn();
 
-            });
+                });
             </script>
         </head>
         <body>
             <div class="header">
-                <h2 onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
-                <h2 onclick="go_to_admin_page()" style='cursor: pointer; padding-left:4rem;'>Admin page</h2>
+                <h2 class="choose_frontend_txt" onclick="go_to_choose_frontend()" style='cursor: pointer;'>Choose Frontend</h2>
+                <h2 class="choose_admin_page_txt" onclick="go_to_admin_page()" style='cursor: pointer; margin-left: 12.8rem; position:absolute;'>Admin page</h2>
                 <div class="server_status">
                     <h3 style="display:inline;float:left">NGAC Server Status: </h3>
                     <h3 class="server_status_response" id="server_status_response" style="display:inline;float:right;margin-right: -3.8rem;"></h3>
