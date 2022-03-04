@@ -1,10 +1,15 @@
 class NgacDoc {
 
+	fileHandler;
+
+	graph_data_retrieval;
+
 	db_handler;
-	promotionNode; // For storing potential promotion node during prompt-state
 
 	constructor() {
-		this.db_handler = new db_handler(new db_translator());
+		this.fileHandler = new FileHandler();
+		this.graph_data_retrieval = new Graph_data_retrieval();
+		this.db_handler = new db_handler();
 	}
 
 	addNode() {
@@ -136,12 +141,6 @@ class NgacDoc {
 		var prompt = document.getElementById('add-element');
 		this.promptOverlay(bool);
 		if (bool) {
-			var namefield = document.getElementById("namefield");
-			var typefield = document.getElementById("typefield");
-			namefield.disabled = false;
-			typefield.disabled = false;
-			namefield.value = "";
-			typefield.selectedIndex = 0;
 			this.loadAttributes();
 			prompt.style.display = "block";
 		} else {
@@ -158,18 +157,6 @@ class NgacDoc {
 			prompt.style.display = "block";
 		} else {
 			prompt.style.display = "none";
-		}
-	}
-
-	// Toggle db ops menu
-	dbOps(bool) {
-		var menu = document.getElementById('db-options');
-		this.promptOverlay(bool);
-		if (bool) {
-			this.loadTargets();
-			menu.style.display = "block";
-		} else {
-			menu.style.display = "none";
 		}
 	}
 
@@ -200,140 +187,18 @@ class NgacDoc {
 		return cy.$("[id='" + id + "']");
 	}
 
-	save_db() {
-		this.db_handler.save();
+	loadFile(){
+		this.fileHandler.load();
 	}
 
-	load_db() {
-		this.importSelectPrompt(false);
-		var policy_name = document.getElementById('db-select-form').value;
-		this.db_handler.load(policy_name);
+	retrive_data(test)
+	{
+		this.graph_data_retrieval.get_data(test);
 	}
 
-	// Add node prompt when element is imported
-	importNodePrompt(type) {
-		this.importSelectPrompt(false);
-		this.nodePrompt(true);
-		var name = document.getElementById('db-select-form').value;
-		// Set name field to imported element name and disable input field
-		var namefield = document.getElementById("namefield");
-		namefield.value = name;
-		namefield.disabled = true;
-		// Set type to imported element type and disable options field
-		var typefield = document.getElementById("typefield");
-		typefield.value = type;
-		typefield.disabled = true;
-		this.loadAttributes();
-
-	}
-
-	importSelectPrompt(bool) {
-		this.dbOps(false);
-		var selectList = document.getElementById("select-options");
-		this.promptOverlay(bool);
-		if (bool) {
-			selectList.style.display = "block";
-		} else {
-			selectList.style.display = "none";
-		}
-	}
-
-	// Generate select options list for importing an element
-	selectImportedElement(elements, type) {
-		this.importSelectPrompt(true);
-		$("#db-select-form").empty();
-		var selectOptions = document.getElementById("db-select-form");
-		if (type == "user") {
-			document.getElementById('import-title').innerText = "Select User";
-			document.getElementById("select-button").innerText = "Add user";
-		} else if (type == "object") {
-			document.getElementById('import-title').innerText = "Select Object";
-			document.getElementById("select-button").innerText = "Add object";
-		}
-
-		for (var i = 0; i < elements.length; i++) {
-			var name = elements[i].full_name;
-			if (!this.nameTaken(name)) {
-				var option = document.createElement('option');
-				option.text = name;
-				selectOptions.add(option);
-			}
-		}
-	}
-
-	// Generate select options list for importing a policy
-	selectImportedPolicy(elements) {
-		this.importSelectPrompt(true);
-		$("#db-select-form").empty();
-		var selectOptions = document.getElementById("db-select-form");
-		document.getElementById("select-button").innerText = "Import policy";
-		document.getElementById('import-title').innerText = "Select Policy";
-		for (var i = 0; i < elements.length; i++) {
-			var option = document.createElement('option');
-			option.text = elements[i].policy_name;
-			selectOptions.add(option);
-		}
-	}
-
-	// Prompt for duplicating an existing element to another attribute
-	promote(node) {
-		if(!node.isParent()) {
-			this.promotionPrompt(true);
-			this.promotionNode = node;
-			var baseType = this.getPromoClass();
-			var parent = node.parent().data('name');
-			var nodeName = node.data('name');
-			document.getElementById("promotion-node").value = nodeName;
-			var attrs = document.getElementById("promotion-attributes");
-			$("#promotion-attributes").empty();
-
-			cy.nodes().forEach(function( ele ){
-				var eleName = ele.data('name');
-				if (ele.hasClass('attribute') && ele.hasClass(baseType) && eleName != parent) {
-					var hasChild = false;
-					ele.children().forEach(function( child ){
-						if (child.data('name') == nodeName) {
-							hasChild = true;
-						}
-					});
-					if (!hasChild) {
-						var option = document.createElement('option');
-						option.text = eleName;
-						attrs.add(option);
-					}
-				}
-			});
-		}
-	}
-
-
-	promotionPrompt(bool) {
-		this.promptOverlay(bool);
-		var promptdiv = document.getElementById("promotion-prompt");
-		if (bool) {
-			promptdiv.style.display = "block";
-		} else {
-			promptdiv.style.display = "none";
-		}
-	}
-
-	promotionConfirm() {
-		this.promotionPrompt(false);
-		var attr = document.getElementById("promotion-attributes").value;
-		if (attr != "") {
-			var type = this.getPromoClass();
-			var name = this.promotionNode.data('name');
-			this.placeNode(name, type, attr);
-		}
-	}
-
-	getPromoClass() {
-		if (this.promotionNode.hasClass("User")) {
-			return "User";
-		} else if (this.promotionNode.hasClass("Object")) {
-			return "Object";
-		}
-		return "TypeNotFound";
+	load_db(policy_name)
+	{
+		this.db_handler.load_via_db(policy_name);
 	}
 
 }

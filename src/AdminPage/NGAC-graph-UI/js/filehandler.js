@@ -1,35 +1,20 @@
-class db_handler{
+class FileHandler {
 
-    load_via_db(policy_name){
-        cy.elements().remove(); // Clear graph
+  load(){
+    cy.elements().remove(); // Clear graph
+    this.makeGraph();
+  }
 
-        var policy_txt = "";
-        
-        $.ajax({//Retrive the policy from the database
-          async: false,
-          type: "POST",
-          url:  "/AdminPage/LoadPolicy/get_policy_backend.php", 
-          data: {policy_name: policy_name
-                },
-          dataType: "text",
+  // Parse through selected file and translate to cytoscape graph
+  makeGraph(){
 
-          success: function(response){
-            policy_txt = response;
-          },
-          error: function(){
-            alert("Failure");
-          },
-        });
+    var newGraph = [];
 
-        this.make_graph(policy_txt); //make the graph
-    }
+    var fr=new FileReader();
+      fr.onload=function(){
+          var lineArray = fr.result.split('\n');
 
-    make_graph(policy_txt){
-        var newGraph = [];
-
-        var lineArray = policy_txt.split('\n');
-
-        for (let i in lineArray){
+          for (let i in lineArray){
 
             // Prolog code string filtering
             var filteredString = lineArray[i].replace(/\W/g, ' ');
@@ -113,7 +98,14 @@ class db_handler{
                 break;
             }
           }
-        cy.add(newGraph);
-        cy.layout({name: 'cose-bilkent', animationDuration: 1250}).run();
-    }
+
+          cy.add(newGraph);
+          cy.layout({name: 'cose-bilkent', animationDuration: 1250}).run();
+
+      }
+
+      fr.readAsText(event.target.files[0]);
+
+  }
+
 }
