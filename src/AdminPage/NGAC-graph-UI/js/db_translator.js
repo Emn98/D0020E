@@ -1,6 +1,6 @@
 class db_translator {
 
-  save_pol() {
+  save_pol(policy_name) {
       var nodes = cy.json().elements.nodes;
       var edges = cy.json().elements.edges;
 
@@ -23,7 +23,13 @@ class db_translator {
       console.log(attribute_conns);
       console.log(associations);
 
-      let policy = prompt("Please enter the policy's name:", "");
+      let policy;
+      if(policy_name == ""){
+          policy = prompt("Please enter the policy's name:", "");
+      }else{
+          policy = policy_name;
+      }   
+      
       if (policy != null && policy != "") {
           $("#Loader").show();
           window.setTimeout( function(){

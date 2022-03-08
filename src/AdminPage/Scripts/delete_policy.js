@@ -1,12 +1,13 @@
 function check_delete_policy(policy_name) {
   if (confirm("Are you sure you want to delete policy: '" + policy_name + "'?")) 
   {
-    delete_policy(policy_name);
+    delete_policy(policy_name, true);
   }
 }
 
-function delete_policy(policy_name){
+function delete_policy(policy_name, display_promt){
   var  need_db_access = "check";
+  var display_promt = display_promt;
 
   $.ajax({
     type: "POST",
@@ -29,7 +30,9 @@ function delete_policy(policy_name){
         success: function (response) {
           if (response == 0) {
             get_all_policies();
-            alert("Policy: '" + policy_name + "' was deleted successfully");
+            if(display_promt == true){
+              alert("Policy: '" + policy_name + "' was deleted successfully");
+            }
           } else {
             alert("Error: Policy could not be deleted");
           }

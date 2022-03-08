@@ -21,7 +21,9 @@ function unload_policy(policy_name) {
         } else {
           unset_policy_as_loaded(policy_name);
           get_active_policy();
-          get_loaded_policies();
+          if (show_all_policies_btn.style.backgroundColor != "rgb(0, 136, 169)") {
+            get_loaded_policies();
+          }
         }
       }
     },

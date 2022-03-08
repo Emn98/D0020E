@@ -62,57 +62,6 @@ function create_new_object() {
     }
   );
 }
-/*
-//Create and add a new operation to the database
-function create_new_operation() {
-  var func = "Create operation";
-  var operation_2_field = null;
-
-  var operation_name = window.prompt("Enter the name of the new operation: ");
-
-  if (operation_name == "" || operation_name.trim() == 0) {
-    alert("Error: You need to enter a name");
-    return;
-  }
-  if (operation_name == null) {
-    return;
-  }
-
-  operation_2_field = window.prompt(
-    "Enter the second field of the operation: "
-  );
-
-  if (operation_2_field == "" || operation_2_field.trim() == 0) {
-    alert("Error: You need to enter something in the second field");
-    return;
-  }
-  if (operation_2_field == null) {
-    return;
-  }
-
-  $.ajax({
-    async: false,
-    type: "POST",
-    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
-    data: {
-      operation_name: operation_name,
-      operation_2_field: operation_2_field,
-      func: func,
-    },
-    error: function () {
-      alert("failure");
-    },
-  });
-
-  $("#admin_man_table_body").load(
-    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-    {
-      part: "body",
-      table: "operations",
-    }
-  );
-}
-*/
 
 function edit_user(user_id) {
   var full_name = window.prompt("Enter a new name for the user: ");
@@ -175,56 +124,6 @@ function edit_object(object_id) {
     }
   );
 }
-/*
-function edit_operation(operation_id) {
-  var func = "Edit operation";
-  var operation_2_field = null;
-
-  var operation_name = window.prompt("Enter a new name for the operation: ");
-
-  if (operation_name == "" || operation_name.trim() == 0) {
-    alert("Error: You need to enter a name");
-    return;
-  }
-  if (operation_name == null) {
-    return;
-  }
-
-  if (confirm("Do you want to change the second field aswell?")) {
-    operation_2_field = window.prompt("Enter new second field: ");
-    if (operation_2_field == "" || operation_2_field.trim() == 0) {
-      alert("Error: You need to enter a second field");
-      return;
-    }
-    if (operation_2_field == null) {
-      return;
-    }
-  }
-
-  $.ajax({
-    async: false,
-    type: "POST",
-    url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
-    data: {
-      operation_name: operation_name,
-      operation_id: operation_id,
-      operation_2_field: operation_2_field,
-      func: func,
-    },
-    error: function () {
-      alert("failure");
-    },
-  });
-
-  $("#admin_man_table_body").load(
-    "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-    {
-      part: "body",
-      table: "operations",
-    }
-  );
-}
-*/
 
 function delete_user(user_id) {
   if (confirm("Do you really want to delete this user?")) {
@@ -235,6 +134,14 @@ function delete_user(user_id) {
       type: "POST",
       url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
       data: { user_id: user_id, func: func },
+      dataType: "text",
+
+      success: function(response){
+        if(response==-1){
+          alert("Warning: Can not delete users which currently is in a policy/policies!");
+        }
+      },
+
       error: function () {
         alert("failure");
       },
@@ -259,6 +166,14 @@ function delete_object(object_id) {
       type: "POST",
       url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
       data: { object_id: object_id, func: func },
+      dataType: "text",
+
+      success: function(response){
+        if(response==-1){
+          alert("Warning: Can not delete objects which currently is in a policy/policies!")
+        }
+      },
+
       error: function () {
         alert("failure");
       },
@@ -273,29 +188,3 @@ function delete_object(object_id) {
     );
   }
 }
-
-/*
-function delete_operation(operation_id) {
-  if (confirm("Do you really want to delete this operation?")) {
-    var func = "Delete operation";
-
-    $.ajax({
-      async: false,
-      type: "POST",
-      url: "/AdminPage/Overlays/admin_man_overlay_logic_backend.php",
-      data: { operation_id: operation_id, func: func },
-      error: function () {
-        alert("failure");
-      },
-    });
-
-    $("#admin_man_table_body").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-      {
-        part: "body",
-        table: "operations",
-      }
-    );
-  }
-}
-*/

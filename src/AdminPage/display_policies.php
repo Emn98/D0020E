@@ -1,3 +1,5 @@
+<!-- This file will dynamically build/print the "show all policies table" and 
+     "show loaded policies table" on the admin main page -->  
 <?php
 
 function display_all_policies_head()
@@ -44,6 +46,7 @@ function display_all_policies_body($result)
       }
     }
   } else {
+    //If no policies exists, print it to the user. 
     echo "<td><h1 style='margin-left:19rem;margin-top:12rem;margin-bottom:0.5rem;';>No policies exists</h1></td>";
   }
 }
@@ -94,7 +97,8 @@ function diplay_loaded_policies_body($result)
         $temp = 1;
       }
     }
-  } else {
+  } else {  
+    //If no loaded policies exists, print it to the user. 
     echo "<td><h1 style='margin-left:15rem;margin-top:13rem;margin-bottom:0.5rem;';>There are no loaded policies</h1></td>";
   }
 }

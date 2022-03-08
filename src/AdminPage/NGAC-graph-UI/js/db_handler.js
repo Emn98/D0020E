@@ -30,8 +30,8 @@ class db_handler{
       this.translator.make_graph(policy_txt);
     }
 
-    save() {
-      this.translator.save_pol();
+    save(policy_name) {
+      this.translator.save_pol(policy_name);
     }
 
 

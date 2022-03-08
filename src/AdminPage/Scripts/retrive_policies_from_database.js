@@ -11,6 +11,28 @@ function get_loaded_policies() {
     part: "body",
     table: "loaded",
   });
+
+  if(is_combined_policy_loaded_into_nagc() == true){
+    var combined_policy_row = '<tr class="combined_policy_row">' +
+                              '<td>Combined Policy</td>' +
+                              '<td></td>' +
+                              '<td><input type="button" value="Set" class="set_btn" onclick="set_policy('+"'"+'combined policy'+"'"+')"></td>' +
+                              '<td><input type="button" value="Unload" class="table_btn" onclick="unload_policy('+"'"+'combined policy'+"'"+')" style="width: 50px;"></td>'+
+                              '<td></td>'+
+                              '</tr>';
+
+    var txtvalue = $('#t_body_main_page').find("td").find("h1").html();
+    if(txtvalue == "There are no loaded policies"){
+      $('#t_body_main_page').empty();
+      $("#t_body_main_page").append(combined_policy_row);
+    }else{
+      $("#t_body_main_page").append(combined_policy_row);
+    }
+   
+
+    
+  }
+  
 }
 
 //This function retrives all policies stored in our database.
@@ -25,4 +47,5 @@ function get_all_policies() {
     part: "body",
     table: "all",
   });
+  
 }

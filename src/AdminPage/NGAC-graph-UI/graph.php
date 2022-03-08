@@ -156,7 +156,7 @@
         });
 
         document.querySelector('#save-policy').addEventListener('click', function() {
-          ngacJS.save_db();
+          ngacJS.save_db("");
         });
 
         document.querySelector('#dbops').addEventListener('click', function() {

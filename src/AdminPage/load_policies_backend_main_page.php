@@ -1,7 +1,5 @@
 <?php
-  //This php script will get the file to the database and display then. 
-
-
+   
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/AdminPage/db_conn/db_conn.php";

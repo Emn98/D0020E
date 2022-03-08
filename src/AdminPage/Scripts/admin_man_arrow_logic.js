@@ -31,33 +31,6 @@ function pressed_right_arrow() {
     );
   }
 
-  //If current table is objects then show operations table. (Removed awaiting decision)
-  /*
-  if (current_table == "Objects") {
-    $("#admin_man_title").html("Operations");
-    $("#admin_man_create_btn").html("Create New Operation");
-    document
-      .getElementById("admin_man_create_btn")
-      .setAttribute("onclick", "create_new_operation()");
-    document.getElementById("right_arrow").hidden = true;
-    document.getElementById("admin_man_search_inp").placeholder =
-      "Search operation by name or id...";
-    $("#admin_man_table_head").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-      {
-        part: "head",
-        table: "operations",
-      }
-    );
-    $("#admin_man_table_body").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-      {
-        part: "body",
-        table: "operations",
-      }
-    );
-  }
-  */
 }
 
 function pressed_left_arrow() {
@@ -90,31 +63,4 @@ function pressed_left_arrow() {
     );
   }
 
-  //If current table is operations then show objects table. (removed: awaiting decision)
-  /*
-  if (current_table == "Operations") {
-    $("#admin_man_title").html("Objects");
-    $("#admin_man_create_btn").html("Create New Object");
-    document
-      .getElementById("admin_man_create_btn")
-      .setAttribute("onclick", "create_new_object()");
-    document.getElementById("right_arrow").hidden = false;
-    document.getElementById("admin_man_search_inp").placeholder =
-      "Search object by name or id...";
-    $("#admin_man_table_head").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-      {
-        part: "head",
-        table: "objects",
-      }
-    );
-    $("#admin_man_table_body").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
-      {
-        part: "body",
-        table: "objects",
-      }
-    );
-  }
-  */
 }

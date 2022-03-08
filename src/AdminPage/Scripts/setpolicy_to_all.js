@@ -8,13 +8,13 @@ function activate_setpolicy_to_all(){
     ){
         set_policy_in_ngac_system("none"); //Unload all policies from the ngac server. 
         clear_loaded_policy_table_in_db();
+        
+        set_policy_in_ngac_system("all");
 
         //Update the show loaded policies table if the user is looking at it while starting the ngac server.
         if (document.getElementById("show_all_policies_btn").style.backgroundColor != "rgb(0, 136, 169)") {
-          get_loaded_policies();
+            get_loaded_policies();
         } 
-        
-        set_policy_in_ngac_system("all");
     }
 
 }
@@ -33,6 +33,10 @@ function deactivate_setpolicy_to_all(){
         set_policy_in_ngac_system("none");
 
         clear_loaded_policy_table_in_db();
+
+        unload_policy("combined policy");
+
+        alert("Set all policies mode is now turned off");
 
         //Update the show loaded policies table if the user is looking at it while starting the ngac server.
         if (document.getElementById("show_all_policies_btn").style.backgroundColor != "rgb(0, 136, 169)") {

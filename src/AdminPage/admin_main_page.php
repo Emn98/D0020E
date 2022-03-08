@@ -1,7 +1,9 @@
 <?php
+
 include("../AdminPage/Overlays/admin_management_overlay.php");
 include("../AdminPage/Overlays/policy_more_info_overlay_frontend.php");
 include("../AdminPage/Overlays/combine_policy_overlay.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +28,17 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
   <script src="/AdminPage/Scripts/check_ngac_server_conn.js"></script>
   <script src="/AdminPage/Scripts/setpolicy_to_all.js"></script>
   <script src="/AdminPage/Scripts/clear_loaded_table_in_db.js"></script>
+  <script src="/AdminPage/Scripts/combine_policy.js"></script>
   <script>
     $(document).ready(function() {
 
       //Retrives the active policy from NGAC server upon page load. 
       get_active_policy();
 
-      //Get all policies on load up
+      //Get all policies upon page load.
       get_all_policies();
 
-      //Check the server connection on load up
+      //Check the site to server connection upon page load. 
       check_ngac_server_conn();
 
       $(".show_loaded_policies_btn").click(function() {
@@ -77,10 +80,9 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
     ></h3>
   </div>
 </header>
-    
     <main>
       <div class="current_loaded_policy">
-        <button id="setpol_all_btn" class="setpol_all_btn_not_active" onclick="activate_setpolicy_to_all()">Mode: Setpolicy=all</button>
+        <button id="setpol_all_btn" class="setpol_all_btn_not_active" onclick="activate_setpolicy_to_all()">Mode: Set All Policies</button>
         <h2>Current active policy</h2>
         <h1 class="current_active_policy_answer"></h1>
       </div>
@@ -120,7 +122,7 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
           </form>
         </div>
         <button class="combine_policy_overlay_btn" id="combine_policy_overlay_btn" onclick="combine_pol_overlay()">Combine Policies</button>
-        <button id="admin_man_overlay_btn" onclick="admin_man_overlay()">Show Admin Overlay</button>
+        <button id="admin_man_overlay_btn" onclick="admin_man_overlay()">Show Users/Objects Overlay</button>
     </main>
   </div>
 </body>
