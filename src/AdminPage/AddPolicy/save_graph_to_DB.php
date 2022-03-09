@@ -22,11 +22,12 @@
 
     if($result == true)
     {
-        echo "The graph was saved successfully \n";
+        $_POST["SUCCESS"] = "Policy was successfully saved to the database";
     }
     else
     {
-        echo "\n An error occurred when saving the graph \n";
+        $_POST["ERROR"] = "Somthing went wrong!";
     }
+    require_once '../alert_message.php';
 
 ?>
