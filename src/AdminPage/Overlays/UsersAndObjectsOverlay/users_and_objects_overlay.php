@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="/AdminPage/Styles/admin_management_overlay_styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/AdminPage/Scripts/users_objects_overlay_arrow_logic.js"></script>
-  <script src="/AdminPage/Scripts/search_for_users_objects_overlay.js"></script>
+  <script src="/AdminPage/Scripts/search_for_users_objects_overlay.js" defer></script>
   <script src="/AdminPage/Scripts/users_objects_overlay_logic.js"></script>
   <script src="/AdminPage/Scripts/load_in_users_at_start_admin_man.js"></script>
 </head>
@@ -17,8 +17,7 @@
     <p class="close_btn" onclick="close_users_and_objects_overlay()">&#x2715</p>
     <div id="admin_man_search_container">
         <form id="admin_man_search_form" method="POST" action="">
-            <input type="text" id="admin_man_search_inp" name="search_inp" autocomplete="off" placeholder="Search user by name or id...">
-            <button id="admin_man_submit" type="submit">Search</button>
+            <input type="text" id="admin_man_search_inp" name="search_inp" autocomplete="off" placeholder="Search user by name or id..." data-search>
         </form>
         <h2 id="admin_man_title">Users</h2>
         <button onclick="create_new_user()" id="admin_man_create_btn">Create New User</button>

@@ -22,7 +22,7 @@ include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php
   <script src="/AdminPage/Scripts/retrive_policies_from_database.js"></script>
   <script src="/AdminPage/Scripts/get_active_policy.js"></script>
   <script src="/AdminPage/Scripts/set_policy.js"></script>
-  <script src="/AdminPage/Scripts/search.js"></script>
+  <script src="/AdminPage/Scripts/search.js" defer></script>
   <script src="/AdminPage/Scripts/checkbox_logic.js"></script>
   <script src="/AdminPage/Scripts/delete_policy.js"></script>
   <script src="/AdminPage/Scripts/edit_policy.js"></script>
@@ -97,7 +97,7 @@ include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php
       <div class="display_policy_files_container">
         <div class="search_bar_container">
           <form class="search_bar_form" method="POST" action="">
-            <input class="search_bar_inp" type="text" id="myInput" name="user_name" placeholder="Search..." autocomplete="OFF">
+            <input class="search_bar_inp" type="text" id="myInput" name="user_name" placeholder="Search policies..." autocomplete="OFF" policy-search>
             <label for="policy_name_check" class="form_label_policy_name">Policy name:</label>
             <input type="checkbox" class="policy_name_check" id="policy_name_check" checked>
             <label for="user_check" class="form_label_user">User:</label>
@@ -105,7 +105,6 @@ include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php
             <label for="object_check" class="form_label_object">Object:</label>
             <input type="checkbox" class="object_check" id="object_check">
             <p class="search_p">Search policy files with:</p>
-            <button id="submit" type="submit">Search</button>
           </form>
           <h2>Policies</h2>
           <form class="add_policy_form" method="" action="conditions/choose_policy.php">
