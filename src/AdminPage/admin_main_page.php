@@ -14,7 +14,7 @@ include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/AdminPage/Styles/admin_main_page.css">
-  <title>NGAC - Admin Fronted</title>
+  <title>NGAC - Admin Frontend</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/AdminPage/Scripts/go_to_choose_frontend.js"></script>
   <script src="/AdminPage/Scripts/load_policy.js"></script>
