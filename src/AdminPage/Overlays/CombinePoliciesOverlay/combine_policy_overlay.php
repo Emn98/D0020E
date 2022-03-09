@@ -53,7 +53,7 @@
             </tbody>
         </table>
     </div>
-    <button class="comb_select_pol_disabled" id="combine_selected_policies_btn" onclick="combine_selected_policies()" disabled>Combine Selected Policies</button>
+    <button class="comb_select_pol_disabled" id="combine_selected_policies_btn" onclick="combine_selected_policies()" disabled>Merge Selected Policies</button>
   </div>
 </div>  
 

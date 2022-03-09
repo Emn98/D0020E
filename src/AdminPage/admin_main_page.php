@@ -129,7 +129,7 @@ include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php
             <input type="hidden" id="form_inp" value="" name="policy_name">
           </form>
         </div>
-        <button class="combine_policy_overlay_btn" id="combine_policy_overlay_btn" onclick="combine_pol_overlay()">Combine Policies</button>
+        <button class="combine_policy_overlay_btn" id="combine_policy_overlay_btn" onclick="combine_pol_overlay()">Merge Policies</button>
         <button id="admin_man_overlay_btn" onclick="show_users_and_objects_overlay()">Show Users/Objects Overlay</button>
     </main>
   </div>
