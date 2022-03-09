@@ -14,7 +14,7 @@ function check_delete_policy(policy_name) {
   .then((value)=>{
       switch(value){
           case "true":
-              delete_policy(policy_name);
+              delete_policy(policy_name, true);
               break;
 
           default:
@@ -26,9 +26,11 @@ function check_delete_policy(policy_name) {
 
 }
 
-function delete_policy(policy_name){
+function delete_policy(policy_name, display_promt){
   var  need_db_access = "check";
   $("#Loader2").show();
+  var display_promt = display_promt;
+
   $.ajax({
     type: "POST",
     url: "/AdminPage/LoadPolicy/check_if_policy_already_loaded.php",
@@ -51,15 +53,17 @@ function delete_policy(policy_name){
           if (response == 0) {
             $('#Loader2').hide();
             get_all_policies();
-            $.ajax({
-              type: "POST",
-              url: "/AdminPage/alert_message.php",
-              data: { SUCCESS: "Policy: '" + policy_name + "' was deleted successfully" },
-              dataType: "text",
-              success: function (data) {
-                window.document.write(data);
-              }
-            });
+            if(display_promt == true){
+              $.ajax({
+                type: "POST",
+                url: "/AdminPage/alert_message.php",
+                data: { SUCCESS: "Policy: '" + policy_name + "' was deleted successfully" },
+                dataType: "text",
+                success: function (data) {
+                  window.document.write(data);
+                }
+              });
+            }
           } else {
             $('#Loader2').hide();
             $.ajax({

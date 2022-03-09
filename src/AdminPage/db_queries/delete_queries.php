@@ -16,7 +16,7 @@ function delete_user_from_db($conn, $user_id){
     $query = $conn->prepare("DELETE FROM Users WHERE user_id = ?");
     $query -> bind_param("i", $user_id);
     $query->execute();
-    $result = $query->affected_rows;
+    $result = mysqli_stmt_affected_rows($query);
     $query ->close();
 
     return $result;
@@ -26,23 +26,13 @@ function delete_object_from_db($conn, $object_id){
     $query = $conn->prepare("DELETE FROM Objects WHERE object_id = ?");
     $query -> bind_param("i", $object_id);
     $query->execute();
-    $result = $query->affected_rows;
-    $query ->close();
+    $result = mysqli_stmt_affected_rows($query);
+    $query->close();
 
     return $result;
 
 }
 
-function delete_operation_from_db($conn, $operation_id){
-    $query = $conn->prepare("DELETE FROM Operations WHERE operation_id = ?");
-    $query -> bind_param("i", $operation_id);
-    $query->execute();
-    $result = $query->affected_rows;
-    $query ->close();
-
-    return $result;
-
-}
 
 function delete_condition_from_db($conn, $condition_ID){
     $query = $conn->prepare("DELETE FROM conditions WHERE condition_ID = ?;");

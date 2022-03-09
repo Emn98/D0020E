@@ -206,6 +206,10 @@ tbody td {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.combined_policy_row{
+  background: rgba(255, 0, 0, 0.25);
+}
+
 .create_new_policy_btn {
   font-size: 14px;
   margin-left: 47rem;

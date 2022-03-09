@@ -200,8 +200,8 @@ class NgacDoc {
 		return cy.$("[id='" + id + "']");
 	}
 
-	save_db() {
-		this.db_handler.save();
+	save_db(policy_name) {
+		this.db_handler.save(policy_name);
 	}
 
 	load_db() {
