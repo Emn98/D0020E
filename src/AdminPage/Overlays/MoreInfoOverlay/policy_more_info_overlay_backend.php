@@ -5,7 +5,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/AdminPage/db_conn/db_conn.php";
 include_once($path);
 
-require("../db_queries/select_queries_for_load_policy.php");
+require("../../db_queries/select_queries_for_load_policy.php");
 
 $policy_name = $_POST["policy_name"];
 
@@ -136,7 +136,7 @@ echo "</ul></details>";
 echo "<details><summary>Associations</summary><ul>";
 //Retrive all associations belonging to the policy 
 $result = get_association_info($conn, $_POST["policy_name"]);
-require("../db_queries/select_queries.php");
+require("../../db_queries/select_queries.php");
 $cond_associations_text = "";
 $cond_text = "";
 while( $row = $result->fetch_assoc()){

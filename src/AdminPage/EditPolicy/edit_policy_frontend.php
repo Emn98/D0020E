@@ -409,6 +409,7 @@
           Import Policy
         </button>
 
+        <!-- Dropdown list with save options on save button hovewr -->
         <div class="dropdown">
           <button type="button" id="save-policy-edit"class="btn btn-primary">
             <i class="fas fa-file-export"></i><br>

@@ -13,7 +13,6 @@ function load_policy(policy_name, show_confirm_promt) {
     dataType: "text",
 
     success: function (response) {
-      console.log(response);
       if (response == 1) {
         alert("Policy: '" + policy_name + "' is already loaded into NGAC");
       } else {
@@ -57,7 +56,7 @@ function load_policy(policy_name, show_confirm_promt) {
   });
 }
 
-//Updates the database so the
+//Updates the database so the policy is seen as loaded in our system. 
 function set_policy_as_loaded(name) {
   $.ajax({
     type: "POST",

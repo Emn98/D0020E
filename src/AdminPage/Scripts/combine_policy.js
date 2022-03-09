@@ -18,9 +18,7 @@ function combine_policies(policy1, policy2){
       } else {
         if (obj.respStatus != "success") {
           alert(JSON.stringify(data.responseJSON));
-        } else {
-          get_active_policy();
-        }
+        } 
       }
     },
   });

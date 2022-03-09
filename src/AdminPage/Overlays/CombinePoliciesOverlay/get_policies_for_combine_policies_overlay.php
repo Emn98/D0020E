@@ -9,7 +9,7 @@
 
   //These help functions display the policies in a correct way. 
   include("display_policies_for_combine_policies_overlay.php");
-  include("../db_queries/select_queries_for_load_policy.php");
+  include("../../db_queries/select_queries_for_load_policy.php");
 
   $table = $_POST["table"];
 

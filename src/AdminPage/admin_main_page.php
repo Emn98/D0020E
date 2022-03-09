@@ -1,8 +1,9 @@
 <?php
 
-include("../AdminPage/Overlays/admin_management_overlay.php");
-include("../AdminPage/Overlays/policy_more_info_overlay_frontend.php");
-include("../AdminPage/Overlays/combine_policy_overlay.php");
+//Import the three different overlays used on the admin page. 
+include("../AdminPage/Overlays/UsersAndObjectsOverlay/users_and_objects_overlay.php");
+include("../AdminPage/Overlays/MoreInfoOverlay/policy_more_info_overlay_frontend.php");
+include("../AdminPage/Overlays/CombinePoliciesOverlay/combine_policy_overlay.php");
 
 ?>
 
@@ -122,7 +123,7 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
           </form>
         </div>
         <button class="combine_policy_overlay_btn" id="combine_policy_overlay_btn" onclick="combine_pol_overlay()">Combine Policies</button>
-        <button id="admin_man_overlay_btn" onclick="admin_man_overlay()">Show Users/Objects Overlay</button>
+        <button id="admin_man_overlay_btn" onclick="show_users_and_objects_overlay()">Show Users/Objects Overlay</button>
     </main>
   </div>
 </body>

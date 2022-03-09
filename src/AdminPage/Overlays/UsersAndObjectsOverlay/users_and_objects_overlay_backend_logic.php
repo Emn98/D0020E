@@ -5,9 +5,9 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/AdminPage/db_conn/db_conn.php";
 include_once($path);
 
-include("../db_queries/insert_queries.php");
-include("../db_queries/upadate_queries.php");
-include("../db_queries/delete_queries.php");
+include("../../db_queries/insert_queries.php");
+include("../../db_queries/upadate_queries.php");
+include("../../db_queries/delete_queries.php");
 
 $func = $_POST["func"];
 

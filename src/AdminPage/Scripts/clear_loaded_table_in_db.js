@@ -1,5 +1,4 @@
-//This function will make an ajax call to "clear_loaded_policy_backend" and
-//delete all entries in the loaded policies table. 
+//This function will clear the loaded policies table in the database. 
 function clear_loaded_policy_table_in_db() {
     $.ajax({
       async: false,

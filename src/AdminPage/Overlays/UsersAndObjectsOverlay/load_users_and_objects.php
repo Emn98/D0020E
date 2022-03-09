@@ -5,7 +5,7 @@
   $path .= "/AdminPage/db_conn/db_conn.php";
   include_once($path);
 
-  include("display_admin_man_info_overlay.php");
+  include("display_users_and_objects.php");
 
   if($_POST["table"] == "users" && $_POST["part"] == "head"){
     display_users_head();
@@ -34,21 +34,5 @@
   
     display_objects_body($result);
   }
-
-  /* Removed awaiting decision
-  if($_POST["table"] == "operations" && $_POST["part"] == "head"){
-    display_operation_head();
-  }
-
-  if($_POST["table"] == "operations" && $_POST["part"] == "body"){
-    $query = $conn->prepare("SELECT * FROM Operations");
-    $query->execute();
-    $result = $query->get_result();
-    $query->fetch();
-    $query->close();
-  
-    display_operation_body($result);
-  }
-  */
 
 ?>

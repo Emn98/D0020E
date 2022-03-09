@@ -136,6 +136,7 @@
         // options here...
       });
 
+      //Load the graph via it's name
       ngac_js.load_db_direct(policy_name);
     }
   </script>
@@ -155,7 +156,7 @@
       document.getElementById("overlay2").style.display = "block";
 
       //Load all the the information about the policy and display it on the overlay.
-      $("#display_policy_info").load("../AdminPage/Overlays/policy_more_info_overlay_backend.php", {
+      $("#display_policy_info").load("../AdminPage/Overlays/MoreInfoOverlay/policy_more_info_overlay_backend.php", {
         policy_name: policy_name
       });
 

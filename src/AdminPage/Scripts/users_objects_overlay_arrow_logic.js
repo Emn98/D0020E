@@ -1,5 +1,5 @@
 //This script handles the logic of a user pressing the "go right"...
-//and "go left" buttons when the admin managin overlay is visible.
+//and "go left" buttons when the manage users/objects overlay is visible.
 
 function pressed_right_arrow() {
   var current_table = document.getElementById("admin_man_title").innerHTML;
@@ -16,14 +16,14 @@ function pressed_right_arrow() {
     document.getElementById("admin_man_search_inp").placeholder =
       "Search object by name or id...";
     $("#admin_man_table_head").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      "/AdminPage/Overlays/UsersAndObjectsOverlay/load_users_and_objects.php",
       {
         part: "head",
         table: "objects",
       }
     );
     $("#admin_man_table_body").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      "/AdminPage/Overlays/UsersAndObjectsOverlay/load_users_and_objects.php",
       {
         part: "body",
         table: "objects",
@@ -48,14 +48,14 @@ function pressed_left_arrow() {
     document.getElementById("admin_man_search_inp").placeholder =
       "Search user by name or id...";
     $("#admin_man_table_head").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      "/AdminPage/Overlays/UsersAndObjectsOverlay/load_users_and_objects.php",
       {
         part: "head",
         table: "users",
       }
     );
     $("#admin_man_table_body").load(
-      "/AdminPage/Overlays/load_for_admin_man_overlay.php",
+      "/AdminPage/Overlays/UsersAndObjectsOverlay/load_users_and_objects.php",
       {
         part: "body",
         table: "users",

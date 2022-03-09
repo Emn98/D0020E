@@ -1,7 +1,7 @@
 function edit_policy(policy_name) {
   var policy_name = policy_name;
-
   var need_db_access = "check";
+
   $.ajax({
     async: false,
     type: "POST",
@@ -13,8 +13,10 @@ function edit_policy(policy_name) {
     dataType: "text",
     success: function (response) {
       if (response == 1) {
-        edit_loaded_policy(policy_name); //If the policy is loaded then send it to edit_loaded_policy()
+        //If the policy is loaded then send it to edit_loaded_policy()
+        edit_loaded_policy(policy_name); 
       } else {
+        //Send the user and the name of the policy to the edit policy page
         $("#form_inp").attr("value", policy_name);
         $("#view_edit_policy").submit();
       }
@@ -31,7 +33,7 @@ function edit_loaded_policy(policy_name) {
     )
   ) {
     unload_policy(policy_name);
-    var policy_name = policy_name;
+    //Send the user and the name of the policy to the edit policy page
     $("#form_inp").attr("value", policy_name);
     $("#view_edit_policy").submit();
   }

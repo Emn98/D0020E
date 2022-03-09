@@ -1,5 +1,5 @@
-//This javascript does the check uncheck logic for the search checkboxes...
-//on the admin main page.
+/*This javascript does the check/uncheck logic for the search checkboxes
+  on the admin main page*/
 
 function check_policy_name() {
   $("#policy_name_check").prop("checked", true);

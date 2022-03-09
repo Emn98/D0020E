@@ -10,8 +10,8 @@ $(document).ready(function () {
     var search_word = document.getElementById("myInput").value;
     document.getElementById("myInput").value = "";
 
-    //Get the current table by determining which background color "show all policies"...
-    // and "show loaded policies have"
+    /*Get the current table by determining which background color the... 
+     "show all policies button" have */
     if (show_all_policies_btn.style.backgroundColor == "rgb(0, 136, 169)") {
       table = "all_policies";
     } else {
@@ -27,6 +27,7 @@ $(document).ready(function () {
       search_by = "Objects";
     }
 
+    //Send search_word, search_by and table infor to the backend.
     $("#t_body_main_page").load("search_backend.php", {
       table: table,
       search_by: search_by,

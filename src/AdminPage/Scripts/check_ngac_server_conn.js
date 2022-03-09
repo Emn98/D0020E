@@ -1,5 +1,6 @@
-//This function will check the connection status of the ngac server and...
-//clear the loaded table if a new session is created.
+/*This function will check the connection status between the site and the ngac
+  server. If a new session between the site and the session is created, clear
+  the loaded table in the database */
 function check_ngac_server_conn() {
   $.ajax({
     async: false,
@@ -9,12 +10,16 @@ function check_ngac_server_conn() {
 
     complete: function (data) {
       const obj = data.responseJSON;
+      
       if (typeof obj == "undefined") {
+        //Update the server status to indicate that the ngac server is offline. 
         $(".server_status_response").html(" Offline");
         document.getElementById("server_status_response").style.color = "red";
         $(".current_active_policy_answer").html(
           "No policy is currently active!"
         );
+
+        //Disable the combine policy button and the set all policies button
         document.getElementById("combine_policy_overlay_btn").disabled = "disable";
         document.getElementById("combine_policy_overlay_btn").className = "combine_policy_overlay_btn_disabled";
 
@@ -23,9 +28,12 @@ function check_ngac_server_conn() {
 
         return;
       }
+
+      //Update the server status to indicate that the server is up and in json mode
       $(".server_status_response").html(" Online");
       document.getElementById("server_status_response").style.color = "green";
 
+      //Enabled the set all polcies button and give it it's correct state
       document.getElementById("setpol_all_btn").disabled = "";
       if(document.getElementById("setpol_all_btn").className == "setpol_all_btn_not_active" || document.getElementById("setpol_all_btn").className == "setpol_all_btn_not_active_disabled"){
         document.getElementById("setpol_all_btn").className = "setpol_all_btn_not_active";
@@ -33,32 +41,18 @@ function check_ngac_server_conn() {
         document.getElementById("setpol_all_btn").className = "setpol_all_btn_active";
       }
       
-
+      //Enable the combine_policy_button
       document.getElementById("combine_policy_overlay_btn").disabled = "";
       document.getElementById("combine_policy_overlay_btn").className = "combine_policy_overlay_btn";
 
-
-      if (obj.respStatus == "failure") {
-        return;
-      } else {
-        //New session has been created. Empty loaded policy table.
+      //A new session has been created. 
+      if (obj.respStatus != "failure") {
         clear_loaded_policy_table_in_db();
         //Update the show loaded policies table if the user is looking at it while starting the ngac server.
         if (show_all_policies_btn.style.backgroundColor != "rgb(0, 136, 169)") {
           get_loaded_policies();
         }
-      }
-    },
-  });
-}
-
-function clear_loaded_policy_table_in_db() {
-  $.ajax({
-    async: false,
-    type: "POST",
-    url: "/AdminPage/UnloadPolicy/clear_loaded_policy_table.php",
-    error: function () {
-      alert("failure");
+      } 
     },
   });
 }

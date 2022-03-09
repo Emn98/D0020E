@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST["policy_name"]))
     {
-        include($_SERVER['DOCUMENT_ROOT']."/AdminPage/Overlays/admin_management_overlay.php");
+        include($_SERVER['DOCUMENT_ROOT']."/AdminPage/Overlays/UsersAndObjectsOverlay/users_and_objects_overlay.php");
         include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_conn/db_conn.php");
         include($_SERVER['DOCUMENT_ROOT']."/AdminPage/db_queries/select_queries.php");
         ?>
@@ -38,7 +38,7 @@
                 
             
             <div class="form_cont">
-                <button class="edit_button" onclick="admin_man_overlay()">EDIT USERS AND OBJECTS</button>
+                <button class="edit_button" onclick="show_users_and_objects_overlay()">EDIT USERS AND OBJECTS</button>
                 <form class="dynamic_form" id="user_object" method="POST" action="add_policy_attr_conns.php" id="add_policy_form">
                     
                     <h1>Choose names</h1>

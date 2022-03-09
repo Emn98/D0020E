@@ -24,7 +24,7 @@
               <script>
                 //Load in user table on first page load
                 $(document).ready(function(){
-                  $("#t_body_cond_policies").load("/AdminPage/Overlays/get_policies_for_combine_policies_overlay.php", {
+                  $("#t_body_cond_policies").load("/AdminPage/Overlays/CombinePoliciesOverlay/get_policies_for_combine_policies_overlay.php", {
                   table: "cond_policy"
                   }); 
                 });
@@ -45,7 +45,7 @@
             <tbody id="t_body_non_cond_policies">
               <script>
                 $(document).ready(function(){
-                  $("#t_body_non_cond_policies").load("/AdminPage/Overlays/get_policies_for_combine_policies_overlay.php", {
+                  $("#t_body_non_cond_policies").load("/AdminPage/Overlays/CombinePoliciesOverlay/get_policies_for_combine_policies_overlay.php", {
                   table: "non_cond_policy"
                   }); 
                 });
@@ -66,8 +66,10 @@ function close_comb_pol() {
   document.getElementById("combine_policy_overlay").style.display = "none";
 }
 
+//Keeps track of which policies have been checked
 const checked_policies = [];
 
+//Add or remove a policy from the condition table based on check status
 function check_con_policy(checked_policy,policy_name){
   if(checked_policy.checked){
     checked_policies.push(policy_name);
@@ -96,6 +98,7 @@ function check_con_policy(checked_policy,policy_name){
 
 }
 
+//Add or remove a policy from the non condition table based on check status. 
 function check_non_con_policy(checked_policy, policy_name){
   if(checked_policy.checked){
     checked_policies.push(policy_name);
@@ -110,6 +113,7 @@ function check_non_con_policy(checked_policy, policy_name){
 
 }
 
+//Enable the combine policy button if atlest 2 different policies have been checked
 function check_comb_btn(){
   if(checked_policies.length > 1){
     document.getElementById("combine_selected_policies_btn").className = "comb_select_pol";
@@ -134,6 +138,7 @@ function combine_selected_policies(){
   }
   
   function merge_policies(){
+    //Keep track off which policies needs to be unloaded after merge
     const polcies_to_unload = [];
 
     var  need_db_access = "check";
@@ -160,7 +165,7 @@ function combine_selected_policies(){
       load_policy(policy, "False");
     });
 
-
+    //Merge all the policies via the ngag function.
     for (let i = 0; i < checked_policies.length;) {
       if(i==0){
         combine_policies(checked_policies[0], checked_policies[1]);
@@ -171,6 +176,7 @@ function combine_selected_policies(){
       }
     }
 
+    //Unload the policies which wasen't loaded before the merge.
     polcies_to_unload.forEach((policy) => {
       unload_policy(policy);
     });

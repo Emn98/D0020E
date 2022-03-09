@@ -1,13 +1,15 @@
+
 function set_policy(policy_name) {
-  //If setpolicy=all mode is on. 
+  //Check if the ngac system have the active policy set to all. 
   if (document.getElementById("setpol_all_btn").className == "setpol_all_btn_active") {
     if(
-      confirm("Warning: the ngac system is currently in 'setpolicy=all mode " +
+      confirm("Warning: the ngac system is currently in 'set all policies' mode. " +
                "If you want to set this specific policy as active, then all " +
                 "the other policies will be unloaded, the mode will be " +
                 "turned off and this policy will be set." )
     ){
 
+      //Turn off the set policy to all mode. 
       document.getElementById("setpol_all_btn").className = "setpol_all_btn_not_active";          
       document.getElementById("setpol_all_btn").setAttribute("onclick", "activate_setpolicy_to_all()");
       
@@ -57,8 +59,3 @@ function set_policy_in_ngac_system(policy_name){
     },
   });
 }
-
-
-
-
-
