@@ -33,17 +33,39 @@ function load_policy(policy_name, show_confirm_promt) {
             const obj = data.responseJSON;
 
             if (typeof obj == "undefined") {
-              alert("Connection Error: Can't connect to the NGAC server.");
+              $.ajax({
+                type: "POST",
+                url: "/AdminPage/alert_message.php",
+                data: { ERROR: "Connection Error: Can't connect to the NGAC server."},
+                dataType: "text",
+                success: function (data) {
+                  window.document.write(data);
+                }
+              });
             } else {
               if (obj.respStatus != "success") {
-                alert(
-                  obj.respStatus + " " + obj.respMessage + " " + obj.respBody
-                );
+                $.ajax({
+                  type: "POST",
+                  url: "/AdminPage/alert_message.php",
+                  data: { SUCCESS: obj.respStatus + " " + obj.respMessage + " " + obj.respBody},
+                  dataType: "text",
+                  success: function (data) {
+                    window.document.write(data);
+                  }
+                });
               } else {
                 set_policy_as_loaded(policy_name);
                 get_active_policy();
                 if(show_confirm_promt == "True"){
-                  alert("Policy '" + policy_name + "' was loaded succesfully");
+                  $.ajax({
+                    type: "POST",
+                    url: "/AdminPage/alert_message.php",
+                    data: { SUCCESS: "Policy '" + policy_name + "' was loaded succesfully"},
+                    dataType: "text",
+                    success: function (data) {
+                      window.document.write(data);
+                    }
+                  });
                 }
               }
             }

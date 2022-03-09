@@ -44,7 +44,7 @@ class db_translator {
                   success: function(data){
 
                       $('#Loader').hide();
-                      alert(data);
+                      document.write(data);
                   }
 
 

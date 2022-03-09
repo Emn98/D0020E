@@ -26,6 +26,8 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
   <script src="/AdminPage/Scripts/check_ngac_server_conn.js"></script>
   <script src="/AdminPage/Scripts/setpolicy_to_all.js"></script>
   <script src="/AdminPage/Scripts/clear_loaded_table_in_db.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
   <script>
     $(document).ready(function() {
 
@@ -63,6 +65,11 @@ include("../AdminPage/Overlays/combine_policy_overlay.php");
 </head>
 
 <body>
+  <div  id = "Loader2">
+      <div id = "message2">
+          Deleting from DB...
+      </div>
+  </div>
   <div class="container">
   <header>
   <h2 class="choose_frontend_txt" onclick="go_to_choose_frontend()">
