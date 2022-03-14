@@ -1,3 +1,4 @@
+//Let the ngac server combine twp policies togheter
 function combine_policies(policy1, policy2){
   var url =
   "http://127.0.0.1:8001/paapi/combinepol?policy1=" +
@@ -25,7 +26,7 @@ function combine_policies(policy1, policy2){
 
 }
 
-
+//Checks if the user have loaded in a combined policy into the system
 function is_combined_policy_loaded_into_nagc(){
   var url = "http://127.0.0.1:8001/paapi/readpol?policy=combined policy&token=admin_token";
   var is_loaded;

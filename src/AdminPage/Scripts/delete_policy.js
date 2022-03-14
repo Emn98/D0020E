@@ -40,7 +40,7 @@ function delete_policy(policy_name, display_promt){
     },
     dataType: "text",
     success: function (response) {
-      if (response == 1) {
+      if (response == 1 && get_is_connected_status()==true) {
         unload_policy(policy_name); //If the policy is loaded then unload it first
       }
 
