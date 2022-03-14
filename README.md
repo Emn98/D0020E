@@ -42,11 +42,24 @@ If it is desired to use our test page as is, you must download our implementatio
 You will need to set up a server using mysql and phpmyadmin.
 
 ### Installation
-To be able to start the ***ngac-server***, the ngac implementation must be compiled. Navigate to to you'r ngac directory and enter the following ```swipl -v -o ngac-server -g ngac-srver -c ngac.pl```
+To be able to start the ***ngac-server***, the ngac implementation must be compiled. Navigate to to you'r ngac directory and enter the following 
+```
+swipl -v -o ngac-server -g ngac-srver -c ngac.pl
+```
 
 Download the ***src*** directory and place the files in the directory that you'r server uses for webclient. Create a empty database named website in phpmyadmin. Download the database file ***website.sql*** located in ***resources*** and import it in you'r phpmyadmin website databasse. Set your phpmyadmin username to ***ngac*** and password to ***NGACsystem123$*** or change this in the code file named ***db_conn.php***. 
 
-To make the test page work, download our implementation or implement you'r own version of pep and rap. Then start the pep_server, to do this with our implementation first navigate to the ***PEP-RAP*** directory and enter the following commands ```swipl```, ```[rap].```, ```[pep].``` and ```pep_server.```. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
+To make the test page work, download our implementation or implement you'r own version of pep and rap. Then start the pep_server, to do this with our implementation first navigate to the ***PEP-RAP*** directory and enter the following commands 
+```
+swipl
+```
+,
+```
+[rap].
+```
+, 
+```[pep].``` and 
+```pep_server.```. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
 
 ### Usage
 You must start the ngac server in json respones mode by writing ```./ngac-server -j``` in the command promt, if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
