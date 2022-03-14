@@ -1,4 +1,4 @@
-/*This javascript does the check/uncheck logic for the search checkboxes
+/*This script does the check/uncheck logic for the search checkboxes
   on the admin main page*/
 
 function check_policy_name() {

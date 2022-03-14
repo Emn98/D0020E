@@ -45,7 +45,6 @@ $(document).ready(function () {
 
     //Get value from search bar and then clear it
     var search_word = document.getElementById("myInput").value;
-    document.getElementById("myInput").value = "";
 
     /*Get the current table by determining which background color the... 
      "show all policies button" have */

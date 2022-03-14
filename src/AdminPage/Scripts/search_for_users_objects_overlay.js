@@ -1,5 +1,7 @@
 const search_input = document.querySelector("[data-search]")
 
+/*Run this funtion everytime the user types in the search bar associated with
+  the users and objects overlay */
 search_input.addEventListener("input", e => {
   const search_word = e.target.value;
   
@@ -16,7 +18,7 @@ search_input.addEventListener("input", e => {
 
 })
 
-//If the user pressess enter. 
+//If the user pressess enter when searcing after users/objects. 
 $(document).ready(function () {
   $("#admin_man_search_form").on("submit", function (event) {
     event.preventDefault();
