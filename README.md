@@ -53,16 +53,26 @@ To make the test page work, download our implementation or implement you'r own v
 ```
 swipl
 ```
-,
+
 ```
 [rap].
 ```
-, 
-```[pep].``` and 
-```pep_server.```. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
+
+```
+[pep].
+```
+
+```
+pep_server.
+```
+You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
 
 ### Usage
-You must start the ngac server in json respones mode by writing ```./ngac-server -j``` in the command promt, if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
+You must start the ngac server in json respones mode by writing the following in the command prompt
+```
+./ngac-server -j
+```
+if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
 
 The test page is used to test the access between users and objects of the active policy. Simply select the user an the object to performe the test. 
 
