@@ -42,6 +42,8 @@ If it is desired to use our test page as is, you must download our implementatio
 You will need to set up a server using mysql and phpmyadmin.
 
 ### Installation
+To be able to start the ***ngac-server***, the ngac implementation must be compiled. Navigate to to you'r ngac directory and enter the following ```swipl -v -o ngac-server -g ngac-srver -c ngac.pl```
+
 Download the ***src*** directory and place the files in the directory that you'r server uses for webclient. Create a empty database named website in phpmyadmin. Download the database file ***website.sql*** located in ***resources*** and import it in you'r phpmyadmin website databasse. Set your phpmyadmin username to ***ngac*** and password to ***NGACsystem123$*** or change this in the code file named ***db_conn.php***. 
 
 To make the test page work, download our implementation or implement you'r own version of pep and rap. Then start the pep_server, to do this with our implementation first navigate to the ***PEP-RAP*** directory and enter the following commands ```swipl```, ```[rap].```, ```[pep].``` and ```pep_server.```. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
