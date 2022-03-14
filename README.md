@@ -37,17 +37,17 @@ and finally you have to add this line in ***server.pl***
 ```
 This will allow any webbrowser to communicate with the ngac policy administration api.
 
-If it is desired to use our test page as is, you must download our implementations of pep and rap and then replace the ones in ngac. But note that our implementations are limited and thus it can be wiser to created you'r own implementations.
+If it is desired to use our test page as is, you must download our implementations of ```PEP-RAP``` and replace the directory with the same name in ngac. But note that our implementations are limited and thus it can be wiser to created you'r own implementations.
 
 You will need to set up a server using mysql and phpmyadmin.
 
 ### Installation
 Download the ***src*** directory and place the files in the directory that you'r server uses for webclient. Create a database named website. Download the database file and import it in you'r phpmyadmin website databasse. Set your phpmyadmin username to ***ngac*** and password to ***NGACsystem123$*** or change this in the code file named ***db_conn.php***. 
 
-To make the test page work, download our implementation or implement you'r own version of pep and rap. Then start the pep_server. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
+To make the test page work, download our implementation or implement you'r own version of pep and rap. Then start the pep_server, to do this with our implementation first enter the ```PEP-RAP``` directory and enter the following commands ```swipl```, ```[rap].```, ```[pep].``` and ```pep_server.```. You must also have actual documents in the PEP-RAP directory, for the objects to make this page work. 
 
 ### Usage
-You must start the ngac server in json respones mode by writing ``` ./ngac-server -j ```in the command promt, if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
+You must start the ngac server in json respones mode by writing ```./ngac-server -j``` in the command promt, if it is successfully started the ngac server will be shown as online. Now you can create you'r own policy using one of the crafting tools and the loading it to the ngac server. More information of you'r policies can be found when clicking on the policy name or you can edit the policy. You can edit, add or remove users and objects by clicking ***show admin overlay*** in the bottom of the admin page.
 
 The test page is used to test the access between users and objects of the active policy. Simply select the user an the object to performe the test. 
 
